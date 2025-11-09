@@ -133,7 +133,7 @@ export const SEO_CONFIG: Record<string, PageSEOConfig> = {
       // Primary
       'digital marketing services Indore',
       'advertising services',
-      'marketing solutions'
+      'marketing solutions',
       'Social Media Markeitng Services',
       // LSI
       'complete digital marketing services ',
