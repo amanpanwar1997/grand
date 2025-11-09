@@ -1,8 +1,8 @@
 # Inchtomilez Design System Guidelines
 
-**Version:** 3.1.0  
+**Version:** 3.2.0  
 **Status:** ✅ **PRODUCTION READY**  
-**Last Updated:** November 7, 2025
+**Last Updated:** November 8, 2025
 
 ---
 
@@ -15,6 +15,9 @@
 | [Spacing](#-spacing-system) | Gap, padding, margins |
 | [Components](#-key-components) | BentoGrid2, OutlinedText, etc. |
 | [Styling Rules](#-styling-rules) | Important guidelines |
+| [SEO Guide](#-seo-quick-reference) | How to edit SEO (see `/SEO_EDITING_GUIDE.md`) |
+| [Favicon & Branding](#-favicon--branding) | Logo, favicon, Open Graph images |
+| [Hero Video Background](#-hero-video-background) | How to change/add background video |
 
 ---
 
@@ -481,6 +484,198 @@ xl:   1280px  /* Large desktops */
 
 ---
 
+## 🔍 SEO QUICK REFERENCE
+
+### **Need to Change SEO?**
+
+**📚 Complete Guide:** See `/SEO_EDITING_GUIDE.md` for detailed instructions.
+
+### **Quick Edits:**
+
+| What to Change | File to Edit | Location |
+|----------------|--------------|----------|
+| **Page titles** | `/utils/seoConfig.tsx` | Line 70+ (SEO_CONFIG) |
+| **Meta descriptions** | `/utils/seoConfig.tsx` | Same file |
+| **Keywords** | `/utils/seoConfig.tsx` | Same file |
+| **H1 headings** | `/utils/seoConfig.tsx` | Same file |
+| **Blog post SEO** | `/components/data/blogData.tsx` | Entire file |
+| **Sitemaps** | `/public/sitemap*.xml` | Multiple files |
+| **Robots.txt** | `/public/robots.txt` | Entire file |
+| **Global SEO** | `/index.html` | Lines 12-156 |
+| **Schema/Structured** | `/utils/structuredData.tsx` | Entire file |
+
+### **Example - Change About Page SEO:**
+
+**File:** `/utils/seoConfig.tsx`
+
+```tsx
+'/about': {
+  title: 'About Us | Award-Winning Marketing Agency',    // ← Edit
+  description: 'Leading digital marketing agency...',    // ← Edit
+  keywords: ['marketing agency', 'Indore', 'SEO'],      // ← Edit
+  h1: 'About Inchtomilez - Your Partner',               // ← Edit
+  ogImage: '/about-og-image.jpg',                       // ← Edit
+},
+```
+
+**📖 For detailed instructions, troubleshooting, and examples:**  
+👉 **See `/SEO_EDITING_GUIDE.md`**
+
+---
+
+## 🎨 FAVICON & BRANDING
+
+### **Current Favicon Setup:**
+
+**Status:** ✅ **SVG Favicon Active**
+
+**Files:**
+- `/public/favicon.svg` - Main SVG favicon (modern browsers)
+- `/index.html` (line 45) - Favicon reference
+
+**Design:**
+- Black background (#000000)
+- Yellow "I" letter (#eab308) in Raleway Bold
+- 512x512 viewBox
+- Scalable vector format
+
+### **How to Change Favicon:**
+
+**File:** `/public/favicon.svg`
+
+```svg
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" fill="#000000"/>
+  <text 
+    x="256" 
+    y="330" 
+    text-anchor="middle" 
+    font-family="Raleway, Arial, sans-serif" 
+    font-size="420" 
+    font-weight="700" 
+    fill="#eab308"
+  >
+    I  <!-- ← Change this letter -->
+  </text>
+</svg>
+```
+
+### **⚠️ Missing PWA Icons:**
+
+The manifest.json references PWA icons that don't exist yet:
+- `/pwa/icon-72x72.png`
+- `/pwa/icon-96x96.png`
+- `/pwa/icon-128x128.png`
+- `/pwa/icon-144x144.png`
+- `/pwa/icon-152x152.png`
+- `/pwa/icon-192x192.png`
+- `/pwa/icon-384x384.png`
+- `/pwa/icon-512x512.png`
+
+**Impact:** PWA install prompt won't show proper icons on mobile devices.
+
+**To Create PWA Icons:**
+1. Design a 512x512px icon (same design as favicon)
+2. Use online tool: https://realfavicongenerator.net/
+3. Upload your icon
+4. Download generated icons
+5. Place in `/public/pwa/` folder
+6. Or see `/FAVICON_SETUP_GUIDE.md` for detailed instructions
+
+---
+
+## 🎬 HERO VIDEO BACKGROUND
+
+### **Current Setup:**
+
+**File:** `/components/pages/HomePage.tsx`  
+**Line:** 378
+
+```tsx
+<VideoBackground 
+  src="/videos/hero-video.mp4"  // ← Change video URL here
+  overlayOpacity={0.7}           // ← Adjust darkness (0-1)
+  startTime={9}                  // ← Start time in seconds
+/>
+```
+
+### **How to Change Video:**
+
+**Option 1: Use Local Video**
+1. Create folder: `/public/videos/`
+2. Add video: `/public/videos/hero-video.mp4`
+3. Deploy
+
+**Option 2: Use External URL**
+```tsx
+<VideoBackground 
+  src="https://example.com/your-video.mp4"
+  overlayOpacity={0.7}
+  startTime={0}
+/>
+```
+
+### **Video Specifications:**
+
+| Property | Recommended |
+|----------|-------------|
+| **Format** | MP4 (H.264) |
+| **Resolution** | 1920x1080 or 1280x720 |
+| **Duration** | 15-30 seconds (loops) |
+| **File Size** | < 5 MB |
+| **Frame Rate** | 30fps |
+| **Audio** | None (muted) |
+
+### **VideoBackground Props:**
+
+```tsx
+interface VideoBackgroundProps {
+  src: string;              // Video URL (required)
+  overlayOpacity?: number;  // 0-1, default 0.6 (darkness)
+  fallbackImage?: string;   // Backup image if video fails
+  startTime?: number;       // Start at X seconds
+  className?: string;       // Additional CSS classes
+}
+```
+
+### **Component Features:**
+- ✅ Auto-plays muted (mobile-safe)
+- ✅ Loops seamlessly
+- ✅ Pauses when not visible (performance)
+- ✅ Graceful fallback to black background
+- ✅ Dark overlay for text readability
+- ✅ Responsive on all devices
+
+**Component Location:** `/components/ui/VideoBackground.tsx`
+
+---
+
+## 🖼️ OPEN GRAPH IMAGE
+
+### **Status:** ⚠️ **MISSING - Required for Social Sharing**
+
+**Issue:** When sharing URLs on Facebook/LinkedIn/WhatsApp, it shows "Created with Figma" text.
+
+**Solution:** Create og-image.jpg
+
+**File Needed:** `/public/og-image.jpg`
+
+**Specifications:**
+- Size: 1200 x 630 pixels (exact)
+- Format: JPG or PNG
+- Max size: < 1 MB
+- Design: Black background, your logo, yellow accents
+
+**Complete Guide:** See `/OG_IMAGE_SETUP.md` for detailed instructions.
+
+**Quick Fix:**
+1. Create image (1200x630px) using Canva
+2. Save as `/public/og-image.jpg`
+3. Deploy
+4. Test: https://developers.facebook.com/tools/debug/
+
+---
+
 **Status:** ✅ **DESIGN SYSTEM COMPLETE**  
-**Version:** 3.1.0  
-**Last Updated:** November 7, 2025
+**Version:** 3.2.0  
+**Last Updated:** November 8, 2025

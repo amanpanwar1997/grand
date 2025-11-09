@@ -33,7 +33,7 @@ export function SEOHead({
   const location = useLocation();
   const baseUrl = 'https://www.inchtomilez.com';
   const fullUrl = canonical || `${baseUrl}${location.pathname}`;
-  const fullTitle = title.includes('Inchtomilez') ? title : `${title} | Inchtomilez Digital Marketing & Advertising Agency`;
+  const fullTitle = title && title.includes('Inchtomilez') ? title : `${title || 'Inchtomilez'} | Inchtomilez Digital Marketing & Advertising Agency`;
 
   useEffect(() => {
     // Set document title
@@ -54,7 +54,9 @@ export function SEOHead({
     };
 
     // Basic meta tags
-    updateMetaTag('description', description);
+    if (description) {
+      updateMetaTag('description', description);
+    }
     if (keywords.length > 0) {
       updateMetaTag('keywords', keywords.join(', '));
     }
@@ -64,7 +66,9 @@ export function SEOHead({
 
     // Open Graph tags
     updateMetaTag('og:title', fullTitle, true);
-    updateMetaTag('og:description', description, true);
+    if (description) {
+      updateMetaTag('og:description', description, true);
+    }
     updateMetaTag('og:type', ogType, true);
     updateMetaTag('og:url', fullUrl, true);
     updateMetaTag('og:image', `${baseUrl}${ogImage}`, true);
@@ -73,7 +77,9 @@ export function SEOHead({
     // Twitter Card tags
     updateMetaTag('twitter:card', 'summary_large_image');
     updateMetaTag('twitter:title', fullTitle);
-    updateMetaTag('twitter:description', description);
+    if (description) {
+      updateMetaTag('twitter:description', description);
+    }
     updateMetaTag('twitter:image', `${baseUrl}${ogImage}`);
 
     // Article-specific tags

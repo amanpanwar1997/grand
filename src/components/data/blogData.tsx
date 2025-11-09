@@ -591,109 +591,262 @@ const remainingTopics = [
   // I'll add them programmatically to save space
 ];
 
+// All 224 SEO-friendly blog titles and slugs
+const BLOG_TITLES_DATA: Array<{id: number; title: string; slug: string; category: string}> = [
+  // Note: ID 1 is already manually defined in allBlogTopics above
+  
+  // SEO & Local SEO (2-24)
+  { id: 2, title: 'Local SEO for Indore Businesses: Drive More Foot Traffic and Calls in 2025', slug: 'local-seo-indore-businesses-2025', category: 'SEO & Local SEO' },
+  { id: 3, title: 'Google My Business Optimization: Complete Guide for Indore Local Businesses', slug: 'google-my-business-optimization-indore', category: 'SEO & Local SEO' },
+  { id: 4, title: 'Technical SEO Audit Checklist: 47 Points to Boost Your Website Rankings', slug: 'technical-seo-audit-checklist-2025', category: 'SEO & Local SEO' },
+  { id: 5, title: 'Keyword Research Mastery: How to Find Low-Competition High-Traffic Keywords', slug: 'keyword-research-strategy-guide', category: 'SEO & Local SEO' },
+  { id: 6, title: 'On-Page SEO Best Practices: Optimize Every Page for Maximum Rankings', slug: 'on-page-seo-best-practices-2025', category: 'SEO & Local SEO' },
+  { id: 7, title: 'Link Building Strategies That Actually Work in 2025', slug: 'link-building-strategies-2025', category: 'SEO & Local SEO' },
+  { id: 8, title: 'SEO for E-commerce: How to Rank Product Pages and Drive Sales', slug: 'ecommerce-seo-strategy-guide', category: 'SEO & Local SEO' },
+  { id: 9, title: 'Voice Search Optimization: Prepare Your Website for Voice Assistants', slug: 'voice-search-optimization-guide', category: 'SEO & Local SEO' },
+  { id: 10, title: 'Mobile-First Indexing: Essential Guide to Mobile SEO in 2025', slug: 'mobile-first-indexing-seo-guide', category: 'SEO & Local SEO' },
+  { id: 11, title: 'Core Web Vitals Optimization: Speed Up Your Website for Better Rankings', slug: 'core-web-vitals-optimization-guide', category: 'SEO & Local SEO' },
+  { id: 12, title: 'Schema Markup Implementation: Boost Click-Through Rates with Rich Snippets', slug: 'schema-markup-implementation-guide', category: 'SEO & Local SEO' },
+  { id: 13, title: 'SEO Content Writing: How to Create Content That Ranks and Converts', slug: 'seo-content-writing-guide-2025', category: 'SEO & Local SEO' },
+  { id: 14, title: 'Competitor SEO Analysis: Reverse Engineer Your Competitors Success', slug: 'competitor-seo-analysis-guide', category: 'SEO & Local SEO' },
+  { id: 15, title: 'International SEO: Expand Your Business to Global Markets', slug: 'international-seo-strategy-guide', category: 'SEO & Local SEO' },
+  { id: 16, title: 'SEO for YouTube: How to Rank Videos and Grow Your Channel', slug: 'youtube-seo-optimization-guide', category: 'SEO & Local SEO' },
+  { id: 17, title: 'SEO Tools Every Marketer Needs: 32 Essential Tools for 2025', slug: 'essential-seo-tools-2025', category: 'SEO & Local SEO' },
+  { id: 18, title: 'Algorithm Updates Explained: How to Recover from Google Penalties', slug: 'google-algorithm-updates-guide', category: 'SEO & Local SEO' },
+  { id: 19, title: 'White Hat vs Black Hat SEO: Sustainable Strategies for Long-Term Success', slug: 'white-hat-seo-strategies', category: 'SEO & Local SEO' },
+  { id: 20, title: 'SEO ROI Calculator: Measure and Prove Your SEO Success', slug: 'seo-roi-measurement-guide', category: 'SEO & Local SEO' },
+  { id: 21, title: 'Local Citations and NAP Consistency: Boost Local Rankings Fast', slug: 'local-citations-nap-consistency', category: 'SEO & Local SEO' },
+  { id: 22, title: 'SEO for Startups: Affordable Strategies to Compete with Big Brands', slug: 'seo-for-startups-guide', category: 'SEO & Local SEO' },
+  { id: 23, title: 'Featured Snippets Optimization: How to Win Position Zero on Google', slug: 'featured-snippets-optimization', category: 'SEO & Local SEO' },
+  { id: 24, title: 'SEO Case Study: How We Ranked an Indore Client #1 in 90 Days', slug: 'seo-case-study-indore-success', category: 'SEO & Local SEO' },
+
+  // PPC & Google Ads (25-48)
+  { id: 25, title: 'Google Ads for Beginners: Complete Step-by-Step Setup Guide 2025', slug: 'google-ads-beginners-guide-2025', category: 'PPC & Google Ads' },
+  { id: 26, title: 'PPC Campaign Optimization: 15 Ways to Reduce Cost Per Click', slug: 'ppc-campaign-optimization-guide', category: 'PPC & Google Ads' },
+  { id: 27, title: 'Google Ads Quality Score: How to Improve Ad Rank and Lower Costs', slug: 'google-ads-quality-score-guide', category: 'PPC & Google Ads' },
+  { id: 28, title: 'Facebook Ads vs Google Ads: Which Platform is Right for Your Business', slug: 'facebook-ads-vs-google-ads-2025', category: 'PPC & Google Ads' },
+  { id: 29, title: 'Remarketing Strategies: Convert Lost Visitors into Paying Customers', slug: 'remarketing-strategies-guide', category: 'PPC & Google Ads' },
+  { id: 30, title: 'Landing Page Optimization: Increase PPC Conversion Rates by 300%', slug: 'landing-page-optimization-ppc', category: 'PPC & Google Ads' },
+  { id: 31, title: 'Google Shopping Ads: Ultimate Guide for E-commerce Success', slug: 'google-shopping-ads-guide', category: 'PPC & Google Ads' },
+  { id: 32, title: 'Display Advertising Strategy: Build Brand Awareness at Scale', slug: 'display-advertising-strategy-2025', category: 'PPC & Google Ads' },
+  { id: 33, title: 'YouTube Ads Mastery: Drive Leads with Video Advertising', slug: 'youtube-ads-strategy-guide', category: 'PPC & Google Ads' },
+  { id: 34, title: 'PPC for Local Businesses: Dominate Your Local Market with Paid Ads', slug: 'ppc-for-local-businesses', category: 'PPC & Google Ads' },
+  { id: 35, title: 'Ad Copywriting Secrets: Write Ads That Get Clicked and Convert', slug: 'ad-copywriting-secrets-2025', category: 'PPC & Google Ads' },
+  { id: 36, title: 'Google Ads Extensions: Boost CTR with All 12 Extension Types', slug: 'google-ads-extensions-guide', category: 'PPC & Google Ads' },
+  { id: 37, title: 'Negative Keywords Strategy: Stop Wasting Money on Wrong Clicks', slug: 'negative-keywords-strategy', category: 'PPC & Google Ads' },
+  { id: 38, title: 'PPC Bidding Strategies Explained: Maximize ROI with Smart Bidding', slug: 'ppc-bidding-strategies-guide', category: 'PPC & Google Ads' },
+  { id: 39, title: 'Instagram Ads Guide: Turn Scroll into Sales in 2025', slug: 'instagram-ads-strategy-2025', category: 'PPC & Google Ads' },
+  { id: 40, title: 'LinkedIn Ads for B2B: Generate Quality Leads for Your Business', slug: 'linkedin-ads-b2b-strategy', category: 'PPC & Google Ads' },
+  { id: 41, title: 'A/B Testing for PPC: Scientific Approach to Campaign Optimization', slug: 'ab-testing-ppc-campaigns', category: 'PPC & Google Ads' },
+  { id: 42, title: 'PPC Budget Planning: How to Allocate Budget for Maximum Returns', slug: 'ppc-budget-planning-guide', category: 'PPC & Google Ads' },
+  { id: 43, title: 'Conversion Tracking Setup: Measure Every Sale and Lead Accurately', slug: 'conversion-tracking-setup-guide', category: 'PPC & Google Ads' },
+  { id: 44, title: 'Google Ads Scripts: Automate Campaign Management Like a Pro', slug: 'google-ads-scripts-automation', category: 'PPC & Google Ads' },
+  { id: 45, title: 'PPC for Mobile: Optimize Ads for Mobile-First Consumers', slug: 'ppc-mobile-optimization-guide', category: 'PPC & Google Ads' },
+  { id: 46, title: 'Dynamic Search Ads: Scale Your Campaigns with Automation', slug: 'dynamic-search-ads-guide', category: 'PPC & Google Ads' },
+  { id: 47, title: 'PPC Competitor Analysis: Spy on Competitors and Beat Them', slug: 'ppc-competitor-analysis-guide', category: 'PPC & Google Ads' },
+  { id: 48, title: 'ROAS Calculator: Measure and Maximize Your Advertising Returns', slug: 'roas-calculator-advertising-guide', category: 'PPC & Google Ads' },
+
+  // Social Media Marketing (49-72)
+  { id: 49, title: 'Social Media Marketing Strategy: Complete Guide for Business Growth 2025', slug: 'social-media-marketing-strategy-2025', category: 'Social Media Marketing' },
+  { id: 50, title: 'Instagram Marketing for Business: Grow Followers and Drive Sales', slug: 'instagram-marketing-business-guide', category: 'Social Media Marketing' },
+  { id: 51, title: 'Facebook Business Page Optimization: Get More Engagement and Leads', slug: 'facebook-business-page-optimization', category: 'Social Media Marketing' },
+  { id: 52, title: 'LinkedIn Marketing Strategy: Build Authority and Generate B2B Leads', slug: 'linkedin-marketing-strategy-b2b', category: 'Social Media Marketing' },
+  { id: 53, title: 'Twitter Marketing Guide: Build Brand Presence and Drive Traffic', slug: 'twitter-marketing-strategy-guide', category: 'Social Media Marketing' },
+  { id: 54, title: 'Pinterest Marketing for Business: Drive Traffic and Sales with Pins', slug: 'pinterest-marketing-business-guide', category: 'Social Media Marketing' },
+  { id: 55, title: 'TikTok Marketing Strategy: Reach Gen Z and Go Viral in 2025', slug: 'tiktok-marketing-strategy-2025', category: 'Social Media Marketing' },
+  { id: 56, title: 'Social Media Content Calendar: Plan and Schedule Posts Like a Pro', slug: 'social-media-content-calendar', category: 'Social Media Marketing' },
+  { id: 57, title: 'Influencer Marketing Guide: Find and Work with Influencers Successfully', slug: 'influencer-marketing-strategy-guide', category: 'Social Media Marketing' },
+  { id: 58, title: 'Social Media Analytics: Track KPIs and Measure ROI Accurately', slug: 'social-media-analytics-guide', category: 'Social Media Marketing' },
+  { id: 59, title: 'User-Generated Content Strategy: Turn Customers into Brand Advocates', slug: 'user-generated-content-strategy', category: 'Social Media Marketing' },
+  { id: 60, title: 'Social Media Advertising: Paid vs Organic Strategies for 2025', slug: 'social-media-advertising-guide-2025', category: 'Social Media Marketing' },
+  { id: 61, title: 'Instagram Reels Strategy: Create Viral Short Videos That Sell', slug: 'instagram-reels-viral-strategy', category: 'Social Media Marketing' },
+  { id: 62, title: 'Facebook Groups for Business: Build Community and Drive Sales', slug: 'facebook-groups-business-strategy', category: 'Social Media Marketing' },
+  { id: 63, title: 'Social Media Crisis Management: Protect Your Brand Reputation Online', slug: 'social-media-crisis-management', category: 'Social Media Marketing' },
+  { id: 64, title: 'Social Commerce Guide: Sell Directly on Social Media Platforms', slug: 'social-commerce-selling-guide', category: 'Social Media Marketing' },
+  { id: 65, title: 'WhatsApp Business Marketing: Connect with Customers Personally', slug: 'whatsapp-business-marketing-guide', category: 'Social Media Marketing' },
+  { id: 66, title: 'Social Media Tools: 25 Essential Tools Every Marketer Needs', slug: 'social-media-marketing-tools-2025', category: 'Social Media Marketing' },
+  { id: 67, title: 'Hashtag Strategy Guide: Increase Reach and Discoverability', slug: 'hashtag-strategy-social-media', category: 'Social Media Marketing' },
+  { id: 68, title: 'Social Media Scheduling: Best Times to Post for Maximum Engagement', slug: 'social-media-scheduling-best-times', category: 'Social Media Marketing' },
+  { id: 69, title: 'YouTube Channel Growth: Build Subscribers and Views Fast', slug: 'youtube-channel-growth-strategy', category: 'Social Media Marketing' },
+  { id: 70, title: 'Community Management Best Practices: Engage and Grow Your Audience', slug: 'community-management-best-practices', category: 'Social Media Marketing' },
+  { id: 71, title: 'Social Listening Strategy: Monitor Brand Mentions and Sentiment', slug: 'social-listening-strategy-guide', category: 'Social Media Marketing' },
+  { id: 72, title: 'Social Media ROI: Calculate and Prove Social Media Value', slug: 'social-media-roi-measurement', category: 'Social Media Marketing' },
+
+  // Content Marketing (73-96)
+  { id: 73, title: 'Content Marketing Strategy: Complete Framework for Business Growth', slug: 'content-marketing-strategy-framework', category: 'Content Marketing' },
+  { id: 74, title: 'Blog Writing Guide: Create Content That Ranks and Converts', slug: 'blog-writing-seo-guide-2025', category: 'Content Marketing' },
+  { id: 75, title: 'Content Calendar Template: Plan and Organize Your Content Strategy', slug: 'content-calendar-planning-template', category: 'Content Marketing' },
+  { id: 76, title: 'Storytelling for Business: Connect with Customers Emotionally', slug: 'storytelling-business-marketing', category: 'Content Marketing' },
+  { id: 77, title: 'Long-Form Content Guide: Create Ultimate Guides That Dominate SEO', slug: 'long-form-content-seo-guide', category: 'Content Marketing' },
+  { id: 78, title: 'Content Distribution Strategy: Get Your Content in Front of Readers', slug: 'content-distribution-strategy-guide', category: 'Content Marketing' },
+  { id: 79, title: 'Pillar Page Strategy: Structure Your Content for Maximum SEO Impact', slug: 'pillar-page-content-strategy', category: 'Content Marketing' },
+  { id: 80, title: 'Copywriting Formulas: 15 Proven Templates That Sell', slug: 'copywriting-formulas-that-sell', category: 'Content Marketing' },
+  { id: 81, title: 'Infographic Marketing: Create Visual Content That Gets Shared', slug: 'infographic-marketing-strategy', category: 'Content Marketing' },
+  { id: 82, title: 'Content Repurposing: Turn One Article into 20 Pieces of Content', slug: 'content-repurposing-strategy-guide', category: 'Content Marketing' },
+  { id: 83, title: 'Guest Blogging Strategy: Build Authority and Earn Quality Backlinks', slug: 'guest-blogging-strategy-2025', category: 'Content Marketing' },
+  { id: 84, title: 'Case Study Writing: Showcase Results and Win More Clients', slug: 'case-study-writing-template', category: 'Content Marketing' },
+  { id: 85, title: 'White Paper Creation: Generate B2B Leads with Authority Content', slug: 'white-paper-creation-b2b-guide', category: 'Content Marketing' },
+  { id: 86, title: 'Content Audit Guide: Analyze and Improve Existing Content', slug: 'content-audit-optimization-guide', category: 'Content Marketing' },
+  { id: 87, title: 'Topic Cluster Strategy: Organize Content for SEO Dominance', slug: 'topic-cluster-seo-strategy', category: 'Content Marketing' },
+  { id: 88, title: 'Content Personalization: Deliver Relevant Content to Every Visitor', slug: 'content-personalization-strategy', category: 'Content Marketing' },
+  { id: 89, title: 'Podcast Content Marketing: Start and Grow a Successful Podcast', slug: 'podcast-content-marketing-guide', category: 'Content Marketing' },
+  { id: 90, title: 'E-book Creation Guide: Create Lead Magnets That Convert', slug: 'ebook-creation-lead-magnet-guide', category: 'Content Marketing' },
+  { id: 91, title: 'Content Promotion Checklist: 37 Ways to Promote Every Post', slug: 'content-promotion-checklist-2025', category: 'Content Marketing' },
+  { id: 92, title: 'Evergreen Content Strategy: Create Content That Ranks Forever', slug: 'evergreen-content-strategy-guide', category: 'Content Marketing' },
+  { id: 93, title: 'Content Gap Analysis: Find and Fill Content Opportunities', slug: 'content-gap-analysis-guide', category: 'Content Marketing' },
+  { id: 94, title: 'Editorial Calendar: Plan Content Like a Media Company', slug: 'editorial-calendar-planning-guide', category: 'Content Marketing' },
+  { id: 95, title: 'Content Optimization: Update Old Content for Better Rankings', slug: 'content-optimization-seo-guide', category: 'Content Marketing' },
+  { id: 96, title: 'Content ROI Measurement: Prove Content Marketing Value', slug: 'content-roi-measurement-guide', category: 'Content Marketing' },
+
+  // Web Design & Development (97-120)
+  { id: 97, title: 'Web Design Trends 2025: Modern Design Principles for Success', slug: 'web-design-trends-2025', category: 'Web Design & Development' },
+  { id: 98, title: 'UX Design Guide: Create Websites Users Love to Use', slug: 'ux-design-best-practices-guide', category: 'Web Design & Development' },
+  { id: 99, title: 'Mobile Responsive Design: Build Websites That Work on Every Device', slug: 'mobile-responsive-design-guide', category: 'Web Design & Development' },
+  { id: 100, title: 'Website Speed Optimization: Make Your Site Load in Under 2 Seconds', slug: 'website-speed-optimization-guide', category: 'Web Design & Development' },
+  { id: 101, title: 'WordPress Security: Protect Your Website from Hackers', slug: 'wordpress-security-best-practices', category: 'Web Design & Development' },
+  { id: 102, title: 'E-commerce Website Design: Build Online Stores That Sell', slug: 'ecommerce-website-design-guide', category: 'Web Design & Development' },
+  { id: 103, title: 'Landing Page Design: Convert Visitors into Customers', slug: 'landing-page-design-conversion', category: 'Web Design & Development' },
+  { id: 104, title: 'Color Psychology in Web Design: Choose Colors That Convert', slug: 'color-psychology-web-design', category: 'Web Design & Development' },
+  { id: 105, title: 'Typography Guide for Web: Choose Fonts That Enhance Readability', slug: 'typography-guide-web-design', category: 'Web Design & Development' },
+  { id: 106, title: 'Accessibility in Web Design: Create Inclusive Websites for All', slug: 'web-accessibility-design-guide', category: 'Web Design & Development' },
+  { id: 107, title: 'Website Navigation Best Practices: Help Users Find What They Need', slug: 'website-navigation-best-practices', category: 'Web Design & Development' },
+  { id: 108, title: 'CMS Comparison: WordPress vs Shopify vs Custom Development', slug: 'cms-comparison-guide-2025', category: 'Web Design & Development' },
+  { id: 109, title: 'Parallax Scrolling Effects: Add Depth to Your Web Design', slug: 'parallax-scrolling-web-design', category: 'Web Design & Development' },
+  { id: 110, title: 'Website Redesign Checklist: Modernize Without Losing SEO', slug: 'website-redesign-seo-checklist', category: 'Web Design & Development' },
+  { id: 111, title: 'Form Design Optimization: Increase Form Completion Rates', slug: 'form-design-optimization-guide', category: 'Web Design & Development' },
+  { id: 112, title: 'Image Optimization for Web: Reduce Size Without Losing Quality', slug: 'image-optimization-web-guide', category: 'Web Design & Development' },
+  { id: 113, title: 'Progressive Web Apps: Build App-Like Web Experiences', slug: 'progressive-web-apps-guide-2025', category: 'Web Design & Development' },
+  { id: 114, title: 'Microinteractions in Web Design: Delight Users with Details', slug: 'microinteractions-web-design-guide', category: 'Web Design & Development' },
+  { id: 115, title: 'Website Maintenance Guide: Keep Your Site Secure and Updated', slug: 'website-maintenance-checklist', category: 'Web Design & Development' },
+  { id: 116, title: 'Dark Mode Design: Implement Dark Themes for Better UX', slug: 'dark-mode-web-design-guide', category: 'Web Design & Development' },
+  { id: 117, title: 'API Integration for Websites: Connect Third-Party Services', slug: 'api-integration-website-guide', category: 'Web Design & Development' },
+  { id: 118, title: 'Website Hosting Guide: Choose the Right Hosting for Your Needs', slug: 'website-hosting-comparison-guide', category: 'Web Design & Development' },
+  { id: 119, title: 'SSL Certificate Setup: Secure Your Website with HTTPS', slug: 'ssl-certificate-setup-guide', category: 'Web Design & Development' },
+  { id: 120, title: 'Website Analytics Setup: Track Visitor Behavior Accurately', slug: 'website-analytics-setup-guide', category: 'Web Design & Development' },
+
+  // Branding & Creative (121-144)
+  { id: 121, title: 'Brand Strategy Guide: Build a Brand That Stands Out in 2025', slug: 'brand-strategy-guide-2025', category: 'Branding & Creative' },
+  { id: 122, title: 'Logo Design Principles: Create Memorable Brand Identities', slug: 'logo-design-principles-guide', category: 'Branding & Creative' },
+  { id: 123, title: 'Brand Positioning Strategy: Differentiate from Competitors', slug: 'brand-positioning-strategy-guide', category: 'Branding & Creative' },
+  { id: 124, title: 'Color Branding Guide: Choose Brand Colors That Connect', slug: 'color-branding-psychology-guide', category: 'Branding & Creative' },
+  { id: 125, title: 'Brand Voice Development: Define How Your Brand Speaks', slug: 'brand-voice-development-guide', category: 'Branding & Creative' },
+  { id: 126, title: 'Brand Guidelines Creation: Maintain Consistency Across Channels', slug: 'brand-guidelines-creation-template', category: 'Branding & Creative' },
+  { id: 127, title: 'Rebranding Strategy: Refresh Your Brand Without Losing Equity', slug: 'rebranding-strategy-guide-2025', category: 'Branding & Creative' },
+  { id: 128, title: 'Personal Branding: Build Your Professional Brand Online', slug: 'personal-branding-strategy-guide', category: 'Branding & Creative' },
+  { id: 129, title: 'Brand Storytelling: Connect Emotionally with Your Audience', slug: 'brand-storytelling-strategy', category: 'Branding & Creative' },
+  { id: 130, title: 'Visual Identity Design: Create Cohesive Brand Visuals', slug: 'visual-identity-design-guide', category: 'Branding & Creative' },
+  { id: 131, title: 'Packaging Design Strategy: Make Products Stand Out on Shelves', slug: 'packaging-design-strategy-guide', category: 'Branding & Creative' },
+  { id: 132, title: 'Brand Naming Guide: Create Names That Stick in Memory', slug: 'brand-naming-strategy-guide', category: 'Branding & Creative' },
+  { id: 133, title: 'Typography for Branding: Choose Fonts That Reflect Your Brand', slug: 'typography-branding-guide', category: 'Branding & Creative' },
+  { id: 134, title: 'Brand Photography: Capture Your Brand Visually', slug: 'brand-photography-style-guide', category: 'Branding & Creative' },
+  { id: 135, title: 'Motion Graphics for Branding: Bring Your Brand to Life', slug: 'motion-graphics-branding-guide', category: 'Branding & Creative' },
+  { id: 136, title: 'Brand Consistency Guide: Maintain Identity Across Touchpoints', slug: 'brand-consistency-strategy-guide', category: 'Branding & Creative' },
+  { id: 137, title: 'Co-Branding Strategy: Partner with Other Brands Successfully', slug: 'co-branding-strategy-guide', category: 'Branding & Creative' },
+  { id: 138, title: 'Brand Architecture: Organize Multiple Brands Effectively', slug: 'brand-architecture-strategy-guide', category: 'Branding & Creative' },
+  { id: 139, title: 'Brand Equity Measurement: Calculate Your Brand Value', slug: 'brand-equity-measurement-guide', category: 'Branding & Creative' },
+  { id: 140, title: 'Employer Branding: Attract Top Talent with Strong Brand', slug: 'employer-branding-strategy-guide', category: 'Branding & Creative' },
+  { id: 141, title: 'Brand Audit Checklist: Evaluate and Improve Brand Health', slug: 'brand-audit-checklist-template', category: 'Branding & Creative' },
+  { id: 142, title: 'Sensory Branding: Engage All Five Senses in Branding', slug: 'sensory-branding-strategy-guide', category: 'Branding & Creative' },
+  { id: 143, title: 'Brand Extension Strategy: Launch New Products Successfully', slug: 'brand-extension-strategy-guide', category: 'Branding & Creative' },
+  { id: 144, title: 'Digital Brand Experience: Create Memorable Online Interactions', slug: 'digital-brand-experience-guide', category: 'Branding & Creative' },
+
+  // Email Marketing (145-168)
+  { id: 145, title: 'Email Marketing Strategy: Complete Guide to Email Success in 2025', slug: 'email-marketing-strategy-2025', category: 'Email Marketing' },
+  { id: 146, title: 'Email List Building: Grow Your Subscriber Base Fast', slug: 'email-list-building-strategies', category: 'Email Marketing' },
+  { id: 147, title: 'Email Subject Lines: Write Subject Lines That Get Opened', slug: 'email-subject-lines-guide', category: 'Email Marketing' },
+  { id: 148, title: 'Email Automation Workflows: Nurture Leads on Autopilot', slug: 'email-automation-workflows-guide', category: 'Email Marketing' },
+  { id: 149, title: 'Email Segmentation Strategy: Send Relevant Emails to Every Subscriber', slug: 'email-segmentation-strategy', category: 'Email Marketing' },
+  { id: 150, title: 'Email Design Best Practices: Create Beautiful Responsive Emails', slug: 'email-design-best-practices', category: 'Email Marketing' },
+  { id: 151, title: 'Email Deliverability Guide: Land in Inbox Not Spam Folder', slug: 'email-deliverability-optimization', category: 'Email Marketing' },
+  { id: 152, title: 'Welcome Email Series: Make Great First Impressions', slug: 'welcome-email-series-template', category: 'Email Marketing' },
+  { id: 153, title: 'Email Copywriting: Write Emails That Drive Action', slug: 'email-copywriting-conversion-guide', category: 'Email Marketing' },
+  { id: 154, title: 'Cart Abandonment Emails: Recover Lost E-commerce Sales', slug: 'cart-abandonment-email-strategy', category: 'Email Marketing' },
+  { id: 155, title: 'Email A/B Testing: Optimize Every Element of Your Emails', slug: 'email-ab-testing-optimization', category: 'Email Marketing' },
+  { id: 156, title: 'Newsletter Strategy: Keep Subscribers Engaged and Active', slug: 'newsletter-strategy-engagement-guide', category: 'Email Marketing' },
+  { id: 157, title: 'Email Personalization: Create One-to-One Email Experiences', slug: 'email-personalization-strategy', category: 'Email Marketing' },
+  { id: 158, title: 'Re-engagement Campaigns: Win Back Inactive Subscribers', slug: 'reengagement-email-campaign-guide', category: 'Email Marketing' },
+  { id: 159, title: 'Email Marketing Metrics: Track KPIs That Actually Matter', slug: 'email-marketing-metrics-guide', category: 'Email Marketing' },
+  { id: 160, title: 'Drip Campaign Strategy: Nurture Leads into Customers', slug: 'drip-campaign-strategy-guide', category: 'Email Marketing' },
+  { id: 161, title: 'Email Marketing Compliance: Follow GDPR and CAN-SPAM Laws', slug: 'email-marketing-compliance-guide', category: 'Email Marketing' },
+  { id: 162, title: 'Lead Magnet Ideas: 50 Ideas to Grow Your Email List', slug: 'lead-magnet-ideas-email-list', category: 'Email Marketing' },
+  { id: 163, title: 'Email Marketing Tools: Best Platforms for 2025', slug: 'email-marketing-tools-comparison', category: 'Email Marketing' },
+  { id: 164, title: 'Transactional Email Optimization: Turn Receipts into Revenue', slug: 'transactional-email-optimization', category: 'Email Marketing' },
+  { id: 165, title: 'Email Frequency Guide: Find the Perfect Send Schedule', slug: 'email-frequency-optimization-guide', category: 'Email Marketing' },
+  { id: 166, title: 'Birthday Email Campaigns: Celebrate Subscribers and Drive Sales', slug: 'birthday-email-campaign-strategy', category: 'Email Marketing' },
+  { id: 167, title: 'Email ROI Calculator: Measure Email Marketing Returns', slug: 'email-roi-measurement-calculator', category: 'Email Marketing' },
+  { id: 168, title: 'Email Marketing Case Study: How We Achieved 45% Open Rate', slug: 'email-marketing-case-study-success', category: 'Email Marketing' },
+
+  // Video & Media Production (169-192)
+  { id: 169, title: 'Video Marketing Strategy: Grow Your Business with Video in 2025', slug: 'video-marketing-strategy-2025', category: 'Video & Media Production' },
+  { id: 170, title: 'YouTube Channel Setup: Launch a Professional YouTube Channel', slug: 'youtube-channel-setup-guide', category: 'Video & Media Production' },
+  { id: 171, title: 'Video SEO Guide: Rank Your Videos on Google and YouTube', slug: 'video-seo-optimization-guide', category: 'Video & Media Production' },
+  { id: 172, title: 'Explainer Video Production: Create Videos That Explain and Sell', slug: 'explainer-video-production-guide', category: 'Video & Media Production' },
+  { id: 173, title: 'Video Editing for Beginners: Essential Techniques and Tools', slug: 'video-editing-beginners-guide', category: 'Video & Media Production' },
+  { id: 174, title: 'Live Streaming Guide: Go Live and Engage Your Audience', slug: 'live-streaming-strategy-guide', category: 'Video & Media Production' },
+  { id: 175, title: 'Testimonial Video Strategy: Build Trust with Customer Stories', slug: 'testimonial-video-strategy-guide', category: 'Video & Media Production' },
+  { id: 176, title: 'Product Demo Videos: Showcase Features and Drive Sales', slug: 'product-demo-video-guide', category: 'Video & Media Production' },
+  { id: 177, title: 'Video Thumbnail Design: Increase Click-Through Rates', slug: 'video-thumbnail-design-guide', category: 'Video & Media Production' },
+  { id: 178, title: 'Webinar Production: Host Engaging Online Events', slug: 'webinar-production-strategy-guide', category: 'Video & Media Production' },
+  { id: 179, title: 'Video Scriptwriting: Write Scripts That Engage Viewers', slug: 'video-scriptwriting-template-guide', category: 'Video & Media Production' },
+  { id: 180, title: 'Corporate Video Production: Professional Business Videos', slug: 'corporate-video-production-guide', category: 'Video & Media Production' },
+  { id: 181, title: 'Video Lighting Setup: Professional Lighting on Any Budget', slug: 'video-lighting-setup-guide', category: 'Video & Media Production' },
+  { id: 182, title: 'Video Sound Design: Create Immersive Audio Experiences', slug: 'video-sound-design-guide', category: 'Video & Media Production' },
+  { id: 183, title: 'Animated Video Production: Create Engaging Animations', slug: 'animated-video-production-guide', category: 'Video & Media Production' },
+  { id: 184, title: 'Video Marketing Funnel: Use Video at Every Stage', slug: 'video-marketing-funnel-strategy', category: 'Video & Media Production' },
+  { id: 185, title: 'Social Media Video: Optimize Videos for Each Platform', slug: 'social-media-video-optimization', category: 'Video & Media Production' },
+  { id: 186, title: 'Video Analytics Guide: Track Video Performance Metrics', slug: 'video-analytics-tracking-guide', category: 'Video & Media Production' },
+  { id: 187, title: 'Video Equipment Guide: Essential Gear for Video Production', slug: 'video-equipment-buyer-guide', category: 'Video & Media Production' },
+  { id: 188, title: 'Behind-the-Scenes Videos: Show Your Brand Authentically', slug: 'behind-scenes-video-strategy', category: 'Video & Media Production' },
+  { id: 189, title: 'Video Captions and Subtitles: Make Videos Accessible', slug: 'video-captions-subtitles-guide', category: 'Video & Media Production' },
+  { id: 190, title: 'Video Repurposing: Turn Long Videos into Multiple Assets', slug: 'video-repurposing-strategy-guide', category: 'Video & Media Production' },
+  { id: 191, title: 'Brand Video Production: Tell Your Brand Story Visually', slug: 'brand-video-production-guide', category: 'Video & Media Production' },
+  { id: 192, title: 'Video ROI Measurement: Calculate Video Marketing Returns', slug: 'video-roi-measurement-guide', category: 'Video & Media Production' },
+
+  // Analytics & Reporting (193-216)
+  { id: 193, title: 'Google Analytics 4 Guide: Master GA4 for Business Insights', slug: 'google-analytics-4-complete-guide', category: 'Analytics & Reporting' },
+  { id: 194, title: 'Data Analytics for Marketing: Make Data-Driven Decisions', slug: 'data-analytics-marketing-guide', category: 'Analytics & Reporting' },
+  { id: 195, title: 'Conversion Rate Optimization: Increase Sales Without More Traffic', slug: 'conversion-rate-optimization-guide', category: 'Analytics & Reporting' },
+  { id: 196, title: 'Marketing Attribution Models: Track Customer Journey Accurately', slug: 'marketing-attribution-models-guide', category: 'Analytics & Reporting' },
+  { id: 197, title: 'KPI Dashboard Creation: Visualize Metrics That Matter', slug: 'kpi-dashboard-creation-guide', category: 'Analytics & Reporting' },
+  { id: 198, title: 'Heat Mapping Analysis: Understand User Behavior Visually', slug: 'heat-mapping-analysis-guide', category: 'Analytics & Reporting' },
+  { id: 199, title: 'A/B Testing Framework: Test and Optimize Everything', slug: 'ab-testing-framework-guide', category: 'Analytics & Reporting' },
+  { id: 200, title: 'Marketing Reports: Create Reports Stakeholders Love', slug: 'marketing-reports-template-guide', category: 'Analytics & Reporting' },
+  { id: 201, title: 'Customer Lifetime Value: Calculate and Maximize CLV', slug: 'customer-lifetime-value-calculation', category: 'Analytics & Reporting' },
+  { id: 202, title: 'Funnel Analysis: Identify and Fix Conversion Bottlenecks', slug: 'funnel-analysis-optimization-guide', category: 'Analytics & Reporting' },
+  { id: 203, title: 'Tag Manager Setup: Implement Tracking Code Efficiently', slug: 'google-tag-manager-setup-guide', category: 'Analytics & Reporting' },
+  { id: 204, title: 'Event Tracking: Track User Interactions Accurately', slug: 'event-tracking-implementation-guide', category: 'Analytics & Reporting' },
+  { id: 205, title: 'Cohort Analysis: Understand User Behavior Over Time', slug: 'cohort-analysis-strategy-guide', category: 'Analytics & Reporting' },
+  { id: 206, title: 'Predictive Analytics: Forecast Future Marketing Performance', slug: 'predictive-analytics-marketing-guide', category: 'Analytics & Reporting' },
+  { id: 207, title: 'Data Visualization: Present Data That Persuades', slug: 'data-visualization-best-practices', category: 'Analytics & Reporting' },
+  { id: 208, title: 'ROI Calculator: Measure Marketing Return on Investment', slug: 'roi-calculator-marketing-guide', category: 'Analytics & Reporting' },
+  { id: 209, title: 'Bounce Rate Optimization: Keep Visitors on Your Site', slug: 'bounce-rate-optimization-guide', category: 'Analytics & Reporting' },
+  { id: 210, title: 'Cross-Channel Analytics: Track Multi-Channel Campaigns', slug: 'cross-channel-analytics-tracking', category: 'Analytics & Reporting' },
+  { id: 211, title: 'Customer Journey Mapping: Understand Touchpoints', slug: 'customer-journey-mapping-guide', category: 'Analytics & Reporting' },
+  { id: 212, title: 'Marketing Automation Analytics: Track Automation Performance', slug: 'marketing-automation-analytics-guide', category: 'Analytics & Reporting' },
+  { id: 213, title: 'Competitive Benchmarking: Compare Against Industry Standards', slug: 'competitive-benchmarking-analysis', category: 'Analytics & Reporting' },
+  { id: 214, title: 'User Segmentation Analysis: Group Users for Better Targeting', slug: 'user-segmentation-analysis-guide', category: 'Analytics & Reporting' },
+  { id: 215, title: 'Marketing Mix Modeling: Optimize Budget Allocation', slug: 'marketing-mix-modeling-guide', category: 'Analytics & Reporting' },
+  { id: 216, title: 'Analytics Tools Comparison: Choose the Right Analytics Platform', slug: 'analytics-tools-comparison-2025', category: 'Analytics & Reporting' },
+
+  // E-commerce Marketing (217-224)
+  { id: 217, title: 'E-commerce Marketing Strategy: Drive Online Sales in 2025', slug: 'ecommerce-marketing-strategy-2025', category: 'E-commerce Marketing' },
+  { id: 218, title: 'Shopify Marketing Guide: Grow Your Shopify Store Fast', slug: 'shopify-marketing-growth-guide', category: 'E-commerce Marketing' },
+  { id: 219, title: 'Product Page Optimization: Convert Browsers into Buyers', slug: 'product-page-optimization-guide', category: 'E-commerce Marketing' },
+  { id: 220, title: 'E-commerce Email Marketing: Automated Campaigns That Sell', slug: 'ecommerce-email-marketing-automation', category: 'E-commerce Marketing' },
+  { id: 221, title: 'Amazon Marketing Strategy: Rank Products and Increase Sales', slug: 'amazon-marketing-strategy-guide', category: 'E-commerce Marketing' },
+  { id: 222, title: 'Shopping Cart Optimization: Reduce Abandonment Rates', slug: 'shopping-cart-optimization-guide', category: 'E-commerce Marketing' },
+  { id: 223, title: 'E-commerce Conversion Optimization: Turn Traffic into Revenue', slug: 'ecommerce-conversion-optimization', category: 'E-commerce Marketing' },
+  { id: 224, title: 'Customer Retention for E-commerce: Build Loyal Repeat Buyers', slug: 'customer-retention-ecommerce-guide', category: 'E-commerce Marketing' },
+];
+
 // Export all topics with complete data
 export const getAllBlogTopics = (): BlogTopic[] => {
   const topics: BlogTopic[] = [...allBlogTopics];
   
-  // Add remaining SEO topics (3-24)
-  for (let i = 3; i <= 24; i++) {
-    topics.push(generateBlogContent(
-      i,
-      `SEO Topic ${i}: Advanced Strategies for Indore Businesses`,
-      'SEO & Local SEO',
-      `seo-topic-${i}`
-    ));
-  }
-  
-  // Add PPC topics (25-48)
-  for (let i = 25; i <= 48; i++) {
-    topics.push(generateBlogContent(
-      i,
-      `PPC & Google Ads Topic ${i - 24}: Mastering Paid Advertising`,
-      'PPC & Google Ads',
-      `ppc-topic-${i}`
-    ));
-  }
-  
-  // Add Social Media topics (49-72)
-  for (let i = 49; i <= 72; i++) {
-    topics.push(generateBlogContent(
-      i,
-      `Social Media Marketing Topic ${i - 48}: Engaging Your Audience`,
-      'Social Media Marketing',
-      `social-media-topic-${i}`
-    ));
-  }
-  
-  // Add Content Marketing topics (73-96)
-  for (let i = 73; i <= 96; i++) {
-    topics.push(generateBlogContent(
-      i,
-      `Content Marketing Topic ${i - 72}: Creating Compelling Content`,
-      'Content Marketing',
-      `content-marketing-topic-${i}`
-    ));
-  }
-  
-  // Add Web Design topics (97-120)
-  for (let i = 97; i <= 120; i++) {
-    topics.push(generateBlogContent(
-      i,
-      `Web Design Topic ${i - 96}: Building Beautiful Websites`,
-      'Web Design & Development',
-      `web-design-topic-${i}`
-    ));
-  }
-  
-  // Add Branding topics (121-144)
-  for (let i = 121; i <= 144; i++) {
-    topics.push(generateBlogContent(
-      i,
-      `Branding & Creative Topic ${i - 120}: Creating Memorable Brands`,
-      'Branding & Creative',
-      `branding-topic-${i}`
-    ));
-  }
-  
-  // Add Email Marketing topics (145-168)
-  for (let i = 145; i <= 168; i++) {
-    topics.push(generateBlogContent(
-      i,
-      `Email Marketing Topic ${i - 144}: Building Engaged Subscribers`,
-      'Email Marketing',
-      `email-topic-${i}`
-    ));
-  }
-  
-  // Add Video & Media Production topics (169-192)
-  for (let i = 169; i <= 192; i++) {
-    topics.push(generateBlogContent(
-      i,
-      `Video & Media Production Topic ${i - 168}: Visual Storytelling Mastery`,
-      'Video & Media Production',
-      `video-topic-${i}`
-    ));
-  }
-  
-  // Add Analytics & Reporting topics (193-216)
-  for (let i = 193; i <= 216; i++) {
-    topics.push(generateBlogContent(
-      i,
-      `Analytics & Reporting Topic ${i - 192}: Data-Driven Insights`,
-      'Analytics & Reporting',
-      `analytics-topic-${i}`
-    ));
-  }
-  
-  // Add E-commerce Marketing topics (217-224)
-  for (let i = 217; i <= 224; i++) {
-    topics.push(generateBlogContent(
-      i,
-      `E-commerce Marketing Topic ${i - 216}: Driving Online Sales`,
-      'E-commerce Marketing',
-      `ecommerce-topic-${i}`
-    ));
-  }
+  // Add all 223 remaining topics (IDs 2-224) with proper SEO-friendly titles and slugs
+  BLOG_TITLES_DATA.forEach(item => {
+    topics.push(generateBlogContent(item.id, item.title, item.category, item.slug));
+  });
   
   return topics;
 };

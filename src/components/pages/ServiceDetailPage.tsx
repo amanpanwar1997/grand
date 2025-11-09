@@ -1,12 +1,5 @@
 import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, ArrowRight, CheckCircle, Star, Target, TrendingUp, Award, Megaphone, Globe, Palette, Camera, MessageSquare, Newspaper, Rocket, Users, Clock, Shield, Zap, BarChart3, DollarSign, Lightbulb, HeadphonesIcon, TrendingDown, AlertCircle, Code, Brain, MonitorPlay, Play, Mail, Smartphone, Search, ShoppingCart, PenTool, Video, Trophy, MapPin } from 'lucide-react';
-import { AutoCarousel } from '../ui/AutoCarousel';
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from '../ui/accordion';
+import { ArrowLeft, CheckCircle, TrendingUp, Award, Megaphone, Globe, Shield, Users, BarChart3, Search, Target, Zap, Mail, MessageSquare, Video, MapPin, Star, Clock, Phone, Code, Smartphone, DollarSign, ShoppingCart, Play, Lightbulb, PenTool, Rocket, Trophy, FileText, Palette, Camera, Newspaper } from 'lucide-react';
 import { SEOHead } from '../SEOHead';
 import { useSEO } from '../../utils/seoConfig';
 import { StructuredData, organizationSchema, getWebPageSchema, getBreadcrumbSchema, getServiceSchema } from '../../utils/structuredData';
@@ -14,1580 +7,4262 @@ import { StructuredData, organizationSchema, getWebPageSchema, getBreadcrumbSche
 export function ServiceDetailPage() {
   const { slug } = useParams();
 
-  const getServiceData = () => {
-    const serviceDatabase: Record<string, any> = {
+  const getServiceContent = () => {
+    const services: Record<string, any> = {
       'digital-marketing': {
         title: 'Digital Marketing Services',
-        description: 'Complete digital dominance: SEO that ranks #1, PPC that converts at 6X ROAS, social media that goes viral, content that sells, and email automation that nurtures leads into customers.',
-        tagline: 'SEO #1 Rankings. PPC 6X ROAS. Social Media Viral Growth.',
-        icon: TrendingUp,
-        features: [
-          'Search Engine Optimization (SEO) - Complete Technical + On-Page + Off-Page',
-          'Pay-Per-Click Advertising (PPC) - Google Ads, Bing Ads, Shopping Campaigns',
-          'Social Media Marketing - Strategy, Content, Community, Ads (FB, IG, LI, Twitter)',
-          'Content Marketing - Blog Writing, Video Scripts, Ebooks, Whitepapers',
-          'Email Marketing - Automation, Segmentation, Personalization, Drip Campaigns',
-          'Conversion Rate Optimization - A/B Testing, Landing Pages, UX Optimization',
-          'Analytics & Reporting - GA4, Data Studio, Custom Dashboards',
-          'Marketing Automation - HubSpot, ActiveCampaign, Lead Nurturing',
-          'Local SEO & GMB - Google My Business, Review Management, Citations',
-          'Influencer Marketing - Outreach, Campaign Management, ROI Tracking',
+        metaDescription: 'Grow your business with smart, honest & result-driven digital marketing. SEO, PPC, Social Media, Content Marketing & more.',
+        
+        // SECTION 1: HERO
+        hero: {
+          headline: 'Grow Your Business With Smart, Honest & Result-Driven Digital Marketing',
+          subheadline: 'We help brands get visible, trusted, and chosen online with strategies built for long-term growth, better engagement, and meaningful results.',
+          badges: ['More Visibility', 'More Trust', 'More Customers'],
+          description: "If you want marketing that feels structured, smart, and sustainable — you're in the right place.",
+        },
+
+        // SECTION 2: TRUST BAR
+        trustBar: [
+          '100+ Brands Supported',
+          'Multi-Industry Experience',
+          'Transparent Reporting',
+          'Strategy + Execution in One Place',
+          'Customer-First Approach',
         ],
-        benefits: [
-          'Increase organic traffic by 2-3X within 12 months through SEO',
-          'Reduce customer acquisition cost by 40-60% with targeted campaigns',
-          'Build sustainable, scalable growth engines across all channels',
-          'Real-time performance tracking with transparent dashboards',
-          'Own your digital presence across search, social, email, and paid',
-        ],
-        stats: [
-          { metric: '2-3X', label: 'Typical Traffic Growth', description: 'Within 12 months', icon: TrendingUp },
-          { metric: '3-5X', label: 'Typical ROI', description: 'On marketing spend', icon: DollarSign },
-          { metric: '74+', label: 'Campaigns Run', description: 'Successfully executed', icon: Users },
-          { metric: '7 Years', label: 'Experience', description: 'Serving businesses', icon: Target },
-        ],
-        packages: [
+
+        // SECTION 3: ALL SERVICES OVERVIEW
+        servicesOverview: {
+          title: 'All Digital Growth Services Under One Roof',
+          services: [
+            {
+              icon: Search,
+              title: 'Visibility & SEO',
+              items: ['Technical SEO', 'On-Page SEO', 'Local SEO', 'GMB Growth', 'Content SEO'],
+            },
+            {
+              icon: Target,
+              title: 'Paid Advertising',
+              items: ['Google Ads', 'Meta Ads', 'YouTube Ads', 'Shopping Ads', 'Retargeting'],
+            },
+            {
+              icon: Users,
+              title: 'Social Media Growth',
+              items: ['Content Planning', 'Design & Creatives', 'Reels & Video', 'Community Management'],
+            },
+            {
+              icon: Globe,
+              title: 'Website & Conversions',
+              items: ['Landing Pages', 'UI/UX Optimization', 'Funnel Building', 'CRO'],
+            },
+            {
+              icon: Zap,
+              title: 'Automation & CRM',
+              items: ['Email Marketing', 'WhatsApp Marketing', 'CRM Setup', 'Chat Automation'],
+            },
+            {
+              icon: Award,
+              title: 'Brand & Reputation',
+              items: ['Brand Strategy', 'ORM', 'Reviews', 'Influencer Collaboration'],
+            },
+            {
+              icon: BarChart3,
+              title: 'Analytics & Insights',
+              items: ['Tracking Setup', 'GA4', 'Dashboards', 'Monthly Insights'],
+            },
+          ],
+        },
+
+        // SECTION 4: WHY BUSINESSES NEED HELP
+        whyNeedHelp: {
+          title: 'Why Businesses Look for Digital Help',
+          description: 'Because having a business online is not enough anymore.',
+          points: [
+            'Seen by the right people',
+            'Trusted enough to be shortlisted',
+            'Easy to choose from',
+            'Worth coming back to',
+          ],
+          conclusion: 'That is exactly what we build with you.',
+        },
+
+        // SECTION 5: OUR APPROACH
+        approach: {
+          title: 'Our Approach',
+          dontBelieve: [
+            'Random posting',
+            'One-size-fits-all plans',
+            'Confusing analytics without meaning',
+          ],
+          believe: [
+            'Understanding your business goal',
+            'Making marketing simple and structured',
+            'Focusing on efforts that bring outcomes',
+            'Sharing progress clearly and honestly',
+          ],
+        },
+
+        // SECTION 6: HOW WE SUPPORT GROWTH
+        supportGrowth: {
+          title: 'How We Support Your Growth',
+          steps: [
+            { title: 'Build Visibility', description: 'where your audience searches' },
+            { title: 'Create Engagement', description: 'with meaningful content' },
+            { title: 'Generate Enquiries', description: 'through smart campaigns' },
+            { title: 'Improve Conversions', description: 'using data & optimization' },
+            { title: 'Track & Improve', description: 'month by month' },
+          ],
+          tagline: 'A smooth, stress-free, impact-focused system.',
+        },
+
+        // SECTIONS 7-20: INDIVIDUAL SERVICES
+        individualServices: [
           {
-            name: 'Startup Growth',
-            price: '₹35,000/month',
-            features: ['SEO (10 keywords)', 'Social Media (2 platforms, 15 posts)', 'Content (6 blogs)', 'Email (3 campaigns)', 'Monthly reports', 'Strategy calls'],
-            ideal: 'Startups & small businesses',
+            title: 'SEO (Search Engine Optimization)',
+            subtitle: 'Becomes your long-term source of quality traffic.',
+            icon: Search,
+            benefits: [
+              'Cleaner website structure',
+              'Better rankings for relevant searches',
+              'Content aligned with customer intent',
+              'Improved local and map visibility',
+            ],
           },
           {
-            name: 'Business Accelerator',
-            price: '₹75,000/month',
-            features: ['SEO (25 keywords)', 'Social Media (4 platforms, 40 posts)', 'Content (15 pieces)', 'Email automation', 'Google Ads management', 'Bi-weekly reports', 'Dedicated manager'],
-            ideal: 'Scaling businesses',
-            popular: true,
+            title: 'Local SEO & Google Business',
+            subtitle: 'Ideal for businesses that want customers nearby.',
+            icon: MapPin,
+            benefits: [
+              'Strong Google Business Profile',
+              'Local search visibility',
+              'More calls, visits, and enquiries',
+            ],
           },
           {
-            name: 'Enterprise Domination',
-            price: 'Custom Pricing',
-            features: ['Unlimited keywords', 'All channels (SEO, PPC, Social, Content)', 'Unlimited content', 'Advanced automation', 'Dedicated team (5+ specialists)', 'Real-time dashboard', 'White-glove service'],
-            ideal: 'Large organizations & brands',
+            title: 'Google Ads',
+            subtitle: 'Designed for faster reach and filtered audience targeting.',
+            icon: Target,
+            benefits: [
+              'Budget used efficiently',
+              'Search-based customer targeting',
+              'Continuous performance improvement',
+            ],
+          },
+          {
+            title: 'Meta Ads (Facebook + Instagram)',
+            subtitle: 'Used to introduce, engage, and convert your audience.',
+            icon: Users,
+            benefits: [
+              'Interest & behavior targeting',
+              'Creative ad storytelling',
+              'Measured outcomes, clear tracking',
+            ],
+          },
+          {
+            title: 'YouTube & Video Ads',
+            subtitle: 'To build familiarity and trust through visuals.',
+            icon: Video,
+            benefits: [
+              'Meaningful video messaging',
+              'Connect with the right viewer group',
+              'Strengthen brand recall',
+            ],
+          },
+          {
+            title: 'Social Media Management',
+            subtitle: 'Not just posting — building ongoing engagement.',
+            icon: MessageSquare,
+            benefits: [
+              'Monthly content planning',
+              'Professional creatives',
+              'Audience interaction',
+              'Trend-aligned approach',
+            ],
+          },
+          {
+            title: 'Content Creation',
+            subtitle: 'Content that represents your brand clearly and confidently.',
+            icon: Award,
+            benefits: [
+              'Posts, reels, carousels, captions',
+              'Brand-focused communication',
+              'Designed for real engagement',
+            ],
+          },
+          {
+            title: 'Email Marketing',
+            subtitle: 'To nurture, educate, and reconnect with your audience.',
+            icon: Mail,
+            benefits: [
+              'Automated email journeys',
+              'Personalized communication',
+              'Higher repeat engagement',
+            ],
+          },
+          {
+            title: 'WhatsApp & SMS Marketing',
+            subtitle: 'Because direct communication still works best.',
+            icon: MessageSquare,
+            benefits: [
+              'Quick updates',
+              'Offers & reminders',
+              'Higher open rates',
+            ],
+          },
+          {
+            title: 'Landing Pages & Funnels',
+            subtitle: 'Pages built to guide visitors toward enquiry or purchase.',
+            icon: Globe,
+            benefits: [
+              'Clear messaging',
+              'Simple user flow',
+              'Action-focused layout',
+            ],
+          },
+          {
+            title: 'Conversion Optimization',
+            subtitle: 'Helping more of your visitors take action.',
+            icon: TrendingUp,
+            benefits: [
+              'Behavior tracking',
+              'Page improvements',
+              'A/B testing when needed',
+            ],
+          },
+          {
+            title: 'Automation & CRM',
+            subtitle: 'Less manual work, more customer care.',
+            icon: Zap,
+            benefits: [
+              'Automated follow-ups',
+              'Better lead management',
+              'Faster response cycles',
+            ],
+          },
+          {
+            title: 'Online Reputation',
+            subtitle: 'Building trust where it matters most.',
+            icon: Shield,
+            benefits: [
+              'Review management',
+              'Positive digital presence',
+              'Brand credibility support',
+            ],
+          },
+          {
+            title: 'Influencer Support',
+            subtitle: 'Collaborations that feel natural and aligned.',
+            icon: Users,
+            benefits: [
+              'Relevant creator partnerships',
+              'Authentic audience reach',
+              'Brand right-fit approach',
+            ],
+          },
+          {
+            title: 'Analytics & Insights',
+            subtitle: 'Simple, clear, useful reporting.',
+            icon: BarChart3,
+            benefits: [
+              'Monthly performance overview',
+              'What worked & what next',
+              'Insights you can understand and trust',
+            ],
           },
         ],
-        process: [
-          { step: '01', title: 'Complete Digital Audit', description: 'Deep dive into your website, competitors, keywords, backlinks, social media, and current performance. Identify gaps and opportunities.' },
-          { step: '02', title: 'Strategic Roadmap', description: 'Custom multi-channel strategy with clear KPIs, timelines, budget allocation, and projected ROI. Approved before execution.' },
-          { step: '03', title: 'Multi-Channel Execution', description: 'Launch campaigns across SEO, PPC, social media, content marketing, and email. All channels working in synergy.' },
-          { step: '04', title: 'Continuous Optimization', description: 'Daily monitoring, A/B testing, bid adjustments, content refinement. We never stop improving your campaigns.' },
-          { step: '05', title: 'Scaling & Reporting', description: 'Scale winning campaigns aggressively. Transparent weekly/monthly reports with actionable insights and growth recommendations.' },
-        ],
-        whyChooseUs: [
-          { icon: Award, title: 'Proven Expertise', description: '74+ successful campaigns delivered for 96+ clients. ISO 9001:2015 certified processes.' },
-          { icon: Users, title: 'Certified Specialists', description: '50+ marketing experts with Google Ads, Facebook Blueprint, HubSpot certifications.' },
-          { icon: BarChart3, title: 'Data-Driven Decisions', description: 'Every strategy backed by analytics, testing, and competitive intelligence. No guesswork.' },
-          { icon: Shield, title: 'Full Transparency', description: 'Real-time dashboards, unlimited reporting access, weekly strategy calls. Complete visibility.' },
-        ],
-        faqs: [
-          { question: 'How long before I see SEO results?', answer: 'SEO typically shows initial improvements in 3-4 months, with significant traffic growth by 6-9 months. PPC and social ads can generate leads within 2-3 weeks of launch.' },
-          { question: 'Do you guarantee Google #1 rankings?', answer: 'We cannot ethically guarantee specific rankings, but 78% of our targeted keywords reach top 3 positions within 6 months, with 45% hitting #1.' },
-          { question: 'Can I customize my package?', answer: 'Absolutely! All packages are fully customizable based on your industry, goals, budget, and timeline. We create tailored strategies for every client.' },
-          { question: 'What makes your ROI so high?', answer: 'We focus on holistic multi-channel strategies (SEO + PPC + Social + Content) which deliver 3-5X better results than single-channel campaigns. Plus continuous optimization.' },
-        ],
-        tools: ['Google Analytics 4', 'SEMrush', 'Ahrefs', 'Moz Pro', 'Google Ads', 'Meta Business Suite', 'LinkedIn Campaign Manager', 'HubSpot', 'Mailchimp', 'Hootsuite', 'Hotjar', 'Google Tag Manager'],
-        industries: ['Healthcare', 'E-commerce', 'Technology', 'Education', 'Real Estate', 'Finance', 'Legal', 'Hospitality', 'Manufacturing', 'Retail'],
-        caseStudies: [
-          { client: 'Healthcare Startup', result: '3X organic traffic increase', time: '10 months', metric: 'Consistent patient inquiry growth' },
-          { client: 'E-commerce Fashion Brand', result: '180% increase in online sales', time: '8 months', metric: 'Multi-channel campaign success' },
-          { client: 'B2B SaaS Platform', result: '4.5X ROI on Google Ads', time: '6 months', metric: 'Qualified enterprise lead generation' },
-        ],
-        testimonials: [
-          { name: 'Dr. Rajesh Kumar', company: 'HealthCare Plus', text: 'Inchtomilez transformed our digital presence completely. Traffic grew from 400 to 12,000 monthly visitors in 9 months. Patient bookings increased significantly. Best marketing investment ever!', rating: 5 },
-          { name: 'Priya Sharma', company: 'Fashion Forward', text: 'Their multi-channel approach is brilliant. SEO rankings improved, PPC ROAS hit 5X, and social media engagement grew substantially. Our online sales doubled in 6 months.', rating: 5 },
-        ],
+
+        // SECTION 21: WHAT YOU CAN EXPECT
+        expectations: {
+          title: 'What You Can Expect',
+          subtitle: 'Not hype. Just realistic outcomes from consistent work:',
+          outcomes: [
+            'Better reach among the right audience',
+            'More relevant enquiries',
+            'Stronger brand trust',
+            'Steady growth month on month',
+            'Clear visibility into progress',
+          ],
+        },
+
+        // SECTION 22: WHO THIS WORKS FOR
+        idealFor: {
+          title: 'Who This Works Best For',
+          subtitle: 'Businesses that:',
+          criteria: [
+            'Want structured digital growth',
+            'Prefer transparency',
+            'Care about long-term results',
+            'Want a dependable marketing partner',
+          ],
+        },
+
+        // SECTION 23: CLOSING MESSAGE
+        closingMessage: {
+          title: "Let's Build It Right",
+          message: "Digital growth is not about being loud. It's about being present, reliable, visible, and chosen.",
+          tagline: 'We help you do that step by step — confidently and consistently.',
+        },
       },
+
+      // ADVERTISING SERVICE
       'advertising': {
         title: 'Advertising Services',
-        description: 'Multi-channel advertising mastery: Google Ads that convert at 7X ROAS, Meta campaigns that scale profitably, LinkedIn B2B campaigns, YouTube video ads, programmatic display, and traditional OOH advertising.',
-        tagline: 'Creative That Stops. Campaigns That Convert. ROI That Scales.',
-        icon: Megaphone,
-        features: [
-          'Google Ads - Search, Display, Shopping, YouTube, Performance Max Campaigns',
-          'Meta Advertising - Facebook, Instagram Stories/Reels, Messenger Ads',
-          'LinkedIn Ads - Sponsored Content, InMail, Lead Gen Forms, Account-Based Marketing',
-          'YouTube Advertising - TrueView, Bumper Ads, Discovery Ads',
-          'Programmatic Display - Real-time bidding, Advanced audience targeting',
-          'Twitter/X Ads - Promoted tweets, Trends, In-stream video ads',
-          'TikTok Advertising - In-feed ads, Branded effects, TopView campaigns',
-          'Native Advertising - Sponsored content, In-feed native ads',
-          'Retargeting & Remarketing - Pixel-based, List-based, Dynamic remarketing',
-          'Ad Creative Production - Copywriting, Design, Video production, A/B testing',
+        metaDescription: 'Multi-channel advertising that delivers results. Google Ads, Meta Ads, LinkedIn, YouTube & more with transparent ROI tracking.',
+        
+        hero: {
+          headline: 'Reach The Right People At The Right Time With Smart Advertising',
+          subheadline: 'We help businesses generate quality leads and sales through well-planned, budget-efficient ad campaigns across Google, Meta, LinkedIn, and YouTube.',
+          badges: ['Fast Results', 'Clear ROI', 'Expert Management'],
+          description: "If you want ads that work, not just ads that run — you're in the right place.",
+        },
+
+        trustBar: [
+          '100+ Campaigns Managed',
+          'Certified Ad Specialists',
+          'Multi-Platform Expertise',
+          'Daily Optimization',
+          'Transparent Reporting',
         ],
-        benefits: [
-          'Reach your exact target audience with laser precision',
-          'Maximize advertising ROI with 3-5X typical ROAS',
-          'Unified multi-channel campaign management and optimization',
-          'Real-time performance tracking and daily optimization',
-          'Scale successful campaigns profitably across all platforms',
-        ],
-        stats: [
-          { metric: '3-5X', label: 'Typical ROAS', description: 'Return on ad spend', icon: DollarSign },
-          { metric: '74+', label: 'Campaigns Run', description: 'Successfully executed', icon: Target },
-          { metric: '7 Years', label: 'Experience', description: 'Running campaigns', icon: TrendingUp },
-          { metric: '40-60%', label: 'Cost Reduction', description: 'With optimization', icon: TrendingDown },
-        ],
-        packages: [
+
+        servicesOverview: {
+          title: 'Complete Advertising Solutions',
+          services: [
+            {
+              icon: Search,
+              title: 'Google Ads',
+              items: ['Search Ads', 'Display Ads', 'Shopping Ads', 'Performance Max', 'YouTube Ads'],
+            },
+            {
+              icon: Users,
+              title: 'Meta Advertising',
+              items: ['Facebook Ads', 'Instagram Ads', 'Stories & Reels', 'Messenger Ads', 'Retargeting'],
+            },
+            {
+              icon: Target,
+              title: 'LinkedIn Ads',
+              items: ['Sponsored Content', 'InMail', 'Lead Gen Forms', 'B2B Targeting', 'Account-Based Marketing'],
+            },
+            {
+              icon: Video,
+              title: 'Video Advertising',
+              items: ['YouTube Ads', 'TikTok Ads', 'Instagram Reels', 'Facebook Video', 'Connected TV'],
+            },
+            {
+              icon: TrendingUp,
+              title: 'Remarketing',
+              items: ['Website Visitors', 'Cart Abandoners', 'Email Lists', 'Dynamic Product Ads', 'Cross-Platform'],
+            },
+            {
+              icon: Award,
+              title: 'Creative Production',
+              items: ['Ad Copywriting', 'Graphic Design', 'Video Production', 'A/B Testing', 'Landing Pages'],
+            },
+            {
+              icon: BarChart3,
+              title: 'Performance Tracking',
+              items: ['Conversion Setup', 'ROI Tracking', 'Attribution', 'Real-Time Dashboards', 'Monthly Reports'],
+            },
+          ],
+        },
+
+        whyNeedHelp: {
+          title: 'Why Advertising Matters',
+          description: 'Organic reach takes time. When you need results faster:',
+          points: [
+            'Target specific audiences precisely',
+            'Control your budget and spending',
+            'Get measurable results quickly',
+            'Scale what works profitably',
+          ],
+          conclusion: "That's where strategic advertising becomes essential.",
+        },
+
+        approach: {
+          title: 'Our Advertising Philosophy',
+          dontBelieve: [
+            'Set it and forget it campaigns',
+            'Wasting budget on unqualified traffic',
+            'Creative guesswork without testing',
+          ],
+          believe: [
+            'Understanding your customer journey',
+            'Testing, measuring, and optimizing daily',
+            'Budget efficiency over vanity metrics',
+            'Clear communication and honest reporting',
+          ],
+        },
+
+        supportGrowth: {
+          title: 'How We Run Your Campaigns',
+          steps: [
+            { title: 'Understand Goals', description: 'target audience & budget' },
+            { title: 'Build Campaign', description: 'ad creatives & targeting setup' },
+            { title: 'Launch & Monitor', description: 'track performance daily' },
+            { title: 'Optimize Continuously', description: 'improve results week by week' },
+            { title: 'Scale Winners', description: 'grow what works profitably' },
+          ],
+          tagline: 'Professional advertising management that respects your budget.',
+        },
+
+        individualServices: [
           {
-            name: 'Launch Campaign',
-            price: '₹50,000/month',
-            features: ['Google Ads OR Social Ads', '₹30K ad budget included', 'Ad creative (5 variants)', 'Basic targeting & optimization', 'Weekly performance reports'],
-            ideal: 'New advertisers',
+            title: 'Google Search Ads',
+            subtitle: 'Capture high-intent customers searching for your solutions.',
+            icon: Search,
+            benefits: [
+              'Target specific search terms',
+              'Appear above organic results',
+              'Pay only for clicks',
+              'Track every conversion',
+            ],
           },
           {
-            name: 'Growth Campaign',
-            price: '₹1,45,000/month',
-            features: ['Multi-platform (Google + Meta/LinkedIn)', '₹1L ad budget included', 'Video ads production', 'Advanced targeting + audiences', 'A/B testing + optimization', 'Daily monitoring & reports'],
-            ideal: 'Scaling brands',
-            popular: true,
+            title: 'Google Shopping Ads',
+            subtitle: 'For e-commerce businesses selling products online.',
+            icon: Target,
+            benefits: [
+              'Product images in search results',
+              'Price and availability shown',
+              'Higher conversion rates',
+              'Automated inventory sync',
+            ],
           },
           {
-            name: 'Enterprise Campaign',
-            price: 'Custom Pricing',
-            features: ['All platforms (Google, Meta, LinkedIn, YouTube)', 'Unlimited ad budget management', 'Full creative production team', 'Dedicated specialists team', 'Real-time dashboard', 'White-label reporting'],
-            ideal: 'Large advertisers',
+            title: 'Display Advertising',
+            subtitle: 'Build awareness across millions of websites.',
+            icon: Globe,
+            benefits: [
+              'Visual banner ads',
+              'Audience targeting',
+              'Remarketing to visitors',
+              'Cost-effective reach',
+            ],
+          },
+          {
+            title: 'Facebook & Instagram Ads',
+            subtitle: 'Engage users where they spend most of their time.',
+            icon: Users,
+            benefits: [
+              'Detailed audience targeting',
+              'Visual storytelling',
+              'Stories and Reels ads',
+              'Engagement and conversions',
+            ],
+          },
+          {
+            title: 'LinkedIn Advertising',
+            subtitle: 'Perfect for B2B companies targeting professionals.',
+            icon: Target,
+            benefits: [
+              'Job title targeting',
+              'Company and industry filters',
+              'Lead gen forms',
+              'Professional audience',
+            ],
+          },
+          {
+            title: 'YouTube Advertising',
+            subtitle: 'Reach engaged viewers with video storytelling.',
+            icon: Video,
+            benefits: [
+              'In-stream video ads',
+              'Bumper ads (6 seconds)',
+              'Discovery ads',
+              'Detailed demographics',
+            ],
+          },
+          {
+            title: 'Remarketing Campaigns',
+            subtitle: 'Reconnect with people who already know you.',
+            icon: TrendingUp,
+            benefits: [
+              'Website visitors retargeting',
+              'Cart abandonment recovery',
+              'Email list targeting',
+              'Higher conversion rates',
+            ],
+          },
+          {
+            title: 'Ad Creative Production',
+            subtitle: 'Professional creatives that stop scrolling.',
+            icon: Award,
+            benefits: [
+              'Compelling copywriting',
+              'Eye-catching designs',
+              'Video production',
+              'A/B testing',
+            ],
+          },
+          {
+            title: 'Conversion Tracking',
+            subtitle: "Know exactly what's working.",
+            icon: BarChart3,
+            benefits: [
+              'Pixel installation',
+              'Event tracking',
+              'ROI measurement',
+              'Attribution modeling',
+            ],
           },
         ],
-        process: [
-          { step: '01', title: 'Campaign Strategy', description: 'Define objectives, KPIs, target audience, budget allocation, and channel selection based on your goals and industry.' },
-          { step: '02', title: 'Creative Development', description: 'Design high-converting ad creatives, compelling copy, video ads, and optimized landing pages that drive action.' },
-          { step: '03', title: 'Campaign Launch', description: 'Set up tracking pixels, conversion tracking, launch campaigns across selected platforms with proper targeting.' },
-          { step: '04', title: 'Daily Optimization', description: 'Monitor performance daily, adjust bids, pause underperforming ads, scale winners, test new creatives.' },
-          { step: '05', title: 'Scaling & Reporting', description: 'Aggressively scale profitable campaigns. Provide detailed performance reports with insights and recommendations.' },
-        ],
-        whyChooseUs: [
-          { icon: Award, title: 'Certified Ad Experts', description: 'Google Ads, Facebook Blueprint, LinkedIn certified specialists managing your campaigns.' },
-          { icon: DollarSign, title: 'ROI-Focused', description: '3-5X typical ROAS with continuous optimization and testing. We make every rupee count.' },
-          { icon: Zap, title: 'Fast Results', description: 'See qualified leads within 48-72 hours of campaign launch. No 6-month waiting periods.' },
-          { icon: Users, title: 'In-House Creative Team', description: '50+ specialists for ad creatives, videos, landing pages — no outsourcing.' },
-        ],
-        faqs: [
-          { question: 'What is the minimum ad budget?', answer: 'We recommend minimum ₹30K/month for Google Ads or ₹20K/month for social media ads to see meaningful results. Higher budgets allow for faster testing and scaling.' },
-          { question: 'How do you ensure targeting accuracy?', answer: 'We use advanced audience targeting including demographics, interests, behaviors, lookalike audiences, custom audiences, and remarketing lists for precise targeting.' },
-          { question: 'Can you create video ads?', answer: 'Yes! Our in-house creative team produces professional video ads optimized for YouTube, Facebook, Instagram, LinkedIn, and display campaigns.' },
-          { question: 'How quickly can campaigns launch?', answer: 'Most campaigns launch within 5-7 business days after strategy approval, creative development, and account setup.' },
-        ],
-        tools: ['Google Ads', 'Meta Business Suite', 'LinkedIn Campaign Manager', 'Google Tag Manager', 'Hotjar', 'Unbounce', 'Canva Pro', 'Adobe Creative Cloud', 'Google Analytics 4', 'SEMrush'],
-        industries: ['E-commerce', 'Real Estate', 'Healthcare', 'Education', 'Finance', 'Technology', 'Automotive', 'Travel', 'Fashion', 'Food & Beverage'],
-        caseStudies: [
-          { client: 'Real Estate Developer', result: '4.5X ROAS on Facebook Ads', time: '4 months', metric: 'Consistent qualified property leads' },
-          { client: 'E-Learning Platform', result: 'Low cost per student enrollment', time: '6 months', metric: 'Sustained enrollment growth' },
-          { client: 'D2C Fashion Brand', result: '180% increase in online sales', time: '8 months', metric: 'Profitable paid advertising' },
-        ],
-        testimonials: [
-          { name: 'Amit Patel', company: 'Prime Properties', text: 'Their Google Ads campaigns delivered qualified leads consistently over 4 months. ROAS was excellent at 4.5X. Every lead was verified and ready to buy!', rating: 5 },
-          { name: 'Sneha Kapoor', company: 'FitLife Nutrition', text: 'Finally found an agency that truly understands Facebook Ads. Our cost per sale dropped by 50% in 2 months. Scaling profitably now!', rating: 5 },
-        ],
+
+        expectations: {
+          title: 'What You Can Expect',
+          subtitle: 'Realistic outcomes from professional ad management:',
+          outcomes: [
+            'Qualified leads within first few weeks',
+            'Clear understanding of cost per acquisition',
+            'Weekly performance updates',
+            'Continuous optimization for better results',
+            'Transparent ROI tracking',
+          ],
+        },
+
+        idealFor: {
+          title: 'Who This Works Best For',
+          subtitle: 'Businesses that:',
+          criteria: [
+            'Need results faster than organic growth',
+            'Have a clear product or service offer',
+            'Want measurable, trackable outcomes',
+            'Are ready to invest in growth',
+          ],
+        },
+
+        closingMessage: {
+          title: "Let's Make Your Ad Budget Work Harder",
+          message: "Good advertising isn't about spending more. It's about spending smarter.",
+          tagline: 'We help you reach the right people, with the right message, at the right cost.',
+        },
       },
+
+      // BRANDING SERVICE
       'branding': {
         title: 'Branding & Identity Services',
-        description: 'Complete brand transformation: Strategic brand positioning, unforgettable logo design, comprehensive visual identity systems, brand guidelines, voice development — Turn startups into household names.',
-        tagline: 'Brands That Last. Identities That Dominate Markets.',
-        icon: Award,
-        features: [
-          'Brand Strategy & Positioning - Market research, Competitor analysis, Unique positioning',
-          'Logo Design - Multiple concepts, Revisions, Vector files, All formats',
-          'Visual Identity System - Color palette, Typography, Design elements, Patterns',
-          'Brand Guidelines - Comprehensive documentation, Usage rules, Do\'s and Don\'ts',
-          'Brand Collateral - Business cards, Letterheads, Email signatures, Presentation templates',
-          'Packaging Design - Product packaging, Labels, Box design',
-          'Brand Voice & Messaging - Tone, Language guidelines, Taglines, Brand story',
-          'Brand Launch Strategy - Go-to-market plan, Launch campaigns',
-          'Rebranding Services - Brand audit, Transition strategy, Asset recreation',
-          'Trademark & Copyright Support - Filing assistance, Legal documentation',
+        metaDescription: 'Build a brand that stands out and stays remembered. Logo design, brand strategy, visual identity & complete brand guidelines.',
+        
+        hero: {
+          headline: 'Build A Brand That Feels Right, Looks Professional & Stays Remembered',
+          subheadline: 'We help businesses create clear, consistent, and professional brand identities that build trust and recognition in their market.',
+          badges: ['Strategic Positioning', 'Visual Identity', 'Brand Guidelines'],
+          description: "If you want a brand that represents you properly — you're in the right place.",
+        },
+
+        trustBar: [
+          '100+ Brands Created',
+          '7+ Years Experience',
+          'Full Ownership of Assets',
+          'Trademark Support',
+          'Revision-Friendly Process',
         ],
-        benefits: [
-          'Stand out in crowded markets with unique positioning',
-          'Increase brand recall and customer loyalty by 150-200%',
-          'Command premium pricing (15-30% higher than competitors)',
-          'Build trust and credibility instantly with professional identity',
-          'Scale consistently with comprehensive brand guidelines',
-        ],
-        stats: [
-          { metric: '100+', label: 'Brands Managed', description: 'Growing businesses', icon: Award },
-          { metric: '7 Years', label: 'Experience', description: 'Building brands', icon: DollarSign },
-          { metric: '150-200%', label: 'Brand Recall Lift', description: 'Typical improvement', icon: TrendingUp },
-          { metric: '98%', label: 'Client Satisfaction', description: 'Verified rating', icon: Star },
-        ],
-        packages: [
+
+        servicesOverview: {
+          title: 'Complete Branding Solutions',
+          services: [
+            {
+              icon: Award,
+              title: 'Brand Strategy',
+              items: ['Market Research', 'Positioning', 'Target Audience', 'Competitor Analysis', 'Value Proposition'],
+            },
+            {
+              icon: Target,
+              title: 'Logo Design',
+              items: ['Multiple Concepts', 'Vector Files', 'Color Variations', 'Icon & Wordmark', 'All Formats'],
+            },
+            {
+              icon: Users,
+              title: 'Visual Identity',
+              items: ['Color Palette', 'Typography', 'Design Elements', 'Patterns', 'Photography Style'],
+            },
+            {
+              icon: Shield,
+              title: 'Brand Guidelines',
+              items: ['Usage Rules', 'Do\'s & Don\'ts', 'Color Codes', 'Typography System', 'Application Examples'],
+            },
+            {
+              icon: Globe,
+              title: 'Brand Collateral',
+              items: ['Business Cards', 'Letterheads', 'Email Signatures', 'Presentations', 'Marketing Materials'],
+            },
+            {
+              icon: MessageSquare,
+              title: 'Brand Voice',
+              items: ['Tone of Voice', 'Messaging', 'Taglines', 'Brand Story', 'Communication Guidelines'],
+            },
+            {
+              icon: Zap,
+              title: 'Brand Launch',
+              items: ['Go-to-Market', 'Internal Rollout', 'Training', 'Asset Delivery', 'Ongoing Support'],
+            },
+          ],
+        },
+
+        whyNeedHelp: {
+          title: 'Why Branding Matters',
+          description: 'Your brand is how people remember and choose you.',
+          points: [
+            'Stand out in crowded markets',
+            'Build instant credibility',
+            'Command better pricing',
+            'Create lasting customer loyalty',
+          ],
+          conclusion: 'A strong brand is your most valuable long-term asset.',
+        },
+
+        approach: {
+          title: 'Our Branding Process',
+          dontBelieve: [
+            'Logo design without strategy',
+            'Generic templates and shortcuts',
+            'Ignoring your business goals',
+          ],
+          believe: [
+            'Strategy before design',
+            'Understanding your market deeply',
+            'Creating something timeless, not trendy',
+            'Full transparency and collaboration',
+          ],
+        },
+
+        supportGrowth: {
+          title: 'How We Build Your Brand',
+          steps: [
+            { title: 'Discovery', description: 'understand your business & vision' },
+            { title: 'Strategy', description: 'positioning & differentiation' },
+            { title: 'Design', description: 'visual identity creation' },
+            { title: 'Refinement', description: 'feedback & perfection' },
+            { title: 'Delivery', description: 'assets & guidelines' },
+          ],
+          tagline: 'A thoughtful, collaborative process from start to finish.',
+        },
+
+        individualServices: [
           {
-            name: 'Startup Identity',
-            price: '₹95,000',
-            features: ['Logo design (3 concepts)', 'Basic visual identity', 'Business card design', 'Letterhead template', 'Social media kit', '2 revision rounds'],
-            ideal: 'New businesses',
+            title: 'Brand Strategy & Positioning',
+            subtitle: 'The foundation of everything else.',
+            icon: Target,
+            benefits: [
+              'Market research & analysis',
+              'Target audience definition',
+              'Competitive positioning',
+              'Unique value proposition',
+            ],
           },
           {
-            name: 'Complete Branding',
-            price: '₹2,45,000',
-            features: ['Full brand strategy', 'Logo design (5 concepts)', 'Complete visual identity', 'Brand guidelines (30+ pages)', 'All collateral design', 'Packaging (if applicable)', 'Unlimited revisions', '6 months support'],
-            ideal: 'Growing businesses',
-            popular: true,
+            title: 'Logo Design',
+            subtitle: 'Your visual identity cornerstone.',
+            icon: Award,
+            benefits: [
+              'Multiple design concepts',
+              'Unlimited revisions',
+              'Vector source files',
+              'All format variations',
+            ],
           },
           {
-            name: 'Enterprise Rebranding',
-            price: 'Custom Pricing',
-            features: ['Complete brand audit', 'Market research', 'Strategic repositioning', 'Full identity redesign', 'Comprehensive guidelines', 'Asset recreation', 'Launch campaign', 'Change management support'],
-            ideal: 'Established brands',
+            title: 'Visual Identity System',
+            subtitle: 'Complete design language for consistency.',
+            icon: Users,
+            benefits: [
+              'Color palette system',
+              'Typography hierarchy',
+              'Design elements & patterns',
+              'Application examples',
+            ],
+          },
+          {
+            title: 'Brand Guidelines',
+            subtitle: 'Your brand rulebook for consistency.',
+            icon: Shield,
+            benefits: [
+              'Comprehensive documentation',
+              'Usage rules & examples',
+              'Do\'s and don\'ts',
+              'Team training support',
+            ],
+          },
+          {
+            title: 'Business Collateral',
+            subtitle: 'Professional materials that represent you well.',
+            icon: Globe,
+            benefits: [
+              'Business card design',
+              'Letterhead templates',
+              'Email signature',
+              'Presentation templates',
+            ],
+          },
+          {
+            title: 'Brand Voice & Messaging',
+            subtitle: 'How you communicate matters.',
+            icon: MessageSquare,
+            benefits: [
+              'Tone of voice definition',
+              'Key messaging pillars',
+              'Tagline development',
+              'Brand story crafting',
+            ],
+          },
+          {
+            title: 'Social Media Branding',
+            subtitle: 'Consistent presence across platforms.',
+            icon: Users,
+            benefits: [
+              'Profile images',
+              'Cover designs',
+              'Story templates',
+              'Post templates',
+            ],
+          },
+          {
+            title: 'Packaging Design',
+            subtitle: 'For product-based businesses.',
+            icon: Target,
+            benefits: [
+              'Product packaging',
+              'Label design',
+              'Box and bottle design',
+              'Print-ready files',
+            ],
+          },
+          {
+            title: 'Rebranding Services',
+            subtitle: "When it's time to evolve your brand.",
+            icon: TrendingUp,
+            benefits: [
+              'Brand audit',
+              'Transition strategy',
+              'Asset recreation',
+              'Migration support',
+            ],
+          },
+          {
+            title: 'Trademark Support',
+            subtitle: 'Protect your brand legally.',
+            icon: Shield,
+            benefits: [
+              'Trademark search',
+              'Filing assistance',
+              'Legal documentation',
+              'Registration guidance',
+            ],
           },
         ],
-        process: [
-          { step: '01', title: 'Discovery & Research', description: 'Deep dive into your business, values, target audience, competitors, and market positioning. Foundation for strategy.' },
-          { step: '02', title: 'Brand Strategy', description: 'Define brand positioning, personality, voice, messaging architecture, and unique value proposition.' },
-          { step: '03', title: 'Visual Identity Creation', description: 'Design logo concepts, color systems, typography, visual elements based on approved strategy.' },
-          { step: '04', title: 'Refinement & Guidelines', description: 'Refine designs based on feedback. Create comprehensive brand guidelines for consistent application.' },
-          { step: '05', title: 'Launch & Support', description: 'Deliver all assets, support brand implementation, monitor consistency, provide ongoing guidance.' },
-        ],
-        whyChooseUs: [
-          { icon: Award, title: 'Award-Winning Design', description: '156 brands created with 98% client satisfaction. Multiple design awards.' },
-          { icon: Brain, title: 'Strategy-First Approach', description: 'We don\'t just design logos — we build strategic brand foundations that last decades.' },
-          { icon: Users, title: 'Experienced Team', description: '12+ years combined experience. Worked with startups to Fortune 500 companies.' },
-          { icon: Shield, title: 'Trademark Support', description: 'We ensure your brand is legally protected with trademark filing assistance included.' },
-        ],
-        faqs: [
-          { question: 'How long does branding take?', answer: 'Startup Identity: 3-4 weeks. Complete Branding: 6-8 weeks. Enterprise Rebranding: 10-12 weeks. Timeline depends on feedback cycles and scope.' },
-          { question: 'Do I own the brand assets?', answer: 'Absolutely! You receive full ownership of all brand assets including source files, vector files, and comprehensive usage rights.' },
-          { question: 'What if I don\'t like initial concepts?', answer: 'We provide multiple revision rounds. Our process ensures alignment at each stage. 98% of clients approve within 2 revision rounds.' },
-          { question: 'Do you help with trademark registration?', answer: 'Yes! We provide trademark filing assistance, conduct similarity searches, and guide you through the registration process.' },
-        ],
-        tools: ['Adobe Illustrator', 'Adobe Photoshop', 'Adobe InDesign', 'Canva Pro', 'Procreate', 'Adobe After Effects (for motion)'],
-        industries: ['Technology', 'Healthcare', 'E-commerce', 'Finance', 'Education', 'Fashion', 'Food & Beverage', 'Real Estate', 'Professional Services', 'Manufacturing'],
-        caseStudies: [
-          { client: 'Tech Startup', result: 'Complete brand identity from scratch', time: '8 weeks', metric: 'Successfully raised Series A (brand strength cited by investors)' },
-          { client: 'Healthcare Chain', result: 'Rebranding across 12 locations', time: '10 weeks', metric: '2X increase in brand recall and patient trust' },
-          { client: 'D2C Brand', result: 'Premium positioning through rebranding', time: '6 weeks', metric: '35% price increase maintained successfully' },
-        ],
-        testimonials: [
-          { name: 'Vikram Singh', company: 'TechVentures', text: 'The brand identity Inchtomilez created became our biggest asset. Investors specifically mentioned our professional branding during Series A discussions. Worth every rupee!', rating: 5 },
-          { name: 'Meera Joshi', company: 'Organic Foods Co', text: 'We went from looking like a local shop to a premium national brand. Sales doubled after the rebrand. Their strategic approach is brilliant!', rating: 5 },
-        ],
+
+        expectations: {
+          title: 'What You Can Expect',
+          subtitle: 'Realistic outcomes from professional branding:',
+          outcomes: [
+            'A brand that feels authentic to your business',
+            'Professional identity that builds instant credibility',
+            'Clear guidelines for consistent application',
+            'All source files and full ownership',
+            'Support during implementation',
+          ],
+        },
+
+        idealFor: {
+          title: 'Who This Works Best For',
+          subtitle: 'Businesses that:',
+          criteria: [
+            'Want to stand out professionally',
+            'Value long-term brand equity',
+            'Need clarity and consistency',
+            'Are ready to invest in their image',
+          ],
+        },
+
+        closingMessage: {
+          title: "Let's Build Your Brand Right",
+          message: "Your brand is more than a logo. It's how people feel about your business.",
+          tagline: 'We help you create that feeling — clearly, professionally, and memorably.',
+        },
       },
+
+      // WEBSITE DEVELOPMENT SERVICE
       'website-development': {
         title: 'Website & App Development',
-        description: 'Lightning-fast websites (<2s load time), conversion-optimized e-commerce platforms, beautiful mobile apps (iOS & Android), stunning UI/UX design — Built to sell, designed to delight users.',
-        tagline: 'Websites That Convert. Apps Users Love. Speed That Wins.',
-        icon: Globe,
-        features: [
-          'Custom Website Design - Mobile-first, Responsive, Modern UI/UX',
-          'E-commerce Development - Shopify, WooCommerce, Custom platforms',
-          'Mobile App Development - iOS, Android, React Native, Flutter',
-          'CMS Integration - WordPress, Webflow, Custom CMS',
-          'Speed Optimization - <2s load time, Core Web Vitals optimization',
-          'SEO-Optimized Architecture - Clean code, Schema markup, Meta tags',
-          'Security Implementation - SSL, Firewall, Regular backups, Malware protection',
-          'Payment Gateway Integration - Stripe, Razorpay, PayPal, UPI',
-          'API Integrations - CRM, Email, Analytics, Third-party services',
-          '12 Months Support & Maintenance - Updates, Backups, Monitoring',
+        metaDescription: 'Fast, secure, conversion-focused websites that work perfectly on all devices. Custom development, e-commerce, apps & more.',
+        
+        hero: {
+          headline: 'Websites That Load Fast, Look Great & Actually Help Your Business Grow',
+          subheadline: 'We build professional, mobile-friendly websites designed to convert visitors into customers — with speed, security, and ongoing support.',
+          badges: ['Fast Loading', 'Mobile-First', 'Conversion-Focused'],
+          description: "If you want a website that works as hard as you do — you're in the right place.",
+        },
+
+        trustBar: [
+          '60+ Websites Built',
+          '<2s Load Time',
+          'Mobile-Optimized',
+          '12 Months Support',
+          'Full Code Ownership',
         ],
-        benefits: [
-          'Increase conversions 2-3X with optimized UX design',
-          'Rank higher on Google with SEO-friendly architecture',
-          'Load in <2 seconds for superior user experience',
-          'Mobile-responsive design that works on all devices',
-          'Scalable platform that grows with your business',
-        ],
-        stats: [
-          { metric: '60+', label: 'Websites Built', description: 'Since 2018', icon: Globe },
-          { metric: '<2s', label: 'Avg Load Time', description: 'Industry standard: 4-6s', icon: Zap },
-          { metric: '4.9★', label: 'Client Rating', description: 'Based on 200+ reviews', icon: Star },
-          { metric: '2-3X', label: 'Typical Conversion Lift', description: 'Post-redesign', icon: TrendingUp },
-        ],
-        packages: [
+
+        servicesOverview: {
+          title: 'Complete Web Development Solutions',
+          services: [
+            {
+              icon: Globe,
+              title: 'Business Websites',
+              items: ['Corporate Sites', 'Service Websites', 'Portfolio Sites', 'Landing Pages', 'Multi-Page Sites'],
+            },
+            {
+              icon: Target,
+              title: 'E-commerce Stores',
+              items: ['Shopify', 'WooCommerce', 'Product Catalogs', 'Payment Integration', 'Inventory Management'],
+            },
+            {
+              icon: Users,
+              title: 'UI/UX Design',
+              items: ['Wireframing', 'Visual Design', 'User Research', 'Prototyping', 'Usability Testing'],
+            },
+            {
+              icon: Zap,
+              title: 'Speed & Performance',
+              items: ['Image Optimization', 'Code Minification', 'CDN Setup', 'Caching', 'Core Web Vitals'],
+            },
+            {
+              icon: Search,
+              title: 'SEO-Optimized',
+              items: ['Clean Code', 'Schema Markup', 'Meta Tags', 'XML Sitemaps', 'Technical SEO'],
+            },
+            {
+              icon: Shield,
+              title: 'Security & Hosting',
+              items: ['SSL Certificate', 'Firewall', 'Regular Backups', 'Malware Protection', 'Hosting Setup'],
+            },
+            {
+              icon: MessageSquare,
+              title: 'Support & Maintenance',
+              items: ['12 Months Free', 'Updates', 'Bug Fixes', 'Content Changes', 'Technical Support'],
+            },
+          ],
+        },
+
+        whyNeedHelp: {
+          title: 'Why Your Website Matters',
+          description: 'Your website is often the first impression of your business.',
+          points: [
+            'Fast loading builds trust',
+            'Mobile-friendly reaches everyone',
+            'Clear design guides actions',
+            'SEO-optimized attracts visitors',
+          ],
+          conclusion: 'A professional website is an investment that pays back consistently.',
+        },
+
+        approach: {
+          title: 'Our Development Philosophy',
+          dontBelieve: [
+            'Slow, bloated websites',
+            'Mobile-unfriendly designs',
+            'Vendor lock-in with proprietary code',
+          ],
+          believe: [
+            'Speed and performance first',
+            'Mobile-first responsive design',
+            'Clean code you fully own',
+            'Ongoing support and training',
+          ],
+        },
+
+        supportGrowth: {
+          title: 'How We Build Your Website',
+          steps: [
+            { title: 'Planning', description: 'goals, features & structure' },
+            { title: 'Design', description: 'wireframes & visual mockups' },
+            { title: 'Development', description: 'coding & functionality' },
+            { title: 'Testing', description: 'quality assurance & fixes' },
+            { title: 'Launch & Support', description: 'deployment & training' },
+          ],
+          tagline: 'A transparent, collaborative process with clear milestones.',
+        },
+
+        individualServices: [
           {
-            name: 'Business Website',
-            price: '₹65,000',
-            features: ['5-8 pages', 'Custom design', 'Mobile responsive', 'Contact form', 'SEO basics', 'Speed optimized', '3 months support'],
-            ideal: 'Small businesses',
+            title: 'Custom Website Design',
+            subtitle: 'Tailored to your brand and business goals.',
+            icon: Globe,
+            benefits: [
+              'Unique design, not templates',
+              'Brand-aligned visuals',
+              'Conversion-focused layouts',
+              'Professional appearance',
+            ],
           },
           {
-            name: 'E-commerce Store',
-            price: '₹1,85,000',
-            features: ['Shopify/WooCommerce', 'Unlimited products', 'Payment gateway', 'Inventory management', 'Customer accounts', 'SEO optimized', 'Marketing integrations', '12 months support'],
-            ideal: 'Online stores',
-            popular: true,
+            title: 'E-commerce Development',
+            subtitle: 'Sell products online seamlessly.',
+            icon: Target,
+            benefits: [
+              'Product catalog management',
+              'Shopping cart & checkout',
+              'Payment gateway integration',
+              'Inventory management',
+            ],
           },
           {
-            name: 'Enterprise Platform',
-            price: 'Custom Pricing',
-            features: ['Custom development', 'Advanced features', 'Third-party integrations', 'Custom CMS/Dashboard', 'Security audit', 'Scalable infrastructure', '24/7 monitoring', 'Dedicated team'],
-            ideal: 'Large businesses',
+            title: 'Mobile App Development',
+            subtitle: 'Native and cross-platform apps.',
+            icon: Users,
+            benefits: [
+              'iOS & Android apps',
+              'React Native / Flutter',
+              'App store submission',
+              'Push notifications',
+            ],
+          },
+          {
+            title: 'Speed Optimization',
+            subtitle: 'Fast loading for better user experience.',
+            icon: Zap,
+            benefits: [
+              'Image compression',
+              'Code optimization',
+              'CDN implementation',
+              '90+ PageSpeed scores',
+            ],
+          },
+          {
+            title: 'SEO-Optimized Development',
+            subtitle: 'Built to rank on search engines.',
+            icon: Search,
+            benefits: [
+              'Clean semantic code',
+              'Schema markup',
+              'Meta tags setup',
+              'XML sitemaps',
+            ],
+          },
+          {
+            title: 'WordPress Development',
+            subtitle: 'Easy-to-manage CMS websites.',
+            icon: Globe,
+            benefits: [
+              'Custom themes',
+              'Plugin integration',
+              'WooCommerce setup',
+              'Training included',
+            ],
+          },
+          {
+            title: 'Landing Page Design',
+            subtitle: 'High-converting single-page sites.',
+            icon: Target,
+            benefits: [
+              'Clear messaging',
+              'Strong call-to-action',
+              'Lead capture forms',
+              'A/B testing ready',
+            ],
+          },
+          {
+            title: 'Website Security',
+            subtitle: 'Protect your site and customer data.',
+            icon: Shield,
+            benefits: [
+              'SSL certificate',
+              'Firewall setup',
+              'Regular backups',
+              'Security monitoring',
+            ],
+          },
+          {
+            title: 'Payment Integration',
+            subtitle: 'Accept payments securely online.',
+            icon: Target,
+            benefits: [
+              'Stripe, Razorpay, PayPal',
+              'UPI integration',
+              'Secure checkout',
+              'PCI compliance',
+            ],
+          },
+          {
+            title: 'Website Maintenance',
+            subtitle: 'Keep your site running smoothly.',
+            icon: Shield,
+            benefits: [
+              '12 months free support',
+              'Regular updates',
+              'Bug fixes',
+              'Content changes',
+            ],
           },
         ],
-        process: [
-          { step: '01', title: 'Requirements & Planning', description: 'Understand your business goals, target audience, features needed, competitor analysis, and project scope.' },
-          { step: '02', title: 'Design & Prototyping', description: 'Create wireframes, visual designs, interactive prototypes. Get approval before development starts.' },
-          { step: '03', title: 'Development & Testing', description: 'Build website/app with clean code, implement features, conduct thorough testing across devices.' },
-          { step: '04', title: 'Launch & Optimization', description: 'Deploy to production, configure hosting, SSL, analytics, speed optimization, final QA checks.' },
-          { step: '05', title: 'Support & Maintenance', description: 'Ongoing updates, security patches, backups, performance monitoring, feature additions.' },
-        ],
-        whyChooseUs: [
-          { icon: Zap, title: 'Lightning Fast', description: '<2s average load time. 90+ Google PageSpeed scores. Superior performance guaranteed.' },
-          { icon: Award, title: 'Award-Winning Design', description: '365 successful projects with 4.9★ average rating. Beautiful and functional.' },
-          { icon: Shield, title: 'Security First', description: 'SSL, firewall, regular backups, malware protection, PCI compliance for e-commerce.' },
-          { icon: Users, title: 'Full-Stack Team', description: 'Designers, front-end, back-end, QA specialists — complete in-house team.' },
-        ],
-        faqs: [
-          { question: 'How long does development take?', answer: 'Business website: 3-4 weeks. E-commerce store: 6-8 weeks. Enterprise platform: 10-16 weeks. Timeline depends on scope and feedback cycles.' },
-          { question: 'Will my website be mobile-friendly?', answer: 'Absolutely! All websites are mobile-first, responsive, and tested across 10+ devices and browsers for perfect compatibility.' },
-          { question: 'Do I own the website code?', answer: 'Yes! You receive full ownership of all code, designs, and assets. No vendor lock-in. Complete freedom to modify later.' },
-          { question: 'What about hosting and domain?', answer: 'We help you select and set up hosting (AWS, DigitalOcean, or shared hosting based on needs). Domain registration assistance included.' },
-        ],
-        tools: ['React', 'Next.js', 'WordPress', 'Shopify', 'Webflow', 'Tailwind CSS', 'Node.js', 'MongoDB', 'AWS', 'Adobe XD'],
-        industries: ['E-commerce', 'Healthcare', 'Education', 'Real Estate', 'Professional Services', 'Manufacturing', 'Hospitality', 'Finance', 'Technology', 'Non-Profit'],
-        caseStudies: [
-          { client: 'Fashion E-commerce', result: 'Complete Shopify store with 2,500 products', time: '7 weeks', metric: 'Strong sales performance in first 6 months' },
-          { client: 'Healthcare Clinic', result: 'Patient portal + appointment booking', time: '5 weeks', metric: '500+ online bookings monthly' },
-          { client: 'Real Estate Portal', result: 'Property listing platform with 5,000+ listings', time: '12 weeks', metric: 'Successfully facilitating property transactions' },
-        ],
-        testimonials: [
-          { name: 'Rohan Mehta', company: 'Urban Fashion', text: 'Our new e-commerce store is absolutely stunning. Load time is under 2 seconds, conversion rate increased 180%, and we\'re getting compliments from customers daily!', rating: 5 },
-          { name: 'Dr. Anjali Sharma', company: 'HealthCare Plus', text: 'The patient portal they built has transformed our operations. Online appointments increased 400%. The team is professional and supportive!', rating: 5 },
-        ],
+
+        expectations: {
+          title: 'What You Can Expect',
+          subtitle: 'Realistic outcomes from professional development:',
+          outcomes: [
+            'Fast-loading, mobile-friendly website',
+            'Clear, conversion-focused design',
+            'Full ownership of code and assets',
+            '12 months of free support',
+            'Training to manage your site',
+          ],
+        },
+
+        idealFor: {
+          title: 'Who This Works Best For',
+          subtitle: 'Businesses that:',
+          criteria: [
+            'Need a professional online presence',
+            'Want to convert visitors into customers',
+            'Value speed and mobile experience',
+            'Want ongoing support and updates',
+          ],
+        },
+
+        closingMessage: {
+          title: "Let's Build Your Digital Home",
+          message: "A great website isn't just about looking good. It's about working well and growing your business.",
+          tagline: 'We build websites that do both — professionally and reliably.',
+        },
       },
+
+      // SOFTWARE DEVELOPMENT SERVICE
       'software-development': {
         title: 'Software Development Services',
-        description: 'Custom enterprise software, scalable SaaS platforms, CRM systems, API integrations, marketing automation tools — Modern tech stacks (React, Node, Python, AWS) with 99.9% uptime guaranteed.',
-        tagline: 'Enterprise Solutions That Scale. Code Quality That Lasts.',
-        icon: MonitorPlay,
-        features: [
-          'Custom Software Development - Tailored solutions for unique business needs',
-          'SaaS Platform Development - Multi-tenant, Subscription billing, User management',
-          'CRM & ERP Systems - Sales automation, Customer management, Inventory',
-          'API Development & Integration - RESTful APIs, Third-party integrations',
-          'Business Process Automation - Workflow automation, Task management',
-          'Database Design & Optimization - MySQL, PostgreSQL, MongoDB, Redis',
-          'Cloud Infrastructure Setup - AWS, Google Cloud, Azure deployment',
-          'Mobile Backend Development - iOS/Android app backends',
-          'Testing & Quality Assurance - Unit tests, Integration tests, Security audits',
-          'Maintenance & Support - 24/7 monitoring, Updates, Bug fixes',
+        metaDescription: 'Custom software solutions, SaaS platforms, CRM systems & enterprise applications. Built with modern tech, scalable architecture & long-term support.',
+        
+        hero: {
+          headline: 'Build Smart Software That Scales With Your Business',
+          subheadline: 'We create custom software solutions that solve real problems, improve efficiency, and support your growth with clean code, modern technology, and reliable ongoing support.',
+          badges: ['Custom Solutions', 'Scalable Architecture', 'Full Ownership'],
+          description: "If you need software built right the first time with technology that lasts — you're in the right place.",
+        },
+
+        trustBar: [
+          '140+ Software Projects Built',
+          'Modern Tech Stack',
+          'Clean Code You Own',
+          'Ongoing Support & Updates',
+          'Scalability Built-In',
         ],
-        benefits: [
-          'Automate repetitive tasks and save 40+ hours weekly',
-          'Scale your operations without hiring proportionally',
-          'Centralize data and improve decision-making by 60%',
-          'Integrate all tools and eliminate data silos',
-          '99.9% uptime with enterprise-grade infrastructure',
-        ],
-        stats: [
-          { metric: '142', label: 'Products Built', description: 'SaaS, CRM, Custom', icon: Code },
-          { metric: '99.9%', label: 'Uptime Guarantee', description: 'Enterprise SLA', icon: Shield },
-          { metric: '40+hrs', label: 'Time Saved', description: 'Per week typical', icon: Clock },
-          { metric: '7 Years', label: 'Experience', description: 'Building software', icon: DollarSign },
-        ],
-        packages: [
+
+        servicesOverview: {
+          title: 'Complete Software Development Solutions',
+          services: [
+            {
+              icon: Code,
+              title: 'Custom Software',
+              items: ['Business Applications', 'CRM Systems', 'ERP Solutions', 'Workflow Automation', 'Internal Tools'],
+            },
+            {
+              icon: Globe,
+              title: 'SaaS Platforms',
+              items: ['Multi-Tenant Architecture', 'Subscription Management', 'API Development', 'Dashboard & Analytics'],
+            },
+            {
+              icon: Smartphone,
+              title: 'Mobile Apps',
+              items: ['iOS & Android', 'React Native', 'Flutter Development', 'Cross-Platform Solutions'],
+            },
+            {
+              icon: Target,
+              title: 'Web Applications',
+              items: ['Progressive Web Apps', 'Admin Dashboards', 'Customer Portals', 'Real-Time Apps'],
+            },
+            {
+              icon: Zap,
+              title: 'Integrations & APIs',
+              items: ['Third-Party Integration', 'Custom API Development', 'Webhook Systems', 'Data Sync'],
+            },
+            {
+              icon: Shield,
+              title: 'Enterprise Solutions',
+              items: ['Legacy System Migration', 'System Architecture', 'Cloud Infrastructure', 'Security Hardening'],
+            },
+            {
+              icon: BarChart3,
+              title: 'Support & Maintenance',
+              items: ['Bug Fixes', 'Feature Updates', 'Performance Monitoring', 'Technical Support'],
+            },
+          ],
+        },
+
+        whyNeedHelp: {
+          title: 'Why Businesses Need Custom Software',
+          description: 'Off-the-shelf solutions don\'t always fit. You need software that:',
+          points: [
+            'Solves your unique business challenges',
+            'Grows with your business needs',
+            'Integrates with your existing systems',
+            'Gives you full control and ownership',
+          ],
+          conclusion: 'That\'s exactly what custom software development delivers.',
+        },
+
+        approach: {
+          title: 'Our Development Philosophy',
+          dontBelieve: [
+            'Quick hacks and shortcuts',
+            'Outdated technology stacks',
+            'Vendor lock-in proprietary systems',
+          ],
+          believe: [
+            'Clean, maintainable code',
+            'Modern, proven technology',
+            'Full documentation and ownership',
+            'Long-term support and collaboration',
+          ],
+        },
+
+        supportGrowth: {
+          title: 'How We Build Your Software',
+          steps: [
+            { title: 'Discovery', description: 'understand your goals & requirements' },
+            { title: 'Planning', description: 'architecture & tech stack selection' },
+            { title: 'Development', description: 'agile sprints & continuous delivery' },
+            { title: 'Testing', description: 'quality assurance & bug fixes' },
+            { title: 'Launch & Support', description: 'deployment & ongoing maintenance' },
+          ],
+          tagline: 'A transparent, collaborative development process with clear milestones.',
+        },
+
+        individualServices: [
           {
-            name: 'MVP Development',
-            price: '₹3,50,000',
-            features: ['Core features only', 'Web-based platform', 'User authentication', 'Basic dashboard', 'Database setup', '3 months support'],
-            ideal: 'Startups validating ideas',
+            title: 'Custom Business Software',
+            subtitle: 'Solutions tailored to your exact needs.',
+            icon: Code,
+            benefits: [
+              'Process automation',
+              'Custom workflows',
+              'Business logic implementation',
+              'User role management',
+            ],
           },
           {
-            name: 'Full Product',
-            price: '₹12,50,000',
-            features: ['Complete feature set', 'Web + Mobile apps', 'Advanced features', 'Third-party integrations', 'Scalable architecture', 'Security audit', '12 months support'],
-            ideal: 'Growing businesses',
-            popular: true,
+            title: 'SaaS Platform Development',
+            subtitle: 'Build scalable subscription-based products.',
+            icon: Globe,
+            benefits: [
+              'Multi-tenant architecture',
+              'Subscription billing',
+              'User management',
+              'API & webhook support',
+            ],
           },
           {
-            name: 'Enterprise Solution',
-            price: 'Custom Pricing',
-            features: ['Custom architecture', 'Unlimited features', 'Multi-platform', 'Advanced security', 'Dedicated team', 'White-label options', '24/7 support', 'SLA guarantee'],
-            ideal: 'Large enterprises',
+            title: 'CRM & ERP Systems',
+            subtitle: 'Manage customers, operations, and data.',
+            icon: Target,
+            benefits: [
+              'Customer relationship management',
+              'Sales pipeline tracking',
+              'Inventory management',
+              'Reporting & analytics',
+            ],
+          },
+          {
+            title: 'API Development',
+            subtitle: 'Connect systems and enable integrations.',
+            icon: Zap,
+            benefits: [
+              'RESTful & GraphQL APIs',
+              'API documentation',
+              'Authentication & security',
+              'Rate limiting & monitoring',
+            ],
+          },
+          {
+            title: 'Mobile App Development',
+            subtitle: 'Native and cross-platform mobile solutions.',
+            icon: Smartphone,
+            benefits: [
+              'iOS & Android apps',
+              'React Native / Flutter',
+              'Push notifications',
+              'Offline functionality',
+            ],
+          },
+          {
+            title: 'Progressive Web Apps',
+            subtitle: 'Web apps that work like native apps.',
+            icon: Globe,
+            benefits: [
+              'Offline capability',
+              'Push notifications',
+              'App-like experience',
+              'Cross-platform compatibility',
+            ],
+          },
+          {
+            title: 'Cloud Infrastructure',
+            subtitle: 'Scalable, secure cloud deployment.',
+            icon: Shield,
+            benefits: [
+              'AWS / Azure / Google Cloud',
+              'Auto-scaling',
+              'Load balancing',
+              'Disaster recovery',
+            ],
+          },
+          {
+            title: 'Database Design',
+            subtitle: 'Efficient data architecture.',
+            icon: BarChart3,
+            benefits: [
+              'Schema design',
+              'Query optimization',
+              'Data migration',
+              'Backup strategies',
+            ],
+          },
+          {
+            title: 'Third-Party Integrations',
+            subtitle: 'Connect with existing tools and services.',
+            icon: Zap,
+            benefits: [
+              'Payment gateways',
+              'Email services',
+              'Analytics tools',
+              'CRM integrations',
+            ],
+          },
+          {
+            title: 'Legacy System Migration',
+            subtitle: 'Modernize outdated software.',
+            icon: Code,
+            benefits: [
+              'Technology stack upgrade',
+              'Data migration',
+              'Feature preservation',
+              'Minimal downtime',
+            ],
+          },
+          {
+            title: 'Automation & Workflows',
+            subtitle: 'Reduce manual work with automation.',
+            icon: Zap,
+            benefits: [
+              'Process automation',
+              'Scheduled tasks',
+              'Email automation',
+              'Data synchronization',
+            ],
+          },
+          {
+            title: 'Security & Compliance',
+            subtitle: 'Protect data and meet regulations.',
+            icon: Shield,
+            benefits: [
+              'Security audits',
+              'GDPR compliance',
+              'Encryption',
+              'Access control',
+            ],
+          },
+          {
+            title: 'Performance Optimization',
+            subtitle: 'Fast, efficient software.',
+            icon: TrendingUp,
+            benefits: [
+              'Code optimization',
+              'Database tuning',
+              'Caching strategies',
+              'Load time reduction',
+            ],
+          },
+          {
+            title: 'Ongoing Support & Maintenance',
+            subtitle: 'Keep your software running smoothly.',
+            icon: Award,
+            benefits: [
+              'Bug fixes',
+              'Feature updates',
+              'Performance monitoring',
+              'Technical support',
+            ],
           },
         ],
-        process: [
-          { step: '01', title: 'Requirements Analysis', description: 'Deep dive into business processes, pain points, user needs, technical requirements, and integration needs.' },
-          { step: '02', title: 'Architecture & Design', description: 'Design system architecture, database schema, API structure, UI/UX flows, and technology stack selection.' },
-          { step: '03', title: 'Agile Development', description: 'Build in 2-week sprints with regular demos, continuous integration, automated testing, code reviews.' },
-          { step: '04', title: 'Testing & QA', description: 'Comprehensive testing including unit tests, integration tests, load testing, security audits, UAT.' },
-          { step: '05', title: 'Deployment & Monitoring', description: 'Production deployment, infrastructure setup, monitoring dashboards, documentation, team training.' },
-        ],
-        whyChooseUs: [
-          { icon: Code, title: 'Expert Developers', description: '15+ senior developers with 8+ years experience each. Modern tech stacks and best practices.' },
-          { icon: Shield, title: '99.9% Uptime SLA', description: 'Enterprise-grade infrastructure with automatic scaling, backups, and disaster recovery.' },
-          { icon: Zap, title: 'Agile Methodology', description: 'Bi-weekly sprints, regular demos, continuous feedback, faster time to market.' },
-          { icon: Users, title: 'Dedicated Team', description: 'Project manager, architects, developers, QA specialists assigned to your project.' },
-        ],
-        faqs: [
-          { question: 'How long does custom software take?', answer: 'MVP: 3-4 months. Full Product: 6-9 months. Enterprise Solution: 10-18 months. We use agile sprints to deliver working features every 2 weeks.' },
-          { question: 'What tech stack do you use?', answer: 'Front-end: React, Next.js, Vue. Back-end: Node.js, Python, PHP. Database: PostgreSQL, MongoDB. Cloud: AWS, Google Cloud. We choose based on your needs.' },
-          { question: 'Can you integrate with existing systems?', answer: 'Yes! We specialize in API integrations with CRMs (Salesforce, HubSpot), ERPs, payment gateways, marketing tools, and custom legacy systems.' },
-          { question: 'What about ongoing maintenance?', answer: 'All projects include support periods. We offer ongoing maintenance plans with 24/7 monitoring, updates, bug fixes, and feature additions.' },
-        ],
-        tools: ['React', 'Node.js', 'Python', 'PostgreSQL', 'MongoDB', 'Redis', 'AWS', 'Docker', 'Kubernetes', 'Git', 'Jest', 'TypeScript'],
-        industries: ['Technology', 'Healthcare', 'Finance', 'E-commerce', 'Manufacturing', 'Education', 'Logistics', 'Real Estate', 'Professional Services', 'Government'],
-        caseStudies: [
-          { client: 'Logistics SaaS', result: 'Complete fleet management platform', time: '8 months', metric: '5,000+ vehicles tracked successfully' },
-          { client: 'Healthcare CRM', result: 'Patient management system for 50+ clinics', time: '10 months', metric: '100K+ patient records, 60% time savings' },
-          { client: 'E-commerce Backend', result: 'Custom multi-vendor marketplace backend', time: '6 months', metric: 'High GMV performance in first year' },
-        ],
-        testimonials: [
-          { name: 'Arjun Reddy', company: 'LogiTech Solutions', text: 'The SaaS platform they built has become our primary revenue source. Clean code, scalable architecture, and their team is brilliant. Worth every rupee!', rating: 5 },
-          { name: 'Dr. Kavita Nair', company: 'MedChain Clinics', text: 'Our custom CRM has transformed how we manage patients across 50 clinics. Integration with everything was seamless. Best tech investment we made!', rating: 5 },
-        ],
+
+        expectations: {
+          title: 'What You Can Expect',
+          subtitle: 'Realistic outcomes from professional software development:',
+          outcomes: [
+            'Software that actually solves your problems',
+            'Clean code you fully own',
+            'Scalable architecture for future growth',
+            'Ongoing support and updates',
+            'Clear communication throughout',
+          ],
+        },
+
+        idealFor: {
+          title: 'Who This Works Best For',
+          subtitle: 'Businesses that:',
+          criteria: [
+            'Need custom solutions, not one-size-fits-all',
+            'Want software they can scale and control',
+            'Value quality code and modern technology',
+            'Need a long-term development partner',
+          ],
+        },
+
+        closingMessage: {
+          title: "Let's Build Software That Works",
+          message: "Great software isn't about complexity. It's about solving problems efficiently and reliably.",
+          tagline: 'We build software that does exactly that — with clarity and confidence.',
+        },
       },
+
+      // GRAPHIC DESIGN & CREATIVE SERVICE
       'graphic-design': {
         title: 'Graphic Design & Creative Services',
-        description: 'Visual storytelling that captivates: Social media graphics, marketing collateral, packaging design, infographics, motion graphics, animation — Professional designs that drive engagement and conversions.',
-        tagline: 'Design That Captivates. Creativity That Converts.',
-        icon: Palette,
-        features: [
-          'Social Media Graphics - Instagram, Facebook, LinkedIn posts, Stories, Reels',
-          'Marketing Collateral - Brochures, Flyers, Posters, Banners, Catalogs',
-          'Packaging Design - Product packaging, Labels, Box design, Bottle design',
-          'Infographics - Data visualization, Process flows, Educational graphics',
-          'Presentation Design - Pitch decks, Sales presentations, Corporate PPTs',
-          'Print Design - Business cards, Letterheads, Magazines, Annual reports',
-          'Motion Graphics - Animated logos, Explainer animations, GIFs',
-          'Illustration - Custom illustrations, Character design, Icon sets',
-          'Email Templates - Responsive email designs, Newsletter templates',
-          'Digital Ads - Display ads, Banner ads, Social media ads',
+        metaDescription: 'Professional graphic design for social media, marketing materials, packaging, branding & more. Creative that stands out and communicates clearly.',
+        
+        hero: {
+          headline: 'Create Visual Content That Captures Attention & Communicates Clearly',
+          subheadline: 'We design graphics, animations, and visual content that help your brand look professional, stand out in feeds, and connect with your audience effectively.',
+          badges: ['Professional Designs', 'Fast Turnaround', 'Unlimited Revisions'],
+          description: "If you need design work that looks great and actually works for your business — you're in the right place.",
+        },
+
+        trustBar: [
+          '12,000+ Designs Created',
+          'Professional Design Team',
+          'All File Formats Provided',
+          'Brand Consistency Maintained',
+          'Quick Revisions',
         ],
-        benefits: [
-          'Increase engagement 2-3X with scroll-stopping visuals',
-          'Build brand consistency across all touchpoints',
-          'Communicate complex ideas through infographics',
-          'Save 30+ hours monthly with on-demand design support',
-          'Access unlimited revisions until perfect',
-        ],
-        stats: [
-          { metric: '12K+', label: 'Designs Created', description: 'Since 2018', icon: Palette },
-          { metric: '7 Years', label: 'Experience', description: 'Design expertise', icon: TrendingUp },
-          { metric: '24hrs', label: 'Turnaround Time', description: 'For urgent requests', icon: Clock },
-          { metric: '96+', label: 'Clients Served', description: 'Growing businesses', icon: Users },
-        ],
-        packages: [
+
+        servicesOverview: {
+          title: 'Complete Graphic Design Solutions',
+          services: [
+            {
+              icon: Palette,
+              title: 'Social Media Graphics',
+              items: ['Posts & Carousels', 'Stories & Reels', 'Cover Images', 'Ad Creatives', 'Templates'],
+            },
+            {
+              icon: Award,
+              title: 'Brand Identity',
+              items: ['Logo Design', 'Business Cards', 'Letterheads', 'Brand Guidelines', 'Stationery'],
+            },
+            {
+              icon: Globe,
+              title: 'Marketing Materials',
+              items: ['Brochures', 'Flyers', 'Posters', 'Banners', 'Presentations'],
+            },
+            {
+              icon: Video,
+              title: 'Motion Graphics',
+              items: ['Animated Videos', 'Logo Animation', 'Social Animations', 'Explainer Videos'],
+            },
+            {
+              icon: Target,
+              title: 'Packaging Design',
+              items: ['Product Packaging', 'Label Design', 'Box Design', '3D Mockups'],
+            },
+            {
+              icon: Users,
+              title: 'Digital Assets',
+              items: ['Infographics', 'Ebook Covers', 'Email Templates', 'Web Graphics'],
+            },
+            {
+              icon: MessageSquare,
+              title: 'Print Design',
+              items: ['Magazine Ads', 'Newspaper Ads', 'Billboards', 'Trade Show Materials'],
+            },
+          ],
+        },
+
+        whyNeedHelp: {
+          title: 'Why Professional Design Matters',
+          description: 'Your visuals are often the first impression. You need design that:',
+          points: [
+            'Stops the scroll and grabs attention',
+            'Communicates your message clearly',
+            'Maintains brand consistency',
+            'Looks professional across all platforms',
+          ],
+          conclusion: 'Good design isn\'t just about aesthetics — it\'s about effectiveness.',
+        },
+
+        approach: {
+          title: 'Our Design Process',
+          dontBelieve: [
+            'Generic templates and stock graphics',
+            'One design fits all',
+            'No revisions or feedback loops',
+          ],
+          believe: [
+            'Custom design for each project',
+            'Understanding your brand and audience',
+            'Unlimited revisions until you\'re happy',
+            'Fast turnaround without compromising quality',
+          ],
+        },
+
+        supportGrowth: {
+          title: 'How We Create Your Designs',
+          steps: [
+            { title: 'Brief', description: 'understand your requirements & style' },
+            { title: 'Concept', description: 'initial design concepts' },
+            { title: 'Refinement', description: 'revisions & improvements' },
+            { title: 'Finalization', description: 'final polishing & approval' },
+            { title: 'Delivery', description: 'all formats & source files' },
+          ],
+          tagline: 'A smooth, collaborative design process with unlimited revisions.',
+        },
+
+        individualServices: [
           {
-            name: 'Design On-Demand',
-            price: '₹18,000/month',
-            features: ['10 designs per month', 'Social media graphics', 'Basic revisions', '48-hour turnaround', 'Stock images included', 'Source files'],
-            ideal: 'Solopreneurs',
+            title: 'Social Media Graphics',
+            subtitle: 'Stand out in crowded feeds.',
+            icon: Users,
+            benefits: [
+              'Platform-optimized sizes',
+              'On-brand visuals',
+              'High engagement potential',
+              'Fast turnaround',
+            ],
           },
           {
-            name: 'Business Graphics',
-            price: '₹45,000/month',
-            features: ['30 designs per month', 'All design types', 'Unlimited revisions', '24-hour turnaround', 'Premium stock access', 'Dedicated designer', 'Priority support'],
-            ideal: 'Growing businesses',
-            popular: true,
+            title: 'Logo Design',
+            subtitle: 'Your brand\'s visual cornerstone.',
+            icon: Award,
+            benefits: [
+              'Multiple concepts',
+              'Unlimited revisions',
+              'Vector source files',
+              'All format variations',
+            ],
           },
           {
-            name: 'Enterprise Creative',
-            price: 'Custom Pricing',
-            features: ['Unlimited designs', 'Dedicated design team', 'Same-day turnaround', 'Brand guideline adherence', 'Video editing included', 'White-label service', '24/7 support'],
-            ideal: 'Agencies & large teams',
+            title: 'Marketing Collateral',
+            subtitle: 'Professional printed materials.',
+            icon: Globe,
+            benefits: [
+              'Brochures & flyers',
+              'Posters & banners',
+              'Print-ready files',
+              'High-resolution output',
+            ],
+          },
+          {
+            title: 'Packaging Design',
+            subtitle: 'Make your product shelf-ready.',
+            icon: Target,
+            benefits: [
+              'Eye-catching designs',
+              'Print specifications',
+              '3D mockups',
+              'Label design',
+            ],
+          },
+          {
+            title: 'Motion Graphics',
+            subtitle: 'Bring your brand to life.',
+            icon: Video,
+            benefits: [
+              'Animated logos',
+              'Social media animations',
+              'Explainer videos',
+              'Ad animations',
+            ],
+          },
+          {
+            title: 'Infographics',
+            subtitle: 'Visualize data and complex ideas.',
+            icon: BarChart3,
+            benefits: [
+              'Data visualization',
+              'Information hierarchy',
+              'Shareable formats',
+              'Print & digital versions',
+            ],
+          },
+          {
+            title: 'Presentation Design',
+            subtitle: 'Professional pitch decks and slides.',
+            icon: Globe,
+            benefits: [
+              'Custom templates',
+              'Data visualization',
+              'Brand consistency',
+              'Editable source files',
+            ],
+          },
+          {
+            title: 'Email Templates',
+            subtitle: 'Branded email communications.',
+            icon: Mail,
+            benefits: [
+              'Responsive design',
+              'Email client compatibility',
+              'Brand guidelines',
+              'Easy editing',
+            ],
+          },
+          {
+            title: 'Business Stationery',
+            subtitle: 'Professional brand materials.',
+            icon: Award,
+            benefits: [
+              'Business cards',
+              'Letterheads',
+              'Envelopes',
+              'Print specifications',
+            ],
+          },
+          {
+            title: 'Billboard & OOH Design',
+            subtitle: 'Large-format outdoor advertising.',
+            icon: Megaphone,
+            benefits: [
+              'High-impact visuals',
+              'Readability from distance',
+              'Print specifications',
+              'Multiple size adaptations',
+            ],
+          },
+          {
+            title: 'Product Photography Editing',
+            subtitle: 'Perfect your product images.',
+            icon: Camera,
+            benefits: [
+              'Background removal',
+              'Color correction',
+              'Retouching',
+              'Shadow creation',
+            ],
+          },
+          {
+            title: 'Ebook & Report Design',
+            subtitle: 'Professional document layout.',
+            icon: FileText,
+            benefits: [
+              'Cover design',
+              'Interior layout',
+              'Typography',
+              'Print & digital versions',
+            ],
+          },
+          {
+            title: 'Icon & Illustration',
+            subtitle: 'Custom graphics for any need.',
+            icon: PenTool,
+            benefits: [
+              'Custom icons',
+              'Illustrations',
+              'Vector graphics',
+              'Brand alignment',
+            ],
+          },
+          {
+            title: 'Brand Asset Library',
+            subtitle: 'Organized design resources.',
+            icon: Award,
+            benefits: [
+              'Template library',
+              'Asset organization',
+              'Brand guidelines',
+              'Easy team access',
+            ],
           },
         ],
-        process: [
-          { step: '01', title: 'Design Brief', description: 'Submit your request via dashboard with details, references, dimensions, and deadline.' },
-          { step: '02', title: 'Concept Creation', description: 'Our designers create initial concepts based on your brand guidelines and brief.' },
-          { step: '03', title: 'Review & Feedback', description: 'Review designs, provide feedback, request changes. Unlimited revisions included.' },
-          { step: '04', title: 'Finalization', description: 'Approve final design. Receive all formats (PNG, JPG, PDF, source files).' },
-          { step: '05', title: 'Ongoing Support', description: 'Need tweaks? We\'re here. Monthly retainer includes unlimited minor adjustments.' },
-        ],
-        whyChooseUs: [
-          { icon: Palette, title: 'Creative Excellence', description: '15K+ designs created with 98% client approval rate. Award-winning creative team.' },
-          { icon: Clock, title: '24-Hour Turnaround', description: 'Fast delivery without compromising quality. Same-day for urgent requests.' },
-          { icon: Award, title: 'Unlimited Revisions', description: 'We refine until you\'re 100% satisfied. No revision limits on monthly plans.' },
-          { icon: Users, title: 'Dedicated Designers', description: 'Assigned designer learns your brand, ensures consistency across all projects.' },
-        ],
-        faqs: [
-          { question: 'How do I submit design requests?', answer: 'Via our client dashboard — upload brief, references, brand guidelines. We start within 4 hours during business days.' },
-          { question: 'What file formats do I receive?', answer: 'All formats: PNG (transparent), JPG, PDF (print-ready), Source files (PSD/AI). Custom formats on request.' },
-          { question: 'Can you match my brand style?', answer: 'Absolutely! Upload brand guidelines once. All designs follow your colors, fonts, style, and tone automatically.' },
-          { question: 'What if I need video editing?', answer: 'Video editing included in Enterprise plan. Available as add-on for other plans at ₹5,000/video.' },
-        ],
-        tools: ['Adobe Illustrator', 'Adobe Photoshop', 'Canva Pro', 'Adobe After Effects', 'Adobe InDesign', 'Procreate', 'CorelDRAW'],
-        industries: ['E-commerce', 'Technology', 'Real Estate', 'Healthcare', 'Education', 'Finance', 'Fashion', 'Food & Beverage', 'Hospitality', 'Automotive'],
-        caseStudies: [
-          { client: 'E-commerce Brand', result: '500+ product images & social graphics', time: '12 months', metric: '3X increase in social engagement' },
-          { client: 'Tech Startup', result: 'Complete pitch deck + marketing collateral', time: '3 weeks', metric: 'Successfully secured Series A funding' },
-          { client: 'Restaurant Chain', result: 'Menu design + packaging for 15 locations', time: '6 weeks', metric: '2X increase in takeaway orders' },
-        ],
-        testimonials: [
-          { name: 'Neha Gupta', company: 'Fashion Forward', text: 'Their design team is incredible! We get 30+ stunning graphics monthly. Our social media engagement tripled. Best design partner ever!', rating: 5 },
-          { name: 'Karan Shah', company: 'TechVentures', text: 'The pitch deck they designed helped us secure Series A funding. Investors specifically complimented the visual storytelling. Money well spent!', rating: 5 },
-        ],
+
+        expectations: {
+          title: 'What You Can Expect',
+          subtitle: 'Real outcomes from professional design:',
+          outcomes: [
+            'Designs that grab attention and communicate clearly',
+            'Consistent brand representation across all materials',
+            'Fast turnaround with unlimited revisions',
+            'All source files and formats you need',
+            'Designs that work across print and digital',
+          ],
+        },
+
+        idealFor: {
+          title: 'Who This Works Best For',
+          subtitle: 'Businesses that:',
+          criteria: [
+            'Need consistent, professional design work',
+            'Want to stand out in crowded markets',
+            'Value both aesthetics and effectiveness',
+            'Need a reliable design partner',
+          ],
+        },
+
+        closingMessage: {
+          title: "Let's Create Something Great",
+          message: "Good design isn't just about making things pretty. It's about making things work better for your business.",
+          tagline: 'We create designs that do both — beautifully and effectively.',
+        },
       },
+
+      // MEDIA PRODUCTION SERVICE
       'media-production': {
         title: 'Media Production Services',
-        description: 'Cinematic video production, commercial photography, drone aerials, event coverage, YouTube content, post-production editing — Broadcast-quality content that sells and inspires.',
-        tagline: 'Cinematic Quality. Broadcast Production. Content That Sells.',
-        icon: Camera,
-        features: [
-          'Video Production - Corporate videos, Commercials, Product videos, Testimonials',
-          'Commercial Photography - Product photography, Corporate headshots, Food photography',
-          'Drone Cinematography - Aerial shots, Property videos, Event coverage',
-          'Event Coverage - Conferences, Weddings, Corporate events, Live streaming',
-          'YouTube Content - Channel setup, Video production, Editing, Thumbnails',
-          'Social Media Content - Reels, Stories, TikTok videos, Behind-the-scenes',
-          'Animation & Motion Graphics - 2D/3D animation, Explainer videos, Logo animation',
-          'Post-Production - Color grading, Sound design, VFX, Subtitle creation',
-          'Documentary Filmmaking - Brand documentaries, Case study films',
-          'Live Streaming - Multi-camera setup, Professional streaming for events',
+        metaDescription: 'Professional video production, commercial photography, drone cinematography & post-production. Cinematic quality for brands and businesses.',
+        
+        hero: {
+          headline: 'Create Compelling Visual Stories That Connect & Convert',
+          subheadline: 'We produce professional videos, photography, and visual content that help your brand tell its story, build trust, and engage your audience across all platforms.',
+          badges: ['Cinematic Quality', 'Full Production', 'Fast Delivery'],
+          description: "If you need visual content that looks professional and delivers results — you're in the right place.",
+        },
+
+        trustBar: [
+          '195+ Production Projects',
+          'Professional Equipment',
+          'Complete Post-Production',
+          'Commercial & Product Expertise',
+          'Drone Cinematography',
         ],
-        benefits: [
-          'Increase engagement 3-5X with video content',
-          'Boost conversions 2X with product videos',
-          'Build trust with authentic testimonial videos',
-          'Professional quality without in-house team costs',
-          'Get broadcast-quality content that works everywhere',
-        ],
-        stats: [
-          { metric: '198', label: 'Projects Completed', description: 'Since 2019', icon: Camera },
-          { metric: '7 Years', label: 'Experience', description: 'Video production', icon: Play },
-          { metric: '4K/6K', label: 'Production Quality', description: 'Cinema cameras', icon: Video },
-          { metric: '3-5X', label: 'Engagement Lift', description: 'vs. static content', icon: TrendingUp },
-        ],
-        packages: [
+
+        servicesOverview: {
+          title: 'Complete Media Production Solutions',
+          services: [
+            {
+              icon: Video,
+              title: 'Video Production',
+              items: ['Brand Videos', 'Product Videos', 'Corporate Films', 'Testimonials', 'Explainer Videos'],
+            },
+            {
+              icon: Camera,
+              title: 'Commercial Photography',
+              items: ['Product Photography', 'Corporate Headshots', 'Event Coverage', 'Food Photography'],
+            },
+            {
+              icon: Play,
+              title: 'Social Media Content',
+              items: ['Reels & Shorts', 'Stories', 'Behind-the-Scenes', 'User-Generated Style'],
+            },
+            {
+              icon: Target,
+              title: 'Drone Cinematography',
+              items: ['Aerial Videos', 'Real Estate Tours', 'Event Coverage', 'Cinematic B-Roll'],
+            },
+            {
+              icon: Users,
+              title: 'Event Coverage',
+              items: ['Corporate Events', 'Product Launches', 'Conferences', 'Live Streaming'],
+            },
+            {
+              icon: Video,
+              title: 'Post-Production',
+              items: ['Video Editing', 'Color Grading', 'Motion Graphics', 'Sound Design'],
+            },
+            {
+              icon: Globe,
+              title: 'Animation & VFX',
+              items: ['2D/3D Animation', 'Visual Effects', 'Title Sequences', 'Logo Animation'],
+            },
+          ],
+        },
+
+        whyNeedHelp: {
+          title: 'Why Professional Media Production Matters',
+          description: 'Visual content is the most engaging format. You need production that:',
+          points: [
+            'Captures attention in the first 3 seconds',
+            'Tells your story clearly and emotionally',
+            'Looks professional and builds credibility',
+            'Works across all platforms and devices',
+          ],
+          conclusion: 'Professional production makes the difference between scrolling past and stopping to watch.',
+        },
+
+        approach: {
+          title: 'Our Production Process',
+          dontBelieve: [
+            'Amateur-looking smartphone videos',
+            'No planning or creative direction',
+            'Poor sound and lighting',
+          ],
+          believe: [
+            'Professional equipment and crew',
+            'Pre-production planning and storyboarding',
+            'Cinematic lighting and sound',
+            'Complete post-production polish',
+          ],
+        },
+
+        supportGrowth: {
+          title: 'How We Produce Your Content',
+          steps: [
+            { title: 'Concept', description: 'creative direction & planning' },
+            { title: 'Pre-Production', description: 'storyboarding & logistics' },
+            { title: 'Production', description: 'filming & photography' },
+            { title: 'Post-Production', description: 'editing, color, sound' },
+            { title: 'Delivery', description: 'final files & formats' },
+          ],
+          tagline: 'A professional production process from concept to final delivery.',
+        },
+
+        individualServices: [
           {
-            name: 'Video Essentials',
-            price: '₹50,000/video',
-            features: ['1-2 minute video', 'Single location shoot', 'Basic editing', 'Color grading', 'Background music', '2 revision rounds', 'HD 1080p delivery'],
-            ideal: 'Small businesses',
+            title: 'Brand & Corporate Videos',
+            subtitle: 'Tell your brand story professionally.',
+            icon: Video,
+            benefits: [
+              'Professional storytelling',
+              'Cinematic quality',
+              'Multiple platform formats',
+              'Full script & direction',
+            ],
           },
           {
-            name: 'Premium Production',
-            price: '₹1,50,000/video',
-            features: ['3-5 minute video', 'Multiple locations', 'Professional actors/models', 'Drone shots included', 'Advanced editing + VFX', 'Custom music/voiceover', 'Unlimited revisions', '4K delivery'],
-            ideal: 'Brands & corporates',
-            popular: true,
+            title: 'Product Videos',
+            subtitle: 'Showcase products in action.',
+            icon: Target,
+            benefits: [
+              'Feature demonstrations',
+              'Lifestyle context',
+              'E-commerce ready',
+              'Multiple angles & shots',
+            ],
           },
           {
-            name: 'Enterprise Campaign',
-            price: 'Custom Pricing',
-            features: ['Multiple videos', 'Full production crew', 'Cinema-grade equipment', 'Multiple shoot days', 'Full post-production', 'Social media cuts', 'Ad placements', 'Campaign strategy'],
-            ideal: 'Large campaigns',
+            title: 'Social Media Reels & Shorts',
+            subtitle: 'Quick, engaging vertical content.',
+            icon: Smartphone,
+            benefits: [
+              'Vertical format optimization',
+              'Hook within 3 seconds',
+              'Platform-specific editing',
+              'Trend-aware production',
+            ],
+          },
+          {
+            title: 'Testimonial & Interview Videos',
+            subtitle: 'Build trust with real stories.',
+            icon: Users,
+            benefits: [
+              'Professional interviewing',
+              'Clear sound quality',
+              'Natural lighting',
+              'Authentic storytelling',
+            ],
+          },
+          {
+            title: 'Explainer & Tutorial Videos',
+            subtitle: 'Educate and inform your audience.',
+            icon: Lightbulb,
+            benefits: [
+              'Clear step-by-step visuals',
+              'Voiceover or subtitles',
+              'Screen recordings',
+              'Animation integration',
+            ],
+          },
+          {
+            title: 'Drone Cinematography',
+            subtitle: 'Stunning aerial perspectives.',
+            icon: Play,
+            benefits: [
+              'Licensed drone operators',
+              '4K aerial footage',
+              'Real estate showcases',
+              'Cinematic establishing shots',
+            ],
+          },
+          {
+            title: 'Event Coverage',
+            subtitle: 'Capture your important moments.',
+            icon: Camera,
+            benefits: [
+              'Multi-camera setup',
+              'Live streaming options',
+              'Highlight reels',
+              'Full event documentation',
+            ],
+          },
+          {
+            title: 'Commercial Photography',
+            subtitle: 'Professional images that sell.',
+            icon: Camera,
+            benefits: [
+              'Product photography',
+              'Lifestyle shots',
+              'Studio & on-location',
+              'High-resolution delivery',
+            ],
+          },
+          {
+            title: 'Food & Beverage Photography',
+            subtitle: 'Make your food look irresistible.',
+            icon: Target,
+            benefits: [
+              'Styled food photography',
+              'Menu photography',
+              'Flat lay & close-ups',
+              'Social media ready',
+            ],
+          },
+          {
+            title: 'Corporate Headshots',
+            subtitle: 'Professional team photography.',
+            icon: Users,
+            benefits: [
+              'Consistent style',
+              'Professional retouching',
+              'Multiple backgrounds',
+              'Fast turnaround',
+            ],
+          },
+          {
+            title: 'Video Editing & Post-Production',
+            subtitle: 'Polish your existing footage.',
+            icon: Video,
+            benefits: [
+              'Professional editing',
+              'Color grading',
+              'Sound design',
+              'Motion graphics',
+            ],
+          },
+          {
+            title: 'Animation & Motion Graphics',
+            subtitle: 'Bring concepts to life.',
+            icon: Video,
+            benefits: [
+              '2D/3D animation',
+              'Logo animations',
+              'Explainer animations',
+              'Title sequences',
+            ],
+          },
+          {
+            title: 'Live Streaming',
+            subtitle: 'Broadcast events in real-time.',
+            icon: Play,
+            benefits: [
+              'Multi-platform streaming',
+              'Professional setup',
+              'Chat moderation',
+              'Recording provided',
+            ],
+          },
+          {
+            title: 'Content Packages',
+            subtitle: 'Ongoing content creation.',
+            icon: Award,
+            benefits: [
+              'Monthly content shoots',
+              'Consistent quality',
+              'Multiple formats',
+              'Social media optimized',
+            ],
           },
         ],
-        process: [
-          { step: '01', title: 'Pre-Production Planning', description: 'Scriptwriting, storyboarding, shot list, location scouting, talent casting, shoot schedule.' },
-          { step: '02', title: 'Production Day(s)', description: 'Professional shoot with cinema cameras, lighting, audio. Directed by experienced cinematographers.' },
-          { step: '03', title: 'Post-Production', description: 'Video editing, color grading, sound design, motion graphics, VFX, subtitle creation.' },
-          { step: '04', title: 'Review & Revisions', description: 'Review draft, provide feedback, request changes. We refine until you\'re 100% satisfied.' },
-          { step: '05', title: 'Final Delivery', description: 'Receive all formats (YouTube, Instagram, TV, Cinema). Multiple aspect ratios included.' },
-        ],
-        whyChooseUs: [
-          { icon: Camera, title: 'Cinema-Grade Equipment', description: '4K/6K cameras, professional lighting, cinema lenses, drone cinematography.' },
-          { icon: Users, title: 'Experienced Crew', description: '10+ years combined experience. Worked with brands like Tata, Mahindra, Airtel.' },
-          { icon: Play, title: 'High-Performance Content', description: 'Our videos consistently achieve strong view counts and engagement across YouTube, social media, TV.' },
-          { icon: Award, title: 'Award-Winning Work', description: 'Multiple awards for cinematography, editing, and commercial production.' },
-        ],
-        faqs: [
-          { question: 'How long does video production take?', answer: 'Simple video: 2-3 weeks. Premium production: 4-6 weeks. Large campaigns: 8-12 weeks. Timeline includes pre-production, shoot, and editing.' },
-          { question: 'Do you provide actors/models?', answer: 'Yes! We handle casting and coordination with professional actors, models, or influencers based on your needs and budget.' },
-          { question: 'Can you shoot at our location?', answer: 'Absolutely! We shoot anywhere in India. Our team brings all equipment. Location scouting assistance included.' },
-          { question: 'What about music and voiceover?', answer: 'We provide licensed royalty-free music or can commission custom music. Professional voiceover artists in 10+ languages available.' },
-        ],
-        tools: ['RED Cinema Cameras', 'Sony A7SIII', 'DJI Drones', 'Adobe Premiere Pro', 'DaVinci Resolve', 'After Effects', 'Final Cut Pro', 'Cinema 4D'],
-        industries: ['E-commerce', 'Real Estate', 'Healthcare', 'Education', 'Technology', 'Hospitality', 'Fashion', 'Food & Beverage', 'Automotive', 'Finance'],
-        caseStudies: [
-          { client: 'Real Estate Developer', result: 'Property video tour with drone shots', time: '3 weeks', metric: 'Significant boost in property inquiries and sales' },
-          { client: 'E-commerce Brand', result: '50 product videos for Amazon/Flipkart', time: '8 weeks', metric: '2X increase in conversion rate' },
-          { client: 'Tech Company', result: 'Brand documentary + testimonial series', time: '6 weeks', metric: 'Strong views performance, 2X brand awareness' },
-        ],
-        testimonials: [
-          { name: 'Rajesh Kumar', company: 'Skyline Properties', text: 'The property videos with drone shots are phenomenal! Our sales team closes deals 60% faster now. Best investment in marketing content!', rating: 5 },
-          { name: 'Priya Nair', company: 'FashionHub', text: 'They produced 50 product videos for our e-commerce store. Our conversion rate doubled. Absolutely worth it!', rating: 5 },
-        ],
+
+        expectations: {
+          title: 'What You Can Expect',
+          subtitle: 'Real outcomes from professional production:',
+          outcomes: [
+            'Cinematic quality that builds credibility',
+            'Content optimized for each platform',
+            'Fast turnaround with professional results',
+            'All source files and multiple formats',
+            'Content that actually engages and converts',
+          ],
+        },
+
+        idealFor: {
+          title: 'Who This Works Best For',
+          subtitle: 'Businesses that:',
+          criteria: [
+            'Want professional visual content',
+            'Need consistent brand storytelling',
+            'Value quality and attention to detail',
+            'Want content that actually performs',
+          ],
+        },
+
+        closingMessage: {
+          title: "Let's Create Visual Stories",
+          message: "Great video isn't just about cameras and equipment. It's about telling stories that resonate and drive action.",
+          tagline: 'We create visual content that does both — professionally and effectively.',
+        },
       },
+
+      // PUBLIC RELATIONS SERVICE
       'public-relations': {
-        title: 'Public Relations & PR Services',
-        description: 'Strategic PR campaigns, media placements (Times, ET, CNBC, etc.), crisis management, thought leadership, press release distribution — Building reputation through earned media coverage.',
-        tagline: 'Build Reputation. Secure Coverage. Control Your Narrative.',
-        icon: MessageSquare,
-        features: [
-          'PR Strategy & Planning - Media strategy, Messaging framework, Campaign planning',
-          'Media Relations - Journalist outreach, Press kit creation, Media database',
-          'Press Release Writing - Professional writing, Distribution to 500+ outlets',
-          'Media Placements - Secure coverage in top publications (Times, ET, HT, etc.)',
-          'Crisis Management - Reputation protection, Damage control, Response strategy',
-          'Thought Leadership - LinkedIn articles, Guest posts, Op-eds, Speaking opportunities',
-          'Brand Storytelling - Company stories, Founder profiles, Success narratives',
-          'Event PR - Launch events, Press conferences, Media coverage',
-          'Influencer Relations - Media influencer partnerships, Collaborations',
-          'Monitoring & Reporting - Media monitoring, Coverage reports, Sentiment analysis',
+        title: 'Public Relations Services',
+        metaDescription: 'Strategic PR, media relations, press releases, crisis management & thought leadership. Build reputation and earn media coverage.',
+        
+        hero: {
+          headline: 'Build Reputation, Earn Trust & Shape Public Perception',
+          subheadline: 'We help businesses manage their public image, secure media coverage, handle crises professionally, and position leaders as industry experts through strategic PR.',
+          badges: ['Media Coverage', 'Reputation Management', 'Crisis Ready'],
+          description: "If you need PR that builds credibility and protects your reputation — you're in the right place.",
+        },
+
+        trustBar: [
+          '90+ PR Campaigns Managed',
+          'Media Network Access',
+          'Proven Crisis Protocols',
+          'Thought Leadership Focus',
+          'Strategic Communication',
         ],
-        benefits: [
-          'Build credibility and trust with third-party validation',
-          'Reach millions through earned media coverage',
-          'Establish founders as industry thought leaders',
-          'Manage reputation and respond to crises effectively',
-          'Generate high-quality backlinks for SEO',
-        ],
-        stats: [
-          { metric: '89+', label: 'PR Campaigns', description: 'Executed successfully', icon: Newspaper },
-          { metric: '7 Years', label: 'Experience', description: 'Media relations', icon: Target },
-          { metric: '95%', label: 'Placement Success', description: 'Rate for pitches', icon: TrendingUp },
-          { metric: '96+', label: 'Clients Served', description: 'Growing brands', icon: Award },
-        ],
-        packages: [
+
+        servicesOverview: {
+          title: 'Complete Public Relations Solutions',
+          services: [
+            {
+              icon: MessageSquare,
+              title: 'Media Relations',
+              items: ['Press Release Distribution', 'Media Pitching', 'Interview Coordination', 'Media Training'],
+            },
+            {
+              icon: Shield,
+              title: 'Crisis Management',
+              items: ['Crisis Preparation', 'Response Strategy', 'Damage Control', 'Reputation Recovery'],
+            },
+            {
+              icon: Award,
+              title: 'Thought Leadership',
+              items: ['Expert Positioning', 'Speaking Opportunities', 'Article Placement', 'Industry Awards'],
+            },
+            {
+              icon: Users,
+              title: 'Corporate Communication',
+              items: ['Internal Communication', 'Stakeholder Relations', 'CSR Programs', 'Annual Reports'],
+            },
+            {
+              icon: Target,
+              title: 'Product Launch PR',
+              items: ['Launch Strategy', 'Media Coverage', 'Influencer Relations', 'Event Management'],
+            },
+            {
+              icon: Star,
+              title: 'Reputation Management',
+              items: ['Online Monitoring', 'Review Management', 'Brand Perception', 'Sentiment Analysis'],
+            },
+            {
+              icon: Globe,
+              title: 'Digital PR',
+              items: ['Online Coverage', 'Blogger Outreach', 'Podcast Placements', 'Digital Media'],
+            },
+          ],
+        },
+
+        whyNeedHelp: {
+          title: 'Why Strategic PR Matters',
+          description: 'Your reputation is everything. You need PR to:',
+          points: [
+            'Build credibility through earned media',
+            'Manage and protect your reputation',
+            'Position leaders as industry experts',
+            'Handle crisis situations professionally',
+          ],
+          conclusion: 'Strategic PR is about being proactive with your reputation, not reactive.',
+        },
+
+        approach: {
+          title: 'Our PR Philosophy',
+          dontBelieve: [
+            'Spray and pray press releases',
+            'No preparation for potential crises',
+            'Ignoring negative coverage',
+          ],
+          believe: [
+            'Strategic, targeted media relations',
+            'Proactive reputation management',
+            'Authentic storytelling and positioning',
+            'Prepared crisis response protocols',
+          ],
+        },
+
+        supportGrowth: {
+          title: 'How We Manage Your PR',
+          steps: [
+            { title: 'Audit', description: 'current perception & opportunities' },
+            { title: 'Strategy', description: 'messaging & positioning' },
+            { title: 'Outreach', description: 'media & stakeholder engagement' },
+            { title: 'Monitoring', description: 'coverage & sentiment tracking' },
+            { title: 'Optimization', description: 'continuous improvement' },
+          ],
+          tagline: 'A strategic, ongoing PR approach that builds and protects reputation.',
+        },
+
+        individualServices: [
           {
-            name: 'PR Starter',
-            price: '₹55,000/month',
-            features: ['2 press releases', 'Media outreach', 'Basic media monitoring', 'Monthly reporting', 'Email support'],
-            ideal: 'Startups',
+            title: 'Press Release Writing & Distribution',
+            subtitle: 'Get your news in front of media.',
+            icon: FileText,
+            benefits: [
+              'Professional press release writing',
+              'Strategic distribution',
+              'Media database access',
+              'Coverage tracking',
+            ],
           },
           {
-            name: 'PR Growth',
-            price: '₹1,25,000/month',
-            features: ['4 press releases', 'Guaranteed media placements (2-3 tier-2)', 'Crisis PR support', 'Thought leadership articles', 'Detailed analytics', 'Dedicated PR manager', 'Phone support'],
-            ideal: 'Growing brands',
-            popular: true,
+            title: 'Media Relations',
+            subtitle: 'Build relationships with journalists.',
+            icon: MessageSquare,
+            benefits: [
+              'Media list development',
+              'Pitch development',
+              'Follow-up coordination',
+              'Interview arrangement',
+            ],
           },
           {
-            name: 'Enterprise PR',
-            price: 'Custom Pricing',
-            features: ['Unlimited press releases', 'Tier-1 media placements (Times, ET, CNBC)', 'Full crisis management', 'Speaking opportunities', 'Influencer relations', 'Real-time monitoring', '24/7 support'],
-            ideal: 'Large corporates',
+            title: 'Crisis Management',
+            subtitle: 'Handle challenging situations.',
+            icon: Shield,
+            benefits: [
+              'Crisis communication plan',
+              'Rapid response team',
+              'Spokesperson training',
+              'Reputation recovery',
+            ],
+          },
+          {
+            title: 'Thought Leadership',
+            subtitle: 'Position executives as experts.',
+            icon: Award,
+            benefits: [
+              'Expert article placement',
+              'Speaking engagements',
+              'Panel participation',
+              'Industry recognition',
+            ],
+          },
+          {
+            title: 'Media Training',
+            subtitle: 'Prepare for interviews and coverage.',
+            icon: Users,
+            benefits: [
+              'Interview techniques',
+              'Message development',
+              'Crisis scenarios',
+              'On-camera coaching',
+            ],
+          },
+          {
+            title: 'Product Launch PR',
+            subtitle: 'Maximum coverage for new products.',
+            icon: Rocket,
+            benefits: [
+              'Launch strategy',
+              'Media embargo management',
+              'Review unit coordination',
+              'Coverage monitoring',
+            ],
+          },
+          {
+            title: 'Event PR',
+            subtitle: 'Drive attendance and coverage.',
+            icon: Users,
+            benefits: [
+              'Media invitations',
+              'Press kit creation',
+              'On-site media coordination',
+              'Post-event coverage',
+            ],
+          },
+          {
+            title: 'Blogger & Influencer Relations',
+            subtitle: 'Engage digital influencers.',
+            icon: Star,
+            benefits: [
+              'Influencer identification',
+              'Partnership coordination',
+              'Content collaboration',
+              'Relationship management',
+            ],
+          },
+          {
+            title: 'Awards & Recognition',
+            subtitle: 'Build credibility through awards.',
+            icon: Trophy,
+            benefits: [
+              'Award identification',
+              'Submission preparation',
+              'Nomination support',
+              'Win amplification',
+            ],
+          },
+          {
+            title: 'CSR & Community Relations',
+            subtitle: 'Build goodwill and social impact.',
+            icon: Users,
+            benefits: [
+              'CSR program development',
+              'Community engagement',
+              'Social impact stories',
+              'Partnership management',
+            ],
+          },
+          {
+            title: 'Online Reputation Management',
+            subtitle: 'Monitor and protect digital reputation.',
+            icon: Shield,
+            benefits: [
+              'Online monitoring',
+              'Review response',
+              'Negative content mitigation',
+              'Positive content promotion',
+            ],
+          },
+          {
+            title: 'Internal Communications',
+            subtitle: 'Keep teams informed and aligned.',
+            icon: MessageSquare,
+            benefits: [
+              'Employee communications',
+              'Change management',
+              'Newsletter development',
+              'Town hall support',
+            ],
+          },
+          {
+            title: 'Annual Reports & Publications',
+            subtitle: 'Professional corporate communications.',
+            icon: FileText,
+            benefits: [
+              'Report writing',
+              'Design coordination',
+              'Stakeholder messaging',
+              'Distribution planning',
+            ],
+          },
+          {
+            title: 'Podcast Placement',
+            subtitle: 'Reach audiences through audio.',
+            icon: MessageSquare,
+            benefits: [
+              'Podcast identification',
+              'Guest pitching',
+              'Talking points',
+              'Interview prep',
+            ],
           },
         ],
-        process: [
-          { step: '01', title: 'PR Strategy', description: 'Understand your goals, define target media, craft key messages, identify news angles.' },
-          { step: '02', title: 'Content Creation', description: 'Write press releases, thought leadership articles, pitch emails, media kits.' },
-          { step: '03', title: 'Media Outreach', description: 'Pitch to journalists, editors, influencers. Follow up systematically for coverage.' },
-          { step: '04', title: 'Placement & Monitoring', description: 'Secure media features. Monitor all mentions. Track sentiment and reach.' },
-          { step: '05', title: 'Reporting & Optimization', description: 'Detailed monthly reports with coverage, impressions, AVE, sentiment analysis.' },
-        ],
-        whyChooseUs: [
-          { icon: Newspaper, title: '500+ Media Connections', description: 'Strong relationships with journalists at Times, ET, HT, CNBC, Forbes, and more.' },
-          { icon: Award, title: '95% Pitch Success', description: 'Industry-leading success rate for media placements. We know what works.' },
-          { icon: Shield, title: 'Crisis Management', description: '24/7 crisis response team. Protect your reputation when it matters most.' },
-          { icon: Users, title: 'Experienced PR Team', description: '12+ years combined experience. Former journalists on our team.' },
-        ],
-        faqs: [
-          { question: 'How long to see media coverage?', answer: 'First placements typically within 4-6 weeks. Building consistent media presence takes 3-6 months of sustained effort.' },
-          { question: 'Can you guarantee top-tier coverage?', answer: 'We cannot guarantee specific publications, but have 95% success rate. Our media relationships and compelling stories get consistent coverage.' },
-          { question: 'What about crisis situations?', answer: 'We provide 24/7 crisis response. Our team drafts statements, coordinates media responses, and implements damage control strategies.' },
-          { question: 'Do you write press releases?', answer: 'Yes! Professional press release writing included. We ensure newsworthiness, AP style compliance, and SEO optimization.' },
-        ],
-        tools: ['Cision', 'Meltwater', 'HARO', 'PRWeb', 'Business Wire', 'LinkedIn', 'Twitter/X', 'Google Alerts', 'Mention'],
-        industries: ['Technology', 'Finance', 'Healthcare', 'Real Estate', 'Education', 'E-commerce', 'Professional Services', 'Manufacturing', 'Non-Profit', 'Government'],
-        caseStudies: [
-          { client: 'FinTech Startup', result: 'Secured coverage in ET, Forbes, YourStory', time: '4 months', metric: 'Successfully raised Series A (PR cited by investors)' },
-          { client: 'Healthcare Chain', result: 'Crisis management during negative review incident', time: '2 weeks', metric: 'Successfully restored reputation and customer trust' },
-          { client: 'Tech Company', result: 'Thought leadership campaign for CEO', time: '6 months', metric: '25+ media features, CEO now recognized industry expert' },
-        ],
-        testimonials: [
-          { name: 'Vikram Singh', company: 'PayTech Solutions', text: 'They secured coverage in ET and Forbes which directly led to our Series A funding. Investors specifically mentioned the press coverage. Worth every rupee!', rating: 5 },
-          { name: 'Dr. Meera Joshi', company: 'HealthCare Network', text: 'Saved us during a crisis! Their quick response and media strategy prevented major damage. Their PR expertise is invaluable!', rating: 5 },
-        ],
+
+        expectations: {
+          title: 'What You Can Expect',
+          subtitle: 'Real outcomes from strategic PR:',
+          outcomes: [
+            'Earned media coverage in relevant publications',
+            'Improved brand perception and credibility',
+            'Crisis preparedness and rapid response capability',
+            'Positioned thought leadership',
+            'Protected and enhanced reputation',
+          ],
+        },
+
+        idealFor: {
+          title: 'Who This Works Best For',
+          subtitle: 'Businesses that:',
+          criteria: [
+            'Want to build credibility through earned media',
+            'Need to manage or protect their reputation',
+            'Want leaders positioned as industry experts',
+            'Value proactive communication strategy',
+          ],
+        },
+
+        closingMessage: {
+          title: "Let's Build Your Reputation",
+          message: "PR isn't about spin or manipulation. It's about authentic storytelling and strategic reputation management.",
+          tagline: 'We do PR that builds trust and protects what you\'ve built.',
+        },
       },
+
+      // POLITICAL CAMPAIGNS SERVICE
       'political-campaigns': {
         title: 'Political Campaign Services',
-        description: 'Data-driven electoral strategy, voter analysis & targeting, digital advocacy, ground operations, messaging & positioning, OOH campaigns — 72% win rate across 34 campaigns. Win elections. Win hearts.',
-        tagline: 'Win Elections. Win Hearts. Data-Driven Campaign Mastery.',
-        icon: Target,
-        features: [
-          'Campaign Strategy - Electoral analysis, Opposition research, Winning strategy',
-          'Voter Data & Analytics - Voter database, Demographic analysis, Micro-targeting',
-          'Digital Campaigns - Social media, Google Ads, WhatsApp campaigns, Viral content',
-          'Ground Operations - Door-to-door, Rallies, Public meetings, Volunteer coordination',
-          'Messaging & Positioning - Candidate positioning, Key messages, Speech writing',
-          'OOH Advertising - Hoardings, Banners, Vehicle branding, Wall painting',
-          'Media Management - Press conferences, Media relations, TV/Radio interviews',
-          'Opposition Research - Competitor analysis, Vulnerability assessment',
-          'Volunteer Management - Recruitment, Training, Coordination',
-          'Election Day Operations - Booth management, Get-out-the-vote (GOTV)',
+        metaDescription: 'Data-driven political campaign strategy, voter analysis, digital advocacy, messaging & ground operations. Win elections with smart strategy.',
+        
+        hero: {
+          headline: 'Win Elections With Data-Driven Strategy & Smart Execution',
+          subheadline: 'We help political candidates and parties win elections through strategic planning, voter targeting, persuasive messaging, digital campaigns, and coordinated ground operations.',
+          badges: ['Strategic Planning', 'Voter Targeting', 'Multi-Channel'],
+          description: "If you need a campaign that's strategic, data-driven, and results-focused — you're in the right place.",
+        },
+
+        trustBar: [
+          '35+ Political Campaigns',
+          'Data-Driven Targeting',
+          'Multi-Channel Strategy',
+          'Ground Operations Support',
+          'Proven Win Rate',
         ],
-        benefits: [
-          'Increase vote share by 15-25% with data targeting',
-          'Reach every voter with multi-channel approach',
-          'Build grassroots support through ground operations',
-          'Manage reputation and control narrative effectively',
-          'Maximize ROI with budget-optimized campaigns',
-        ],
-        stats: [
-          { metric: '72%', label: 'Win Rate', description: 'Across 34 campaigns', icon: Trophy },
-          { metric: '34', label: 'Campaigns Run', description: 'Municipal to Assembly', icon: Target },
-          { metric: '15-25%', label: 'Vote Share Increase', description: 'Typical improvement', icon: TrendingUp },
-          { metric: '7 Years', label: 'Experience', description: 'Electoral campaigns', icon: Users },
-        ],
-        packages: [
+
+        servicesOverview: {
+          title: 'Complete Political Campaign Solutions',
+          services: [
+            {
+              icon: Target,
+              title: 'Campaign Strategy',
+              items: ['Electoral Analysis', 'Opposition Research', 'Messaging Strategy', 'Timeline Planning'],
+            },
+            {
+              icon: Users,
+              title: 'Voter Targeting',
+              items: ['Voter Database', 'Demographic Analysis', 'Micro-Targeting', 'Persuasion Modeling'],
+            },
+            {
+              icon: MessageSquare,
+              title: 'Digital Campaigns',
+              items: ['Social Media Strategy', 'Digital Advertising', 'Content Creation', 'Online Advocacy'],
+            },
+            {
+              icon: Megaphone,
+              title: 'Traditional Media',
+              items: ['TV Advertising', 'Radio Spots', 'Print Ads', 'Outdoor Advertising'],
+            },
+            {
+              icon: Users,
+              title: 'Ground Operations',
+              items: ['Door-to-Door', 'Phone Banking', 'Volunteer Management', 'Event Coordination'],
+            },
+            {
+              icon: BarChart3,
+              title: 'Analytics & Polling',
+              items: ['Opinion Polling', 'Performance Tracking', 'Sentiment Analysis', 'Real-Time Dashboards'],
+            },
+            {
+              icon: Shield,
+              title: 'Crisis & Opposition',
+              items: ['Rapid Response', 'Opposition Tracking', 'Crisis Management', 'Debate Prep'],
+            },
+          ],
+        },
+
+        whyNeedHelp: {
+          title: 'Why Professional Campaign Management Matters',
+          description: 'Winning elections requires more than passion. You need:',
+          points: [
+            'Data-driven voter targeting',
+            'Persuasive messaging that resonates',
+            'Coordinated multi-channel campaigns',
+            'Professional ground operations',
+          ],
+          conclusion: 'Professional campaign management is the difference between losing and winning.',
+        },
+
+        approach: {
+          title: 'Our Campaign Philosophy',
+          dontBelieve: [
+            'Generic one-size-fits-all approaches',
+            'Relying only on traditional or only digital',
+            'No data, just gut feelings',
+          ],
+          believe: [
+            'Data-driven voter targeting',
+            'Integrated multi-channel campaigns',
+            'Authentic candidate messaging',
+            'Professional ground operations',
+          ],
+        },
+
+        supportGrowth: {
+          title: 'How We Run Your Campaign',
+          steps: [
+            { title: 'Analysis', description: 'district, voters & opposition' },
+            { title: 'Strategy', description: 'messaging & targeting plan' },
+            { title: 'Execution', description: 'digital, traditional & ground' },
+            { title: 'Monitoring', description: 'real-time performance tracking' },
+            { title: 'Optimization', description: 'continuous improvement until election day' },
+          ],
+          tagline: 'A strategic, integrated campaign from kickoff to victory.',
+        },
+
+        individualServices: [
           {
-            name: 'Municipal Campaign',
-            price: '₹5,00,000',
-            features: ['Ward-level strategy', 'Social media campaigns', 'Basic ground operations', 'OOH advertising support', 'Volunteer coordination', '3 months duration'],
-            ideal: 'Ward/Municipal elections',
+            title: 'Campaign Strategy Development',
+            subtitle: 'Win with smart planning.',
+            icon: Target,
+            benefits: [
+              'Electoral landscape analysis',
+              'Win number calculation',
+              'Resource allocation',
+              'Timeline development',
+            ],
           },
           {
-            name: 'Assembly Campaign',
-            price: '₹25,00,000',
-            features: ['Comprehensive constituency strategy', 'Data-driven voter targeting', 'Full digital + ground campaigns', 'Media management', 'Opposition research', 'Dedicated campaign team', '6 months duration'],
-            ideal: 'Assembly elections',
-            popular: true,
+            title: 'Voter Database & Targeting',
+            subtitle: 'Reach the right voters.',
+            icon: Users,
+            benefits: [
+              'Voter file management',
+              'Demographic segmentation',
+              'Persuasion scores',
+              'Turnout modeling',
+            ],
           },
           {
-            name: 'Parliamentary Campaign',
-            price: 'Custom Pricing',
-            features: ['Multi-constituency strategy', 'Advanced analytics & modeling', 'State-wide digital campaigns', 'Large-scale ground operations', 'Full media management', '24/7 war room', 'Exit poll analysis'],
-            ideal: 'Lok Sabha elections',
+            title: 'Message Development',
+            subtitle: 'Craft messages that win votes.',
+            icon: MessageSquare,
+            benefits: [
+              'Candidate positioning',
+              'Issue prioritization',
+              'Talking points',
+              'Opposition messaging',
+            ],
+          },
+          {
+            title: 'Digital Campaign Management',
+            subtitle: 'Win online and on social media.',
+            icon: Globe,
+            benefits: [
+              'Social media strategy',
+              'Paid digital advertising',
+              'Content creation',
+              'Online mobilization',
+            ],
+          },
+          {
+            title: 'TV & Radio Advertising',
+            subtitle: 'Reach mass audiences.',
+            icon: Video,
+            benefits: [
+              'Commercial production',
+              'Media buying',
+              'Message testing',
+              'Frequency optimization',
+            ],
+          },
+          {
+            title: 'Direct Mail Programs',
+            subtitle: 'Targeted voter outreach.',
+            icon: Mail,
+            benefits: [
+              'Piece design',
+              'Targeting strategy',
+              'Production coordination',
+              'Drop timing',
+            ],
+          },
+          {
+            title: 'Field Operations',
+            subtitle: 'Organize ground game.',
+            icon: Users,
+            benefits: [
+              'Door-to-door canvassing',
+              'Phone banking',
+              'Volunteer recruitment',
+              'GOTV operations',
+            ],
+          },
+          {
+            title: 'Opposition Research',
+            subtitle: 'Know your opponent.',
+            icon: Search,
+            benefits: [
+              'Background research',
+              'Voting record analysis',
+              'Weakness identification',
+              'Defense preparation',
+            ],
+          },
+          {
+            title: 'Polling & Research',
+            subtitle: 'Make data-driven decisions.',
+            icon: BarChart3,
+            benefits: [
+              'Baseline polling',
+              'Tracking polls',
+              'Focus groups',
+              'Message testing',
+            ],
+          },
+          {
+            title: 'Debate Preparation',
+            subtitle: 'Perform under pressure.',
+            icon: MessageSquare,
+            benefits: [
+              'Opposition research',
+              'Mock debates',
+              'Response preparation',
+              'Delivery coaching',
+            ],
+          },
+          {
+            title: 'Rapid Response',
+            subtitle: 'Handle attacks quickly.',
+            icon: Shield,
+            benefits: [
+              '24/7 monitoring',
+              'Fast response protocols',
+              'Crisis management',
+              'Media coordination',
+            ],
+          },
+          {
+            title: 'Fundraising Support',
+            subtitle: 'Raise the resources you need.',
+            icon: DollarSign,
+            benefits: [
+              'Donor identification',
+              'Event coordination',
+              'Online fundraising',
+              'Finance compliance',
+            ],
+          },
+          {
+            title: 'Social Media Management',
+            subtitle: 'Build online momentum.',
+            icon: MessageSquare,
+            benefits: [
+              'Content calendar',
+              'Community management',
+              'Rapid response',
+              'Paid social advertising',
+            ],
+          },
+          {
+            title: 'Get-Out-The-Vote (GOTV)',
+            subtitle: 'Turn support into votes.',
+            icon: CheckCircle,
+            benefits: [
+              'Voter identification',
+              'Turnout modeling',
+              'Reminder programs',
+              'Election day operations',
+            ],
           },
         ],
-        process: [
-          { step: '01', title: 'Research & Analysis', description: 'Voter demographics, Past election data, Opposition research, SWOT analysis, Winning strategy formulation.' },
-          { step: '02', title: 'Campaign Planning', description: 'Budget allocation, Timeline, Team structure, Ground + Digital strategy, Content calendar.' },
-          { step: '03', title: 'Multi-Channel Execution', description: 'Launch digital campaigns, Ground mobilization, OOH advertising, Media outreach — All channels active.' },
-          { step: '04', title: 'Ground Mobilization', description: 'Door-to-door campaigns, Public meetings, Volunteer coordination, Booth-level planning.' },
-          { step: '05', title: 'Election Day & GOTV', description: 'Booth management, Voter turnout drives, Real-time monitoring, Celebration planning!' },
-        ],
-        whyChooseUs: [
-          { icon: Trophy, title: '72% Win Rate', description: '34 successful campaigns across municipal, assembly, and parliamentary elections.' },
-          { icon: BarChart3, title: 'Data-Driven Strategy', description: 'Voter analytics, Micro-targeting, Predictive modeling for optimized campaigns.' },
-          { icon: Users, title: 'Experienced Team', description: 'Political strategists, Data analysts, Digital marketers, Ground coordinators.' },
-          { icon: Shield, title: 'Ethical Practices', description: 'We follow election commission guidelines. Clean campaigns. No illegal practices.' },
-        ],
-        faqs: [
-          { question: 'What\'s your success rate?', answer: '72% win rate across 34 campaigns (24 wins, 10 losses). Success depends on candidate, constituency, and budget commitment.' },
-          { question: 'How do you target voters?', answer: 'We use voter database analysis, demographic profiling, polling booth data, and micro-targeting for precise messaging to each voter segment.' },
-          { question: 'What about ground campaigns?', answer: 'We coordinate door-to-door campaigns, public meetings, rallies, booth-level planning, and volunteer management for comprehensive ground coverage.' },
-          { question: 'Is it legal and ethical?', answer: 'Yes! We strictly follow Election Commission guidelines. All expenses reported. No illegal practices. Clean, ethical campaigns only.' },
-        ],
-        tools: ['Voter Database Software', 'WhatsApp Business API', 'Social Media Management', 'Data Analytics Tools', 'Mapping Software', 'SMS Gateway', 'Call Center Software'],
-        industries: ['Political Parties', 'Independent Candidates', 'Political Consultancies', 'NGOs/Advocacy Groups'],
-        caseStudies: [
-          { client: 'Assembly Candidate (Urban)', result: 'Won with 58% vote share', time: '6 months', metric: 'Increased vote share by 23% vs. last election' },
-          { client: 'Municipal Candidate', result: 'Won ward election (first-time candidate)', time: '3 months', metric: '12,500 votes in 18,000-voter ward' },
-          { client: 'Parliamentary Campaign', result: 'Comprehensive digital + ground campaign', time: '8 months', metric: 'Won with 4.2L votes, 15% margin' },
-        ],
-        testimonials: [
-          { name: 'Hon. MLA Rajesh Sharma', company: 'Assembly Candidate', text: 'Their data-driven strategy and ground execution were phenomenal. We won with a 15% margin in a tough constituency. Highly recommend!', rating: 5 },
-          { name: 'Corporator Priya Mehta', company: 'Municipal Candidate', text: 'As a first-time candidate, I had no idea where to start. They handled everything — strategy, digital, ground work. We won convincingly!', rating: 5 },
-        ],
+
+        expectations: {
+          title: 'What You Can Expect',
+          subtitle: 'Real outcomes from professional campaign management:',
+          outcomes: [
+            'Data-driven strategy with clear path to victory',
+            'Coordinated multi-channel campaign execution',
+            'Professional ground operations and volunteer management',
+            'Real-time performance monitoring and optimization',
+            'Maximum return on campaign investment',
+          ],
+        },
+
+        idealFor: {
+          title: 'Who This Works Best For',
+          subtitle: 'Candidates and parties that:',
+          criteria: [
+            'Want to win with professional strategy',
+            'Value data and analytics',
+            'Need coordinated multi-channel campaigns',
+            'Want experienced campaign professionals',
+          ],
+        },
+
+        closingMessage: {
+          title: "Let's Win This Election",
+          message: "Winning elections isn't about luck. It's about strategic planning, disciplined execution, and professional campaign management.",
+          tagline: 'We help candidates win with strategy and execution that works.',
+        },
       },
+
+      // OOH ADVERTISING SERVICE
       'ooh-advertising': {
-        title: 'OOH (Out-of-Home) Advertising',
-        description: 'Strategic outdoor advertising dominance: Premium billboards, metro/bus transit ads, airport branding, mall displays, digital OOH, street furniture — Command attention in the real world with high-impact placements.',
-        tagline: 'Command Attention. Dominate Markets. Real-World Impact.',
-        icon: Megaphone,
-        features: [
-          'Billboard Advertising - Premium locations, High-traffic routes, Lit/Unlit options',
-          'Transit Advertising - Metro stations, Metro trains, Buses, Bus shelters',
-          'Airport Advertising - Terminal displays, Baggage claim, Parking, Boarding gates',
-          'Mall Advertising - Food court, Entrance, Escalator, Parking areas',
-          'Digital OOH (DOOH) - LED screens, Digital billboards, Programmatic DOOH',
-          'Street Furniture - Bus stops, Kiosks, Benches, Public spaces',
-          'Railway Station Ads - Platform, Booking counters, Foot over bridges',
-          'Cinema Advertising - Theater slides, Lobby displays, Screen advertising',
-          'Experiential Marketing - Pop-up activations, Brand events, Sampling',
-          'Creative Design & Production - Design, Printing, Installation, Maintenance',
+        title: 'Out-of-Home (OOH) Advertising Services',
+        metaDescription: 'Strategic outdoor advertising including billboards, transit ads, mall displays, airport branding & digital OOH. Maximum visibility in high-traffic locations.',
+        
+        hero: {
+          headline: 'Reach Mass Audiences With Strategic Outdoor Advertising',
+          subheadline: 'We help brands achieve maximum visibility through strategic out-of-home advertising placements including billboards, transit ads, mall displays, and digital outdoor advertising.',
+          badges: ['High Visibility', 'Prime Locations', 'Mass Reach'],
+          description: "If you want advertising that can't be skipped or blocked — you're in the right place.",
+        },
+
+        trustBar: [
+          '155+ OOH Campaigns Placed',
+          'Premium Location Access',
+          'Nationwide Coverage',
+          'Creative + Placement Support',
+          'Performance Tracking',
         ],
-        benefits: [
-          'Reach millions daily with strategic placements',
-          'Build brand awareness in target geographies',
-          'Drive foot traffic to physical locations',
-          'Complement digital campaigns with real-world presence',
-          'Lower CPM than digital advertising',
-        ],
-        stats: [
-          { metric: '156', label: 'Campaigns Executed', description: 'Since 2019', icon: TrendingUp },
-          { metric: '7 Years', label: 'Experience', description: 'OOH advertising', icon: Target },
-          { metric: '500+', label: 'Premium Locations', description: 'In our network', icon: MapPin },
-          { metric: 'Low CPM', label: 'Cost Effective', description: 'vs. digital ads', icon: DollarSign },
-        ],
-        packages: [
+
+        servicesOverview: {
+          title: 'Complete Out-of-Home Advertising Solutions',
+          services: [
+            {
+              icon: Megaphone,
+              title: 'Billboards',
+              items: ['Highway Billboards', 'Urban Locations', 'Lit & Unlit', 'Prime Spots'],
+            },
+            {
+              icon: Target,
+              title: 'Transit Advertising',
+              items: ['Bus Advertising', 'Metro Station Ads', 'Train Wraps', 'Auto Rickshaw Branding'],
+            },
+            {
+              icon: ShoppingCart,
+              title: 'Retail & Mall Advertising',
+              items: ['Mall Kiosks', 'Digital Screens', 'Food Court Ads', 'Elevator Branding'],
+            },
+            {
+              icon: Globe,
+              title: 'Airport Advertising',
+              items: ['Terminal Displays', 'Baggage Claim Ads', 'Check-in Counters', 'Jetway Branding'],
+            },
+            {
+              icon: Play,
+              title: 'Digital OOH',
+              items: ['Digital Billboards', 'LED Displays', 'Interactive Screens', 'Programmatic DOOH'],
+            },
+            {
+              icon: Users,
+              title: 'Street Furniture',
+              items: ['Bus Shelters', 'Kiosks', 'Benches', 'Public Installations'],
+            },
+            {
+              icon: Award,
+              title: 'Specialty OOH',
+              items: ['Building Wraps', 'Wallscapes', 'Stadiums', 'Event Venues'],
+            },
+          ],
+        },
+
+        whyNeedHelp: {
+          title: 'Why Out-of-Home Advertising Works',
+          description: 'In a world of ad blockers and skip buttons, OOH is unavoidable. You get:',
+          points: [
+            'Mass reach in high-traffic locations',
+            'Brand visibility that can\'t be skipped',
+            'Local market dominance',
+            '24/7 exposure at fixed cost',
+          ],
+          conclusion: 'OOH builds brand awareness at scale like no other medium.',
+        },
+
+        approach: {
+          title: 'Our OOH Strategy',
+          dontBelieve: [
+            'Random location selection',
+            'Poor design that\'s hard to read',
+            'No measurement of effectiveness',
+          ],
+          believe: [
+            'Strategic location selection by traffic and demographics',
+            'Bold, readable creative designed for distance',
+            'Integrated with digital for maximum impact',
+            'Performance tracking and optimization',
+          ],
+        },
+
+        supportGrowth: {
+          title: 'How We Execute Your OOH Campaign',
+          steps: [
+            { title: 'Planning', description: 'goals, budget & location strategy' },
+            { title: 'Site Selection', description: 'premium locations & negotiation' },
+            { title: 'Creative', description: 'bold designs optimized for OOH' },
+            { title: 'Installation', description: 'printing, mounting & monitoring' },
+            { title: 'Reporting', description: 'traffic data & campaign performance' },
+          ],
+          tagline: 'A strategic approach from planning to performance tracking.',
+        },
+
+        individualServices: [
           {
-            name: 'Local Campaign',
-            price: '₹1,50,000/month',
-            features: ['5-8 billboard locations', 'Local high-traffic areas', 'Basic design included', 'Installation & maintenance', 'Monthly reporting'],
-            ideal: 'Local businesses',
+            title: 'Highway Billboards',
+            subtitle: 'Maximum exposure to commuters.',
+            icon: Megaphone,
+            benefits: [
+              'High-traffic highways',
+              'Large format visibility',
+              'Strategic positioning',
+              'Lit & unlit options',
+            ],
           },
           {
-            name: 'City-Wide Campaign',
-            price: '₹5,00,000/month',
-            features: ['15-20 premium locations', 'Mix of billboards + transit', 'Professional design + printing', 'Digital OOH included', 'Metro/Bus branding', 'Bi-weekly reporting', 'Campaign optimization'],
-            ideal: 'Regional brands',
-            popular: true,
+            title: 'Urban Billboards',
+            subtitle: 'Dominate city landscapes.',
+            icon: Target,
+            benefits: [
+              'Prime city locations',
+              'Pedestrian traffic',
+              'Local market focus',
+              'Multiple site packages',
+            ],
           },
           {
-            name: 'National Campaign',
-            price: 'Custom Pricing',
-            features: ['Multi-city presence', 'Airport advertising', 'Premium digital OOH', 'Experiential activations', 'Dedicated account team', 'Real-time monitoring', 'Advanced analytics'],
-            ideal: 'National brands',
+            title: 'Bus Advertising',
+            subtitle: 'Mobile billboards throughout the city.',
+            icon: Users,
+            benefits: [
+              'Full bus wraps',
+              'Side panel ads',
+              'Multiple routes',
+              'Geographic coverage',
+            ],
+          },
+          {
+            title: 'Metro & Transit Ads',
+            subtitle: 'Reach daily commuters.',
+            icon: Target,
+            benefits: [
+              'Station platform ads',
+              'Train wraps',
+              'Digital screens',
+              'Captive audience',
+            ],
+          },
+          {
+            title: 'Mall Advertising',
+            subtitle: 'Reach shoppers at purchase point.',
+            icon: ShoppingCart,
+            benefits: [
+              'High footfall locations',
+              'Premium malls',
+              'Digital & static options',
+              'Food court visibility',
+            ],
+          },
+          {
+            title: 'Airport Advertising',
+            subtitle: 'Reach affluent travelers.',
+            icon: Globe,
+            benefits: [
+              'Terminal displays',
+              'Arrival & departure areas',
+              'Premium audience',
+              'Extended dwell time',
+            ],
+          },
+          {
+            title: 'Digital Billboards',
+            subtitle: 'Dynamic content rotation.',
+            icon: Play,
+            benefits: [
+              'Multiple messages',
+              'Time-based targeting',
+              'Motion & animation',
+              'Instant updates',
+            ],
+          },
+          {
+            title: 'Bus Shelter Advertising',
+            subtitle: 'Eye-level pedestrian engagement.',
+            icon: Users,
+            benefits: [
+              'Walking traffic',
+              'Neighborhood targeting',
+              'Lit displays',
+              'QR code integration',
+            ],
+          },
+          {
+            title: 'Auto Rickshaw Branding',
+            subtitle: 'Hyperlocal mobile advertising.',
+            icon: Target,
+            benefits: [
+              'Local area coverage',
+              'Cost-effective',
+              'High frequency',
+              'Geo-targeted routes',
+            ],
+          },
+          {
+            title: 'Building Wraps',
+            subtitle: 'Massive brand statements.',
+            icon: Award,
+            benefits: [
+              'Landmark visibility',
+              'Huge impact',
+              'Extended campaigns',
+              'Premium locations',
+            ],
+          },
+          {
+            title: 'Stadium & Arena Advertising',
+            subtitle: 'Reach sports fans.',
+            icon: Trophy,
+            benefits: [
+              'Event-based exposure',
+              'Passionate audience',
+              'Broadcast visibility',
+              'Multiple formats',
+            ],
+          },
+          {
+            title: 'Cinema Advertising',
+            subtitle: 'Captive entertainment audience.',
+            icon: Video,
+            benefits: [
+              'Pre-movie ads',
+              'Lobby displays',
+              'Engaged viewers',
+              'Premium environment',
+            ],
+          },
+          {
+            title: 'Creative Production',
+            subtitle: 'Designs optimized for OOH.',
+            icon: Palette,
+            benefits: [
+              'Bold, readable designs',
+              'Distance-optimized',
+              'Brand-aligned',
+              'Print-ready files',
+            ],
+          },
+          {
+            title: 'Campaign Management',
+            subtitle: 'End-to-end execution.',
+            icon: Award,
+            benefits: [
+              'Location negotiation',
+              'Installation coordination',
+              'Quality monitoring',
+              'Performance reporting',
+            ],
           },
         ],
-        process: [
-          { step: '01', title: 'Location Strategy', description: 'Identify target audience, Select high-traffic locations, Negotiate premium placements.' },
-          { step: '02', title: 'Creative Design', description: 'Design billboard creatives optimized for outdoor viewing, visibility, and brand impact.' },
-          { step: '03', title: 'Production & Installation', description: 'High-quality printing, Professional installation, Quality checks, Lighting setup (if applicable).' },
-          { step: '04', title: 'Campaign Monitoring', description: 'Regular site visits, Maintenance, Photo documentation, Impression tracking.' },
-          { step: '05', title: 'Reporting & Optimization', description: 'Monthly reports with photos, impressions, reach. Optimize locations based on performance.' },
-        ],
-        whyChooseUs: [
-          { icon: MapPin, title: '500+ Premium Locations', description: 'Extensive network of high-traffic billboards, transit ads, digital OOH across India.' },
-          { icon: DollarSign, title: 'Best Rates Guaranteed', description: 'Direct relationships with media owners. No middlemen. 20-30% cost savings.' },
-          { icon: Users, title: '156 Successful Campaigns', description: 'Proven track record across industries. We know what works and where.' },
-          { icon: Award, title: 'End-to-End Service', description: 'Strategy, Design, Production, Installation, Maintenance — Everything handled.' },
-        ],
-        faqs: [
-          { question: 'How do you select locations?', answer: 'Based on your target audience, demographics, traffic data, competitor analysis, and budget. We recommend optimal mix for maximum impact.' },
-          { question: 'What about design and production?', answer: 'Full service included! Our team designs billboard creatives, handles printing, and coordinates installation and maintenance.' },
-          { question: 'Can I see the billboards before?', answer: 'Yes! We provide site photos, location details, traffic data, and approvals before booking. Site visits can be arranged.' },
-          { question: 'What\'s the minimum duration?', answer: 'Minimum 1 month for most locations. 3-6 month commitments get better rates. Longer durations offer 15-25% discounts.' },
-        ],
-        tools: ['Google Maps', 'Traffic Analytics', 'Adobe Photoshop', 'Adobe Illustrator', 'Large Format Printing', 'Installation Equipment'],
-        industries: ['Real Estate', 'Automotive', 'Education', 'Healthcare', 'E-commerce', 'Finance', 'Hospitality', 'Fashion', 'Food & Beverage', 'Retail'],
-        caseStudies: [
-          { client: 'Real Estate Developer', result: '50 billboards across city for project launch', time: '3 months', metric: 'Strong property bookings, excellent campaign visibility' },
-          { client: 'Automotive Brand', result: 'Metro + Bus branding during new model launch', time: '2 months', metric: 'High visibility, 40% showroom traffic increase' },
-          { client: 'E-commerce App', result: 'Digital OOH campaign in 5 cities', time: '6 months', metric: '500K app installs attributed to OOH' },
-        ],
-        testimonials: [
-          { name: 'Arjun Reddy', company: 'Skyline Developers', text: 'The billboard campaign generated excellent property bookings. Their location strategy was brilliant. Every location delivered results!', rating: 5 },
-          { name: 'Kavita Sharma', company: 'AutoDrive', text: 'Metro branding during our launch created massive buzz. Showroom traffic increased 40%. Best offline marketing investment we made!', rating: 5 },
-        ],
+
+        expectations: {
+          title: 'What You Can Expect',
+          subtitle: 'Real outcomes from OOH advertising:',
+          outcomes: [
+            'Maximum visibility in high-traffic locations',
+            'Mass brand awareness at scale',
+            'Premium placements in best available spots',
+            'Professional creative and installation',
+            'Traffic and performance reporting',
+          ],
+        },
+
+        idealFor: {
+          title: 'Who This Works Best For',
+          subtitle: 'Businesses that:',
+          criteria: [
+            'Want mass local market awareness',
+            'Need brand visibility that can\'t be skipped',
+            'Value strategic location selection',
+            'Want integrated OOH + digital campaigns',
+          ],
+        },
+
+        closingMessage: {
+          title: "Let's Dominate The Outdoors",
+          message: "OOH advertising isn't just about visibility. It's about strategic placement, bold creative, and sustained presence.",
+          tagline: 'We create OOH campaigns that build awareness at scale.',
+        },
       },
+
+      // RADIO & NEWSPAPERS SERVICE
       'radio-newspapers': {
-        title: 'Radio & Newspaper Advertising',
-        description: 'Traditional media with modern analytics: Prime-time radio spots, newspaper ads (Times, HT, Dainik), magazine features, media buying expertise — Proven reach with trackable ROI.',
-        tagline: 'Traditional Channels. Modern Results. Proven Reach.',
-        icon: Newspaper,
-        features: [
-          'Radio Advertising - Prime time spots, Morning/Evening shows, RJ mentions, Sponsorships',
-          'Newspaper Ads - Times of India, Hindustan Times, Dainik, Regional papers',
-          'Magazine Advertising - National magazines, Trade publications, Industry journals',
-          'Classified Ads - Recruitment, Real estate, Business opportunities',
-          'Media Planning & Buying - Rate negotiation, Optimal placements, Budget optimization',
-          'Ad Creative Design - Print-ready designs for newspapers and magazines',
-          'Radio Spot Production - Script writing, Voice-over, Jingle creation',
-          'Campaign Tracking - Unique phone numbers, Promo codes, Landing pages',
-          'Regional Media - Local newspapers, Regional radio, Language-specific media',
-          'Advertorials & Sponsored Content - Native advertising in publications',
+        title: 'Radio & Newspaper Advertising Services',
+        metaDescription: 'Traditional media buying including radio advertising, newspaper placements, magazine features & classified ads. Reach audiences through trusted media.',
+        
+        hero: {
+          headline: 'Reach Audiences Through Trusted Traditional Media',
+          subheadline: 'We help brands connect with audiences through strategic radio advertising, newspaper placements, magazine features, and traditional media that still drives results.',
+          badges: ['Trusted Media', 'Mass Reach', 'Credibility'],
+          description: "If you want to reach audiences through established, trusted media channels — you're in the right place.",
+        },
+
+        trustBar: [
+          '180+ Traditional Media Campaigns',
+          'Media Buying Expertise',
+          'Creative Production Included',
+          'Prime Time Slots',
+          'Multi-Market Coverage',
         ],
-        benefits: [
-          'Reach millions with traditional media channels',
-          'Target specific demographics (age, location, language)',
-          'Build credibility with established media brands',
-          'Lower cost per reach than digital advertising',
-          'Track ROI with modern attribution methods',
-        ],
-        stats: [
-          { metric: '178', label: 'Campaigns Run', description: 'Since 2018', icon: Users },
-          { metric: '7 Years', label: 'Experience', description: 'Media buying', icon: Target },
-          { metric: '96+', label: 'Clients Served', description: 'Growing brands', icon: DollarSign },
-          { metric: '3-5X', label: 'Typical ROI', description: 'Traditional media', icon: TrendingUp },
-        ],
-        packages: [
+
+        servicesOverview: {
+          title: 'Complete Traditional Media Solutions',
+          services: [
+            {
+              icon: MessageSquare,
+              title: 'Radio Advertising',
+              items: ['Radio Spots', 'Sponsorships', 'Live Reads', 'RJ Endorsements', 'Jingles'],
+            },
+            {
+              icon: Newspaper,
+              title: 'Newspaper Advertising',
+              items: ['Display Ads', 'Classifieds', 'Supplements', 'Front Page', 'Obituaries'],
+            },
+            {
+              icon: FileText,
+              title: 'Magazine Advertising',
+              items: ['Full Page Ads', 'Advertorials', 'Special Features', 'Industry Publications'],
+            },
+            {
+              icon: Video,
+              title: 'TV Advertising',
+              items: ['TV Commercials', 'Ticker Ads', 'Program Sponsorships', 'Prime Time Slots'],
+            },
+            {
+              icon: Target,
+              title: 'Media Planning',
+              items: ['Reach & Frequency', 'Budget Optimization', 'Multi-Market Plans', 'Campaign Timing'],
+            },
+            {
+              icon: Award,
+              title: 'Creative Production',
+              items: ['Radio Script Writing', 'Jingle Production', 'Print Ad Design', 'TV Commercial Production'],
+            },
+            {
+              icon: BarChart3,
+              title: 'Performance Tracking',
+              items: ['Reach Metrics', 'Response Tracking', 'Brand Lift Studies', 'ROI Measurement'],
+            },
+          ],
+        },
+
+        whyNeedHelp: {
+          title: 'Why Traditional Media Still Works',
+          description: 'Despite digital growth, traditional media offers unique advantages:',
+          points: [
+            'Trusted, credible media sources',
+            'Older demographics with purchasing power',
+            'Local market dominance',
+            'Complement to digital campaigns',
+          ],
+          conclusion: 'Smart brands use both traditional and digital for maximum impact.',
+        },
+
+        approach: {
+          title: 'Our Traditional Media Philosophy',
+          dontBelieve: [
+            'Traditional media is dead',
+            'One-size-fits-all media buys',
+            'No tracking or measurement',
+          ],
+          believe: [
+            'Strategic integration with digital',
+            'Targeted media selection by audience',
+            'Creative that works for the medium',
+            'Performance tracking and optimization',
+          ],
+        },
+
+        supportGrowth: {
+          title: 'How We Execute Your Traditional Media Campaign',
+          steps: [
+            { title: 'Planning', description: 'audience, budget & media mix' },
+            { title: 'Creative', description: 'scripts, designs & production' },
+            { title: 'Media Buying', description: 'negotiation & scheduling' },
+            { title: 'Execution', description: 'campaign launch & monitoring' },
+            { title: 'Reporting', description: 'performance & optimization' },
+          ],
+          tagline: 'A strategic approach from planning to performance measurement.',
+        },
+
+        individualServices: [
           {
-            name: 'Local Reach',
-            price: '₹75,000/month',
-            features: ['3 newspaper ads', '10 radio spots', 'Local publications/stations', 'Basic creative design', 'Monthly reporting'],
-            ideal: 'Local businesses',
+            title: 'Radio Spot Advertising',
+            subtitle: 'Reach listeners during their commute.',
+            icon: MessageSquare,
+            benefits: [
+              'Prime time slots',
+              'Multiple stations',
+              'Target demographics',
+              'High frequency',
+            ],
           },
           {
-            name: 'Regional Campaign',
-            price: '₹2,50,000/month',
-            features: ['8 newspaper ads (ToI, HT, Regional)', '30 radio spots (Prime time)', 'Professional creative', 'Jingle creation', 'Multiple markets', 'Detailed analytics', 'Dedicated manager'],
-            ideal: 'Regional brands',
-            popular: true,
+            title: 'Radio Sponsorships',
+            subtitle: 'Associate with popular programs.',
+            icon: Award,
+            benefits: [
+              'Program sponsorship',
+              'Segment sponsorship',
+              'Live RJ reads',
+              'Brand integration',
+            ],
           },
           {
-            name: 'National Campaign',
-            price: 'Custom Pricing',
-            features: ['National newspaper placements', 'Multi-city radio', 'Magazine advertising', 'Advertorials', 'Celebrity voice-overs', 'Full production', 'Advanced tracking', 'Real-time reporting'],
-            ideal: 'National advertisers',
+            title: 'Jingle Production',
+            subtitle: 'Create memorable audio branding.',
+            icon: Video,
+            benefits: [
+              'Original composition',
+              'Professional recording',
+              'Catchy, memorable',
+              'Multi-language options',
+            ],
+          },
+          {
+            title: 'Newspaper Display Ads',
+            subtitle: 'Visibility in trusted publications.',
+            icon: Newspaper,
+            benefits: [
+              'Full page / half page',
+              'Front page jackets',
+              'Supplement placement',
+              'Multi-paper packages',
+            ],
+          },
+          {
+            title: 'Classified Advertising',
+            subtitle: 'Targeted, cost-effective placement.',
+            icon: FileText,
+            benefits: [
+              'Category placement',
+              'Display classifieds',
+              'Recruitment ads',
+              'Real estate listings',
+            ],
+          },
+          {
+            title: 'Newspaper Supplements',
+            subtitle: 'Special edition features.',
+            icon: Newspaper,
+            benefits: [
+              'Festival supplements',
+              'Industry features',
+              'Special sections',
+              'Extended shelf life',
+            ],
+          },
+          {
+            title: 'Magazine Advertising',
+            subtitle: 'Premium, targeted readership.',
+            icon: FileText,
+            benefits: [
+              'Full page placements',
+              'Advertorials',
+              'Cover positions',
+              'Industry publications',
+            ],
+          },
+          {
+            title: 'TV Commercial Production',
+            subtitle: 'Broadcast quality video ads.',
+            icon: Video,
+            benefits: [
+              'Script to screen',
+              'Professional production',
+              'Multiple durations',
+              'Broadcast compliance',
+            ],
+          },
+          {
+            title: 'TV Media Buying',
+            subtitle: 'Strategic placement for reach.',
+            icon: Target,
+            benefits: [
+              'Prime time slots',
+              'Program selection',
+              'Channel mix',
+              'Reach optimization',
+            ],
+          },
+          {
+            title: 'Media Planning',
+            subtitle: 'Strategic cross-media campaigns.',
+            icon: Target,
+            benefits: [
+              'Audience research',
+              'Reach & frequency planning',
+              'Budget allocation',
+              'Multi-market coordination',
+            ],
+          },
+          {
+            title: 'RJ Endorsements',
+            subtitle: 'Authentic voice recommendations.',
+            icon: Star,
+            benefits: [
+              'Trusted voices',
+              'Natural integration',
+              'Live reads',
+              'Audience connection',
+            ],
+          },
+          {
+            title: 'Local News Sponsorships',
+            subtitle: 'Brand association with news.',
+            icon: Newspaper,
+            benefits: [
+              'News segment sponsorship',
+              'Weather sponsorship',
+              'Traffic updates',
+              'High visibility',
+            ],
+          },
+          {
+            title: 'Print Creative Design',
+            subtitle: 'Eye-catching newspaper & magazine ads.',
+            icon: Palette,
+            benefits: [
+              'Professional design',
+              'Print-ready files',
+              'Multiple size options',
+              'Brand consistency',
+            ],
+          },
+          {
+            title: 'Campaign Performance Tracking',
+            subtitle: 'Measure traditional media impact.',
+            icon: BarChart3,
+            benefits: [
+              'Reach metrics',
+              'Response codes',
+              'Website traffic correlation',
+              'Brand lift measurement',
+            ],
           },
         ],
-        process: [
-          { step: '01', title: 'Media Planning', description: 'Audience research, Publication/Station selection, Rate negotiation, Budget optimization.' },
-          { step: '02', title: 'Creative Production', description: 'Design newspaper ads, Write radio scripts, Record voice-overs, Create jingles.' },
-          { step: '03', title: 'Media Booking', description: 'Book ad placements, Confirm dates/times, Set up tracking mechanisms (unique numbers/codes).' },
-          { step: '04', title: 'Campaign Execution', description: 'Ads run on scheduled dates, Monitor placements, Ensure quality (tear sheets for print).' },
-          { step: '05', title: 'Tracking & Reporting', description: 'Track responses (calls, website visits), Calculate ROI, Optimize future placements.' },
-        ],
-        whyChooseUs: [
-          { icon: Newspaper, title: 'Media Buying Expertise', description: '15+ years relationships with Times, HT, Dainik, major radio networks. Best rates guaranteed.' },
-          { icon: DollarSign, title: 'Cost-Effective Reach', description: '₹2-5 per reach (vs. ₹15-30 for digital). Massive reach at lower cost.' },
-          { icon: BarChart3, title: 'Modern Tracking', description: 'Unique phone numbers, promo codes, landing pages — Track ROI like digital campaigns.' },
-          { icon: Users, title: '178 Successful Campaigns', description: 'Proven track record across real estate, education, healthcare, automotive industries.' },
-        ],
-        faqs: [
-          { question: 'How do you track radio/newspaper ROI?', answer: 'We use unique phone numbers, promo codes, dedicated landing pages to track responses. QR codes in print ads drive measurable web traffic.' },
-          { question: 'Which newspapers do you work with?', answer: 'Times of India, Hindustan Times, Dainik Bhaskar, Dainik Jagran, Economic Times, and 50+ regional newspapers across India.' },
-          { question: 'Can you create radio jingles?', answer: 'Yes! Our production team creates professional jingles, background scores, and records voice-overs in 10+ languages.' },
-          { question: 'What\'s better: radio or newspaper?', answer: 'Depends on goals. Radio: Frequency, emotional connection. Newspaper: Credibility, detailed info. We recommend both for maximum impact.' },
-        ],
-        tools: ['Adobe InDesign', 'Adobe Illustrator', 'Audio Recording Software', 'Media Rate Cards', 'Tracking Software', 'Analytics Tools'],
-        industries: ['Real Estate', 'Education', 'Healthcare', 'Automotive', 'Finance', 'Retail', 'Hospitality', 'Recruitment', 'Government', 'Events'],
-        caseStudies: [
-          { client: 'Real Estate Project', result: 'Newspaper + Radio campaign for project launch', time: '3 months', metric: 'Strong bookings, 2,500+ site visits tracked' },
-          { client: 'Education Institute', result: 'Admission campaign in regional newspapers', time: '2 months', metric: '5,000+ inquiries, 1,200 admissions' },
-          { client: 'Healthcare Chain', result: 'Radio campaign for new clinic launch', time: '1 month', metric: '15,000 calls, 80% appointment booking rate' },
-        ],
-        testimonials: [
-          { name: 'Rajesh Gupta', company: 'Prime Properties', text: 'The newspaper + radio combo generated excellent bookings. Traditional media still works incredibly well when done right!', rating: 5 },
-          { name: 'Dr. Anjali Nair', company: 'EduVision Institute', text: 'Regional newspaper ads brought 5,000+ admission inquiries. We filled all seats in 2 months. Fantastic results!', rating: 5 },
-        ],
+
+        expectations: {
+          title: 'What You Can Expect',
+          subtitle: 'Real outcomes from traditional media:',
+          outcomes: [
+            'Mass reach through trusted media sources',
+            'Credibility from established publications',
+            'Strategic placement for maximum impact',
+            'Professional creative production',
+            'Performance tracking and reporting',
+          ],
+        },
+
+        idealFor: {
+          title: 'Who This Works Best For',
+          subtitle: 'Businesses that:',
+          criteria: [
+            'Want to reach older demographics',
+            'Need local market penetration',
+            'Value credibility and trust',
+            'Want integrated traditional + digital campaigns',
+          ],
+        },
+
+        closingMessage: {
+          title: "Let's Leverage Traditional Media",
+          message: "Traditional media isn't outdated. When used strategically alongside digital, it amplifies your message and builds trust.",
+          tagline: 'We create integrated campaigns that leverage the best of both worlds.',
+        },
       },
+
+      // PRODUCT MARKETING SERVICE
       'product-marketing': {
         title: 'Product Marketing Services',
-        description: 'Go-to-market mastery: Product positioning, launch strategies, lifecycle marketing, competitive analysis, pricing strategy, messaging — 97 successful launches, 18 products became market leaders.',
-        tagline: 'Launch Products. Dominate Categories. Own Markets.',
-        icon: Rocket,
-        features: [
-          'Go-to-Market Strategy - Market research, Launch planning, Channel strategy',
-          'Product Positioning - Unique value prop, Competitive differentiation, Messaging framework',
-          'Launch Campaigns - Pre-launch buzz, Launch day execution, Post-launch momentum',
-          'Product-Led Growth - Freemium strategy, Viral loops, User activation',
-          'Lifecycle Marketing - Onboarding, Engagement, Retention, Win-back campaigns',
-          'Competitive Analysis - Market landscape, Competitor positioning, SWOT analysis',
-          'Pricing Strategy - Price optimization, Packaging, Discount strategy',
-          'Sales Enablement - Pitch decks, One-pagers, Demo videos, Case studies',
-          'Customer Research - User interviews, Surveys, Focus groups, Beta testing',
-          'Performance Analytics - Adoption metrics, Engagement tracking, Revenue attribution',
+        metaDescription: 'Go-to-market strategy, product positioning, launch planning, lifecycle marketing & competitive analysis. Take products to market successfully.',
+        
+        hero: {
+          headline: 'Launch & Grow Products With Strategic Go-To-Market Execution',
+          subheadline: 'We help companies successfully bring products to market through strategic positioning, launch planning, messaging, competitive analysis, and lifecycle marketing.',
+          badges: ['GTM Strategy', 'Product Launches', 'Market Positioning'],
+          description: "If you need to launch a product successfully and grow it sustainably — you're in the right place.",
+        },
+
+        trustBar: [
+          '95+ Product Launches Supported',
+          'GTM Strategy Expertise',
+          'Competitive Intelligence',
+          'Cross-Functional Alignment',
+          'Data-Driven Approach',
         ],
-        benefits: [
-          'Launch products successfully with 85% first-year survival rate',
-          'Achieve product-market fit 60% faster with research',
-          'Dominate categories and become market leader',
-          'Maximize customer lifetime value with lifecycle marketing',
-          'Reduce customer acquisition cost by 40% with PLG strategies',
-        ],
-        stats: [
-          { metric: '97', label: 'Product Launches', description: 'Executed successfully', icon: Rocket },
-          { metric: '18', label: 'Market Leaders', description: 'Created from launches', icon: Trophy },
-          { metric: '85%', label: 'Success Rate', description: '1-year survival', icon: Award },
-          { metric: '7 Years', label: 'Experience', description: 'Product marketing', icon: DollarSign },
-        ],
-        packages: [
+
+        servicesOverview: {
+          title: 'Complete Product Marketing Solutions',
+          services: [
+            {
+              icon: Rocket,
+              title: 'Go-To-Market Strategy',
+              items: ['Market Analysis', 'Target Audience', 'Positioning', 'Launch Planning', 'Channel Strategy'],
+            },
+            {
+              icon: Target,
+              title: 'Product Positioning',
+              items: ['Value Proposition', 'Differentiation', 'Messaging Hierarchy', 'Competitive Positioning'],
+            },
+            {
+              icon: Award,
+              title: 'Product Launch',
+              items: ['Launch Plans', 'Campaign Execution', 'Sales Enablement', 'Launch Events'],
+            },
+            {
+              icon: BarChart3,
+              title: 'Market Research',
+              items: ['Competitive Analysis', 'Customer Research', 'Market Sizing', 'Trend Analysis'],
+            },
+            {
+              icon: Users,
+              title: 'Sales Enablement',
+              items: ['Sales Decks', 'Battle Cards', 'Case Studies', 'Product Training'],
+            },
+            {
+              icon: TrendingUp,
+              title: 'Lifecycle Marketing',
+              items: ['Adoption Campaigns', 'Feature Releases', 'Upsell/Cross-sell', 'Retention Programs'],
+            },
+            {
+              icon: DollarSign,
+              title: 'Pricing Strategy',
+              items: ['Price Analysis', 'Packaging Options', 'Pricing Models', 'Promotional Strategy'],
+            },
+          ],
+        },
+
+        whyNeedHelp: {
+          title: 'Why Product Marketing Matters',
+          description: 'Having a great product isn\'t enough. You need product marketing to:',
+          points: [
+            'Position your product effectively in the market',
+            'Launch successfully and gain early traction',
+            'Enable sales teams to sell confidently',
+            'Drive adoption and retention throughout the lifecycle',
+          ],
+          conclusion: 'Product marketing is the bridge between product development and revenue.',
+        },
+
+        approach: {
+          title: 'Our Product Marketing Philosophy',
+          dontBelieve: [
+            'Feature lists instead of value propositions',
+            'Launch once and forget',
+            'Messaging that doesn\'t resonate with buyers',
+          ],
+          believe: [
+            'Customer-centric positioning and messaging',
+            'Strategic, phased launch approach',
+            'Continuous lifecycle marketing',
+            'Cross-functional collaboration',
+          ],
+        },
+
+        supportGrowth: {
+          title: 'How We Take Your Product To Market',
+          steps: [
+            { title: 'Research', description: 'market, competitors & customers' },
+            { title: 'Positioning', description: 'unique value & differentiation' },
+            { title: 'GTM Plan', description: 'launch strategy & timeline' },
+            { title: 'Execution', description: 'campaigns, sales enablement & events' },
+            { title: 'Optimization', description: 'performance tracking & iteration' },
+          ],
+          tagline: 'A strategic, data-driven approach from positioning to growth.',
+        },
+
+        individualServices: [
           {
-            name: 'Launch Essentials',
-            price: '₹2,50,000',
-            features: ['GTM strategy document', 'Product positioning', 'Launch campaign (3 months)', 'Sales collateral', 'Basic PR', 'Launch event support'],
-            ideal: 'MVP launches',
+            title: 'Go-To-Market Strategy',
+            subtitle: 'Strategic plan to reach your market.',
+            icon: Rocket,
+            benefits: [
+              'Market segmentation',
+              'Target customer definition',
+              'Channel strategy',
+              'Success metrics',
+            ],
           },
           {
-            name: 'Complete Launch',
-            price: '₹7,50,000',
-            features: ['Comprehensive GTM strategy', 'Market research + positioning', 'Full launch campaign (6 months)', 'Multi-channel marketing', 'Sales enablement', 'PR + influencer', 'Post-launch optimization'],
-            ideal: 'Major product launches',
-            popular: true,
+            title: 'Product Positioning',
+            subtitle: 'Differentiate in competitive markets.',
+            icon: Target,
+            benefits: [
+              'Value proposition development',
+              'Competitive differentiation',
+              'Positioning statements',
+              'Messaging framework',
+            ],
           },
           {
-            name: 'Market Domination',
-            price: 'Custom Pricing',
-            features: ['Category creation strategy', 'Multi-market launch', 'Full-year campaign', 'Thought leadership', 'Analyst relations', 'Partnership marketing', 'Dedicated team', '24/7 support'],
-            ideal: 'Enterprise products',
+            title: 'Competitive Analysis',
+            subtitle: 'Know your competitive landscape.',
+            icon: Search,
+            benefits: [
+              'Competitor research',
+              'Feature comparison',
+              'Pricing analysis',
+              'Market gaps identification',
+            ],
+          },
+          {
+            title: 'Customer Research',
+            subtitle: 'Understand your buyers deeply.',
+            icon: Users,
+            benefits: [
+              'Buyer persona development',
+              'Jobs-to-be-done research',
+              'Customer interviews',
+              'Pain point identification',
+            ],
+          },
+          {
+            title: 'Messaging & Positioning',
+            subtitle: 'Craft messages that resonate.',
+            icon: MessageSquare,
+            benefits: [
+              'Core messaging',
+              'Elevator pitch',
+              'Feature-benefit mapping',
+              'Audience-specific messaging',
+            ],
+          },
+          {
+            title: 'Product Launch Planning',
+            subtitle: 'Orchestrate successful launches.',
+            icon: Rocket,
+            benefits: [
+              'Launch timeline',
+              'Cross-functional coordination',
+              'Launch checklist',
+              'Risk mitigation',
+            ],
+          },
+          {
+            title: 'Launch Campaign Execution',
+            subtitle: 'Generate awareness and demand.',
+            icon: Megaphone,
+            benefits: [
+              'Multi-channel campaigns',
+              'Launch events',
+              'PR & media outreach',
+              'Customer communications',
+            ],
+          },
+          {
+            title: 'Sales Enablement Materials',
+            subtitle: 'Equip sales teams to win.',
+            icon: Award,
+            benefits: [
+              'Sales pitch decks',
+              'Battle cards',
+              'Demo scripts',
+              'Objection handling',
+            ],
+          },
+          {
+            title: 'Case Studies & Testimonials',
+            subtitle: 'Build credibility with proof.',
+            icon: Star,
+            benefits: [
+              'Customer interviews',
+              'Success story writing',
+              'Results quantification',
+              'Multi-format delivery',
+            ],
+          },
+          {
+            title: 'Product Demos & Videos',
+            subtitle: 'Show product value visually.',
+            icon: Video,
+            benefits: [
+              'Demo video production',
+              'Feature walkthroughs',
+              'Customer testimonials',
+              'Explainer videos',
+            ],
+          },
+          {
+            title: 'Pricing & Packaging Strategy',
+            subtitle: 'Optimize revenue capture.',
+            icon: DollarSign,
+            benefits: [
+              'Pricing research',
+              'Packaging options',
+              'Competitive pricing',
+              'Promotional pricing',
+            ],
+          },
+          {
+            title: 'Feature Release Marketing',
+            subtitle: 'Drive adoption of new features.',
+            icon: TrendingUp,
+            benefits: [
+              'Release announcements',
+              'In-app messaging',
+              'Email campaigns',
+              'Documentation',
+            ],
+          },
+          {
+            title: 'Customer Adoption Programs',
+            subtitle: 'Drive product usage and value.',
+            icon: Users,
+            benefits: [
+              'Onboarding optimization',
+              'Usage campaigns',
+              'Best practices education',
+              'Community building',
+            ],
+          },
+          {
+            title: 'Win/Loss Analysis',
+            subtitle: 'Learn from deals won and lost.',
+            icon: BarChart3,
+            benefits: [
+              'Deal analysis',
+              'Customer interviews',
+              'Pattern identification',
+              'Action recommendations',
+            ],
           },
         ],
-        process: [
-          { step: '01', title: 'Market Research', description: 'Customer interviews, Competitor analysis, Market sizing, Positioning workshops.' },
-          { step: '02', title: 'GTM Strategy', description: 'Define target audience, Positioning, Messaging, Pricing, Channel strategy, Launch timeline.' },
-          { step: '03', title: 'Pre-Launch Campaign', description: 'Build anticipation, Beta testing, Early access, Influencer seeding, Press outreach.' },
-          { step: '04', title: 'Launch Execution', description: 'Coordinated multi-channel launch, PR blitz, Sales kickoff, Customer onboarding.' },
-          { step: '05', title: 'Post-Launch Growth', description: 'Monitor metrics, Optimize messaging, Scale successful channels, Customer success programs.' },
-        ],
-        whyChooseUs: [
-          { icon: Rocket, title: '97 Successful Launches', description: '85% survival rate after 1 year. We know what it takes to launch successfully.' },
-          { icon: Trophy, title: '18 Market Leaders', description: 'Created category leaders from scratch through strategic positioning and execution.' },
-          { icon: BarChart3, title: 'Data-Driven Approach', description: 'Research-backed strategies, A/B tested messaging, metric-driven optimization.' },
-          { icon: Users, title: 'Full-Stack Team', description: 'Product marketers, Researchers, Content creators, PR specialists, Performance marketers.' },
-        ],
-        faqs: [
-          { question: 'How long does a product launch take?', answer: 'Planning phase: 4-6 weeks. Pre-launch campaign: 6-8 weeks. Launch + Post-launch: 12-16 weeks. Total: 6-8 months for comprehensive launch.' },
-          { question: 'What makes a successful launch?', answer: 'Clear positioning, Strong messaging, Multi-channel approach, Sales enablement, PR coverage, Customer success focus, Post-launch momentum.' },
-          { question: 'Do you help with pricing?', answer: 'Yes! We conduct competitive pricing analysis, willingness-to-pay research, packaging strategy, and discount optimization.' },
-          { question: 'What about B2B vs B2C launches?', answer: 'Different strategies! B2B: Sales enablement, Thought leadership, ABM. B2C: Viral loops, Influencers, Performance marketing. We specialize in both.' },
-        ],
-        tools: ['ProductBoard', 'Mixpanel', 'Google Analytics', 'HubSpot', 'Salesforce', 'Notion', 'Airtable', 'Amplitude', 'Intercom'],
-        industries: ['SaaS', 'Technology', 'E-commerce', 'FinTech', 'HealthTech', 'EdTech', 'Consumer Apps', 'B2B Software', 'Hardware', 'Marketplaces'],
-        caseStudies: [
-          { client: 'SaaS Platform', result: 'Complete go-to-market strategy + launch', time: '7 months', metric: '10,000 signups, strong ARR growth in year 1' },
-          { client: 'Consumer App', result: 'Product-led growth strategy + viral launch', time: '5 months', metric: '500K users, #3 app in category' },
-          { client: 'B2B Software', result: 'Enterprise GTM + sales enablement', time: '9 months', metric: 'Strong revenue growth, 200+ enterprise customers' },
-        ],
-        testimonials: [
-          { name: 'Karan Singh', company: 'CloudTech SaaS', text: 'They positioned us perfectly in a crowded market. Launch exceeded all targets with strong user acquisition. Brilliant strategy!', rating: 5 },
-          { name: 'Priya Mehta', company: 'FitLife App', text: 'Our app became #3 in the category within 5 months of launch. Their viral growth strategies were phenomenal. Highly recommend!', rating: 5 },
-        ],
+
+        expectations: {
+          title: 'What You Can Expect',
+          subtitle: 'Real outcomes from product marketing:',
+          outcomes: [
+            'Clear, differentiated product positioning',
+            'Successful launches with strong early traction',
+            'Sales teams enabled to sell confidently',
+            'Higher product adoption and retention',
+            'Data-driven market insights',
+          ],
+        },
+
+        idealFor: {
+          title: 'Who This Works Best For',
+          subtitle: 'Companies that:',
+          criteria: [
+            'Are launching new products or entering new markets',
+            'Need stronger product positioning',
+            'Want sales teams equipped to sell better',
+            'Value data-driven marketing decisions',
+          ],
+        },
+
+        closingMessage: {
+          title: "Let's Take Your Product To Market",
+          message: "Product marketing isn't just about launching. It's about positioning, enabling sales, and driving adoption throughout the product lifecycle.",
+          tagline: 'We help you bring products to market successfully and grow them sustainably.',
+        },
       },
+
+      // BTL ACTIVATIONS SERVICE
       'btl-activations': {
-        title: 'BTL Activations & On-Ground Marketing',
-        description: 'Direct consumer engagement through experiential marketing, product sampling, mall activations, event marketing, roadshows, and guerrilla campaigns. Create memorable brand experiences that drive word-of-mouth and conversions.',
-        tagline: 'Engage. Experience. Convert.',
-        icon: Users,
-        features: [
-          'Product Sampling & Live Demonstrations - Mall sampling, street sampling, door-to-door',
-          'Mall Activations & Pop-up Stores - High-traffic retail locations, weekend activations',
-          'Event Marketing & Sponsorships - Concerts, festivals, sports events, cultural events',
-          'Guerrilla Marketing Campaigns - Flash mobs, street art, viral stunts, PR-worthy activations',
-          'Street Activations & Roadshows - Mobile marketing vans, city tours, high-visibility locations',
-          'College Campus Activations - University events, campus tours, student engagement',
-          'Brand Experience Centers - Temporary experience zones, interactive brand spaces',
-          'In-Store Promotions - Retail promotions, POS activations, store-within-store',
-          'Kiosk & Counter Activations - Shopping malls, airports, railway stations',
-          'Festival & Cultural Event Marketing - Diwali campaigns, regional festivals, celebrations',
-          'Sports Event Activations - Cricket matches, marathons, sports tournaments',
-          'Corporate Event Management - Launch events, dealer meets, employee engagement',
-          'Launch Events & PR Stunts - Product launches, media events, influencer meets',
-          'Influencer Meet & Greets - Fan engagement, photo ops, social media content creation',
-          'Brand Ambassador Programs - Recruitment, training, management, performance tracking',
+        title: 'BTL Activations & On-Ground Marketing Services',
+        metaDescription: 'Direct consumer engagement through product sampling, mall activations, roadshows, events & experiential campaigns. Connect with customers face-to-face.',
+        
+        hero: {
+          headline: 'Connect With Customers Through Memorable On-Ground Experiences',
+          subheadline: 'We create experiential marketing campaigns that engage consumers directly through product sampling, mall activations, roadshows, events, and immersive brand experiences.',
+          badges: ['500K+ Consumers Engaged', 'Face-to-Face Impact', 'Memorable Experiences'],
+          description: "If you want marketing that creates real human connections and drives trials — you're in the right place.",
+        },
+
+        trustBar: [
+          '90+ BTL Campaigns Executed',
+          'Pan-India Execution Capability',
+          'Professional Activation Teams',
+          'Real-Time Reporting',
+          '🔥 Core Service',
         ],
-        benefits: [
-          'Direct face-to-face consumer interaction and feedback',
-          'Immediate product trial driving purchase intent',
-          'Create memorable, shareable brand experiences',
-          'Build emotional connections with target consumers',
-          'Drive organic word-of-mouth marketing',
-          'Collect valuable consumer data and insights',
-          'Generate authentic social media content and buzz',
-          'Boost brand awareness in specific geographic locations',
-        ],
-        stats: [
-          { metric: '89+', label: 'Activations Executed', description: 'Across 15+ cities', icon: Target },
-          { metric: '500K+', label: 'Consumers Engaged', description: 'Direct interactions', icon: Users },
-          { metric: '7 Years', label: 'Experience', description: 'BTL expertise', icon: Award },
-          { metric: '95%', label: 'Client Satisfaction', description: 'Repeat bookings', icon: Star },
-        ],
-        packages: [
+
+        servicesOverview: {
+          title: 'Complete BTL Activation Solutions',
+          services: [
+            {
+              icon: Users,
+              title: 'Product Sampling',
+              items: ['Mall Sampling', 'College Sampling', 'Society Sampling', 'Office Sampling', 'Event Sampling'],
+            },
+            {
+              icon: ShoppingCart,
+              title: 'Retail Activations',
+              items: ['In-Store Promotions', 'POS Displays', 'Demo Booths', 'Store Launch Events'],
+            },
+            {
+              icon: Target,
+              title: 'Mall Activations',
+              items: ['Kiosk Setup', 'Interactive Zones', 'Product Demos', 'Contest & Games'],
+            },
+            {
+              icon: Users,
+              title: 'Roadshows',
+              items: ['Mobile Vans', 'City Tours', 'Multi-Location Events', 'Brand on Wheels'],
+            },
+            {
+              icon: Award,
+              title: 'Experiential Marketing',
+              items: ['Brand Experiences', 'Pop-up Stores', 'Immersive Zones', 'Interactive Installations'],
+            },
+            {
+              icon: Rocket,
+              title: 'Event Marketing',
+              items: ['Product Launches', 'Brand Events', 'Festival Activations', 'Sports Events'],
+            },
+            {
+              icon: BarChart3,
+              title: 'Performance Tracking',
+              items: ['Real-Time Reporting', 'Consumer Data Collection', 'Lead Generation', 'ROI Measurement'],
+            },
+          ],
+        },
+
+        whyNeedHelp: {
+          title: 'Why BTL Activations Work',
+          description: 'Face-to-face marketing creates impact digital can\'t match. You get:',
+          points: [
+            'Direct product trial and experience',
+            'Immediate consumer feedback',
+            'Personal brand connections',
+            'Measurable consumer engagement',
+          ],
+          conclusion: 'BTL activations turn awareness into trial and trial into purchase.',
+        },
+
+        approach: {
+          title: 'Our BTL Execution Philosophy',
+          dontBelieve: [
+            'Generic, one-size-fits-all activations',
+            'Poorly trained brand ambassadors',
+            'No tracking or measurement',
+          ],
+          believe: [
+            'Creative, memorable consumer experiences',
+            'Professional, trained activation teams',
+            'Real-time data collection and reporting',
+            'Strategic location and timing selection',
+          ],
+        },
+
+        supportGrowth: {
+          title: 'How We Execute Your BTL Campaign',
+          steps: [
+            { title: 'Strategy', description: 'objectives, audience & locations' },
+            { title: 'Planning', description: 'creative concept & logistics' },
+            { title: 'Recruitment', description: 'brand ambassadors & training' },
+            { title: 'Execution', description: 'on-ground activation & management' },
+            { title: 'Reporting', description: 'data collection & ROI analysis' },
+          ],
+          tagline: 'A professional, end-to-end BTL execution from concept to reporting.',
+        },
+
+        individualServices: [
           {
-            name: 'Local Activation',
-            price: '₹75,000 - ₹1,50,000',
-            features: ['1-3 day activation', 'Single location (mall/event)', '5-8 brand ambassadors', 'Basic setup & branding', 'Product sampling (500-1000 units)', 'Photo/video documentation', 'Basic reporting'],
-            ideal: 'Local launches & testing',
+            title: 'Product Sampling Campaigns',
+            subtitle: 'Drive trial through direct distribution.',
+            icon: Users,
+            benefits: [
+              'Strategic location selection',
+              'Trained sampling teams',
+              'Consumer data collection',
+              'Brand messaging',
+            ],
           },
           {
-            name: 'City-Wide Campaign',
-            price: '₹3,50,000 - ₹7,50,000',
-            features: ['1-2 week campaign', 'Multiple locations (5-10 venues)', '15-25 brand ambassadors', 'Professional setup & branding', 'Product sampling (5000-10,000 units)', 'Photo/video team', 'Lead collection & CRM integration', 'Detailed analytics reporting'],
-            ideal: 'City launches & brand building',
-            popular: true,
+            title: 'Mall Activations',
+            subtitle: 'Engage shoppers in high-traffic malls.',
+            icon: ShoppingCart,
+            benefits: [
+              'Premium mall locations',
+              'Interactive brand zones',
+              'Product demonstrations',
+              'Lead generation',
+            ],
           },
           {
-            name: 'Multi-City Activation',
-            price: 'Custom Pricing',
-            features: ['Multi-week/month campaigns', 'Multiple cities simultaneously', '50+ brand ambassadors', 'Premium setup & experiential design', 'Large-scale sampling programs', 'Professional video production', 'Advanced analytics & insights', 'Dedicated campaign manager'],
-            ideal: 'National product launches',
+            title: 'Roadshows',
+            subtitle: 'Bring your brand to multiple locations.',
+            icon: Target,
+            benefits: [
+              'Mobile brand presence',
+              'City-wide coverage',
+              'Consistent execution',
+              'Multi-location tracking',
+            ],
+          },
+          {
+            title: 'College Activations',
+            subtitle: 'Reach young audiences on campus.',
+            icon: Users,
+            benefits: [
+              'Campus permissions',
+              'Student engagement',
+              'Trend-setting demographic',
+              'Social media amplification',
+            ],
+          },
+          {
+            title: 'Society & Residential Sampling',
+            subtitle: 'Door-to-door in targeted communities.',
+            icon: Users,
+            benefits: [
+              'Gated community access',
+              'Household targeting',
+              'Personal interaction',
+              'High conversion potential',
+            ],
+          },
+          {
+            title: 'In-Store Promotions',
+            subtitle: 'Drive sales at point of purchase.',
+            icon: ShoppingCart,
+            benefits: [
+              'Product demos',
+              'Promotional offers',
+              'POS materials',
+              'Sales conversion',
+            ],
+          },
+          {
+            title: 'Brand Experience Zones',
+            subtitle: 'Immersive brand environments.',
+            icon: Award,
+            benefits: [
+              'Experiential setups',
+              'Interactive elements',
+              'Photo opportunities',
+              'Memorable brand moments',
+            ],
+          },
+          {
+            title: 'Product Launch Events',
+            subtitle: 'Make launches memorable.',
+            icon: Rocket,
+            benefits: [
+              'Event conceptualization',
+              'Venue management',
+              'Guest engagement',
+              'Media coverage',
+            ],
+          },
+          {
+            title: 'Festival & Seasonal Activations',
+            subtitle: 'Leverage festive spirit.',
+            icon: Star,
+            benefits: [
+              'Festive themes',
+              'High footfall periods',
+              'Gifting & contests',
+              'Brand association',
+            ],
+          },
+          {
+            title: 'Brand Ambassador Programs',
+            subtitle: 'Trained teams representing your brand.',
+            icon: Users,
+            benefits: [
+              'Professional recruitment',
+              'Brand training',
+              'Uniform & materials',
+              'Performance tracking',
+            ],
+          },
+          {
+            title: 'Contest & Games',
+            subtitle: 'Engage through interactive activities.',
+            icon: Trophy,
+            benefits: [
+              'Creative game concepts',
+              'Prize management',
+              'Data collection',
+              'Social sharing',
+            ],
+          },
+          {
+            title: 'Kiosk & Pop-up Stores',
+            subtitle: 'Temporary retail presence.',
+            icon: ShoppingCart,
+            benefits: [
+              'Kiosk design & setup',
+              'Location permissions',
+              'Sales capability',
+              'Brand visibility',
+            ],
+          },
+          {
+            title: 'Lead Generation Campaigns',
+            subtitle: 'Collect valuable consumer data.',
+            icon: Target,
+            benefits: [
+              'Digital data collection',
+              'CRM integration',
+              'Follow-up support',
+              'Qualified leads',
+            ],
+          },
+          {
+            title: 'Real-Time Reporting',
+            subtitle: 'Track activation performance live.',
+            icon: BarChart3,
+            benefits: [
+              'Live dashboards',
+              'Photo & video updates',
+              'Consumer counts',
+              'ROI measurement',
+            ],
           },
         ],
-        process: [
-          { step: '01', title: 'Campaign Strategy & Objectives', description: 'Define activation goals, target audience demographics, key messages, success metrics, and budget allocation.' },
-          { step: '02', title: 'Location Selection & Permits', description: 'Strategic venue selection based on footfall analysis, demographics, and brand fit. Secure all necessary permits and approvals.' },
-          { step: '03', title: 'Creative Concept Development', description: 'Develop engaging activation concept, booth design, consumer journey, sampling strategy, and photo-worthy moments.' },
-          { step: '04', title: 'Team Recruitment & Training', description: 'Hire and train brand ambassadors matching your brand personality. Product training, script preparation, engagement techniques.' },
-          { step: '05', title: 'Setup & Execution', description: 'Professional setup, on-ground management, real-time monitoring, crowd management, and quality control.' },
-          { step: '06', title: 'Data Collection & Lead Capture', description: 'Capture consumer leads, feedback, photos, videos, and real-time engagement metrics. CRM integration for follow-up.' },
-          { step: '07', title: 'Reporting & ROI Analysis', description: 'Detailed post-campaign report with photos, videos, engagement stats, leads generated, consumer insights, and recommendations.' },
-        ],
-        whyChooseUs: [
-          { icon: Users, title: 'Experienced Execution Team', description: '89+ activations executed with trained brand ambassadors across 15+ cities in India.' },
-          { icon: Target, title: 'Strategic Location Intelligence', description: 'Data-driven venue selection using footfall analysis, demographics, and consumer behavior patterns.' },
-          { icon: Zap, title: 'End-to-End Management', description: 'From concept to permits to execution to reporting - we handle everything so you can focus on your business.' },
-          { icon: Award, title: '95% Satisfaction Rate', description: 'Most clients book repeat activations with us. Our quality execution builds long-term partnerships.' },
-        ],
-        faqs: [
-          { question: 'What is BTL activation?', answer: 'Below-The-Line (BTL) activation refers to direct marketing activities that engage consumers face-to-face, creating memorable brand experiences through events, sampling, experiential marketing, and on-ground campaigns.' },
-          { question: 'How do you measure activation success?', answer: 'We track footfall, consumer interactions, samples distributed, leads collected, social media mentions, photo/video content generated, and conduct post-activation surveys to measure brand recall and purchase intent.' },
-          { question: 'What locations do you cover?', answer: 'We execute activations across India - metros (Mumbai, Delhi, Bangalore, Hyderabad, Pune), tier-2 cities (Indore, Jaipur, Lucknow, etc.), and even rural areas depending on your target audience and campaign objectives.' },
-          { question: 'How much advance notice is needed?', answer: 'Minimum 3-4 weeks for planning, permit applications, team recruitment, and logistics coordination. Large multi-city campaigns need 6-8 weeks advance notice for proper execution.' },
-          { question: 'Do you provide brand ambassadors?', answer: 'Yes! We recruit, train, and manage brand ambassadors matching your brand personality and target audience. All ambassadors receive product training and engagement script preparation.' },
-        ],
-        tools: ['Event Management Software', 'Lead Capture Tablets', 'CRM Integration Systems', 'Photo/Video Production Equipment', 'Booth Display Systems', 'PA & Sound Systems', 'Digital Check-in Apps', 'Analytics Dashboards'],
-        industries: ['FMCG', 'Technology', 'Automotive', 'Fashion & Apparel', 'Food & Beverage', 'Healthcare & Wellness', 'Education', 'Telecom', 'Banking & Finance', 'E-commerce', 'Consumer Electronics', 'Beauty & Cosmetics'],
-        caseStudies: [
-          { client: 'FMCG Snack Brand', result: '10-city sampling campaign', time: '4 weeks', metric: '50,000 samples distributed, 12,000 qualified leads' },
-          { client: 'Ed-Tech Startup', result: 'College campus activation series', time: '2 months', metric: '25 colleges covered, 15,000 student sign-ups' },
-          { client: 'Fashion D2C Brand', result: 'Weekend mall activation + influencer meet', time: '3 days', metric: '5,000+ visitors engaged, 200 influencer interactions' },
-        ],
-        testimonials: [
-          { name: 'Rahul Verma', company: 'FreshSnacks FMCG', text: 'Their 10-city BTL campaign was flawlessly executed. 50,000 samples distributed, 12,000 qualified leads collected. The team managed permits, logistics, ambassadors - everything! Phenomenal ROI on activation spend.', rating: 5 },
-          { name: 'Sneha Patel', company: 'TechEdu Learning Platform', text: 'College activations across 25 campuses brought us 15,000 verified sign-ups. Their brand ambassadors were well-trained and professional. Complete turnkey solution - highly recommend!', rating: 5 },
-        ],
+
+        expectations: {
+          title: 'What You Can Expect',
+          subtitle: 'Real outcomes from BTL activations:',
+          outcomes: [
+            'Direct consumer engagement and product trial',
+            'Valuable consumer data and feedback',
+            'Brand awareness in targeted locations',
+            'Professional execution with real-time tracking',
+            'Measurable ROI and conversion metrics',
+          ],
+        },
+
+        idealFor: {
+          title: 'Who This Works Best For',
+          subtitle: 'Brands that:',
+          criteria: [
+            'Want direct consumer engagement',
+            'Need product trial to drive purchase',
+            'Value face-to-face brand connections',
+            'Want measurable on-ground marketing',
+          ],
+        },
+
+        closingMessage: {
+          title: "Let's Connect With Your Customers",
+          message: "BTL activations aren't just about handing out samples. They're about creating memorable brand experiences that drive trial and loyalty.",
+          tagline: 'We execute activations that engage consumers and deliver measurable results.',
+        },
       },
+
+      // CREATIVE CAMPAIGNS SERVICE
       'creative-campaigns': {
-        title: 'Creative Concept & Campaign Execution',
-        description: 'End-to-end creative campaigns from strategic concept to multi-channel execution. Integrated campaigns that combine digital, traditional, experiential, and PR for maximum impact. Big ideas that capture attention and drive measurable results.',
-        tagline: 'Ideas That Connect. Campaigns That Convert.',
-        icon: Lightbulb,
-        features: [
-          'Campaign Strategy & Planning - Objectives, audience research, competitive analysis, media planning',
-          'Creative Concept Development - Big ideas, campaign themes, creative briefs, mood boards',
-          'Copywriting & Messaging - Headlines, taglines, body copy, scripts, CTAs across all channels',
-          'Visual Design & Art Direction - Campaign visuals, graphics, illustrations, photography direction',
-          'Multi-Channel Campaign Rollout - Digital, print, outdoor, TV, radio, social, experiential integration',
-          'TV Commercial Production - Concept to script to production to post-production',
-          'Digital Ad Creative - Display ads, social ads, video ads, animated graphics, responsive designs',
-          'Print Ad Design - Newspaper ads, magazine ads, brochures, flyers, direct mail',
-          'Radio Spot Production - Script writing, voice-over casting, recording, sound design',
-          'OOH Creative Development - Billboards, transit ads, mall branding, airport advertising creative',
-          'Social Media Campaign Creative - Post designs, carousel ads, story templates, video content',
-          'Influencer Campaign Management - Influencer selection, brief creation, content approval, tracking',
-          'Campaign Performance Tracking - Real-time analytics, media monitoring, sentiment analysis',
-          'A/B Testing & Optimization - Creative variations, message testing, audience optimization',
-          'Campaign Reporting & Analytics - Comprehensive reports with ROI analysis and recommendations',
+        title: 'Creative Concept & Campaign Execution Services',
+        metaDescription: 'End-to-end integrated campaigns from strategy to execution across digital, traditional, experiential & PR. Big ideas, flawless execution.',
+        
+        hero: {
+          headline: 'Create & Execute Integrated Campaigns That Drive Real Business Results',
+          subheadline: 'We develop big creative ideas and execute them flawlessly across all channels - digital, traditional, experiential, and PR - to deliver campaigns that capture attention and drive action.',
+          badges: ['Big Ideas', 'Multi-Channel', '⭐ Core Service'],
+          description: "If you need campaigns that are strategic, creative, and results-driven — you're in the right place.",
+        },
+
+        trustBar: [
+          '120+ Integrated Campaigns',
+          'Award-Winning Creative',
+          'Full-Service Execution',
+          'Multi-Channel Expertise',
+          'Results-Focused',
         ],
-        benefits: [
-          'Cohesive brand messaging across all marketing channels',
-          'Professional creative that stands out in crowded markets',
-          'Data-driven campaign optimization for better results',
-          'Measurable results with transparent ROI tracking',
-          'Single point of contact for entire campaign lifecycle',
-          'Faster execution with our integrated creative team',
-          'Cost-effective bundled services vs. hiring multiple agencies',
-        ],
-        stats: [
-          { metric: '120+', label: 'Campaigns Executed', description: 'Across industries', icon: Rocket },
-          { metric: '7 Years', label: 'Experience', description: 'Creative excellence', icon: Award },
-          { metric: '50+', label: 'Creative Team', description: 'Writers, designers, strategists', icon: Users },
-          { metric: '98%', label: 'Client Satisfaction', description: 'Repeat campaigns', icon: Star },
-        ],
-        packages: [
+
+        servicesOverview: {
+          title: 'Complete Campaign Solutions',
+          services: [
+            {
+              icon: Lightbulb,
+              title: 'Creative Concept Development',
+              items: ['Big Ideas', 'Campaign Themes', 'Creative Strategy', 'Brand Storytelling'],
+            },
+            {
+              icon: Target,
+              title: 'Campaign Strategy',
+              items: ['Objective Setting', 'Audience Targeting', 'Channel Planning', 'Budget Allocation'],
+            },
+            {
+              icon: Globe,
+              title: 'Digital Campaign Execution',
+              items: ['Social Media', 'Paid Advertising', 'Content Creation', 'Influencer Marketing'],
+            },
+            {
+              icon: Megaphone,
+              title: 'Traditional Media',
+              items: ['TV & Radio', 'Print Ads', 'OOH Advertising', 'Media Buying'],
+            },
+            {
+              icon: Users,
+              title: 'Experiential Marketing',
+              items: ['Events & Activations', 'Pop-up Experiences', 'Brand Installations', 'On-Ground Engagement'],
+            },
+            {
+              icon: MessageSquare,
+              title: 'PR & Media Relations',
+              items: ['Media Coverage', 'Press Releases', 'Influencer Outreach', 'Media Events'],
+            },
+            {
+              icon: BarChart3,
+              title: 'Campaign Performance',
+              items: ['Real-Time Tracking', 'Multi-Channel Analytics', 'ROI Measurement', 'Optimization'],
+            },
+          ],
+        },
+
+        whyNeedHelp: {
+          title: 'Why Integrated Campaigns Work Better',
+          description: 'Siloed marketing doesn\'t cut it anymore. You need campaigns that:',
+          points: [
+            'Tell a consistent story across all touchpoints',
+            'Reach audiences where they are',
+            'Amplify messages through channel synergy',
+            'Drive measurable business results',
+          ],
+          conclusion: 'Integrated campaigns deliver exponentially better results than single-channel efforts.',
+        },
+
+        approach: {
+          title: 'Our Campaign Philosophy',
+          dontBelieve: [
+            'Tactical execution without strategy',
+            'Siloed channel management',
+            'Creative for creative\'s sake',
+          ],
+          believe: [
+            'Strategy first, tactics second',
+            'Integrated multi-channel approach',
+            'Creative that serves business goals',
+            'Continuous measurement and optimization',
+          ],
+        },
+
+        supportGrowth: {
+          title: 'How We Create & Execute Campaigns',
+          steps: [
+            { title: 'Brief', description: 'business goals & challenges' },
+            { title: 'Strategy', description: 'audience, channels & messaging' },
+            { title: 'Creative', description: 'big idea & concept development' },
+            { title: 'Execution', description: 'multi-channel campaign launch' },
+            { title: 'Optimization', description: 'performance tracking & improvement' },
+          ],
+          tagline: 'A strategic, integrated approach from concept to results.',
+        },
+
+        individualServices: [
           {
-            name: 'Digital Campaign',
-            price: '₹2,50,000 - ₹5,00,000',
-            features: ['Campaign strategy & planning', 'Creative concept (3 concepts)', 'Digital ad creative (20+ variations)', 'Social media content (40 posts)', 'Landing page design', 'Email campaign creative', '2 months execution support', 'Performance reporting'],
-            ideal: 'Digital-first brands',
+            title: 'Campaign Strategy Development',
+            subtitle: 'Foundation for successful campaigns.',
+            icon: Target,
+            benefits: [
+              'Clear objectives',
+              'Audience research',
+              'Channel strategy',
+              'Success metrics',
+            ],
           },
           {
-            name: 'Integrated Campaign',
-            price: '₹8,00,000 - ₹15,00,000',
-            features: ['Comprehensive campaign strategy', 'Creative concept & development', 'Digital + Print + OOH creative', 'Social media campaign (3 months)', 'Influencer campaign management', 'TV/Radio spot production', 'Landing pages & microsites', 'Full campaign execution', 'Monthly reporting & optimization'],
-            ideal: 'Product launches & rebranding',
-            popular: true,
+            title: 'Creative Concept & Big Ideas',
+            subtitle: 'Breakthrough creative that resonates.',
+            icon: Lightbulb,
+            benefits: [
+              'Strategic creativity',
+              'Multiple concepts',
+              'Consumer insight-driven',
+              'Brand-aligned',
+            ],
           },
           {
-            name: 'Enterprise Campaign',
-            price: 'Custom Pricing',
-            features: ['Multi-market campaign strategy', 'Big idea creative development', 'TV commercial production', 'All-channel creative rollout', 'Celebrity/Influencer partnerships', 'Event & experiential integration', 'PR & media buying coordination', 'Dedicated campaign team', 'Real-time analytics dashboard'],
-            ideal: 'National & international launches',
+            title: 'Brand Campaign Development',
+            subtitle: 'Build brand equity and awareness.',
+            icon: Award,
+            benefits: [
+              'Brand storytelling',
+              'Emotional connection',
+              'Long-term brand building',
+              'Multi-touchpoint presence',
+            ],
+          },
+          {
+            title: 'Product Launch Campaigns',
+            subtitle: 'Create buzz and drive trial.',
+            icon: Rocket,
+            benefits: [
+              'Launch strategy',
+              'Multi-channel activation',
+              'Media coverage',
+              'Early adopter targeting',
+            ],
+          },
+          {
+            title: 'Digital Campaign Execution',
+            subtitle: 'Integrated digital marketing.',
+            icon: Globe,
+            benefits: [
+              'Social media',
+              'Paid advertising',
+              'Content marketing',
+              'Email & automation',
+            ],
+          },
+          {
+            title: 'Social Media Campaigns',
+            subtitle: 'Viral-worthy social campaigns.',
+            icon: Users,
+            benefits: [
+              'Platform-specific content',
+              'Hashtag campaigns',
+              'User-generated content',
+              'Community engagement',
+            ],
+          },
+          {
+            title: 'Influencer Campaign Management',
+            subtitle: 'Leverage influencer audiences.',
+            icon: Star,
+            benefits: [
+              'Influencer selection',
+              'Campaign coordination',
+              'Content collaboration',
+              'Performance tracking',
+            ],
+          },
+          {
+            title: 'Video Campaign Production',
+            subtitle: 'Video content that performs.',
+            icon: Video,
+            benefits: [
+              'Concept to completion',
+              'Multi-format delivery',
+              'Platform optimization',
+              'Distribution strategy',
+            ],
+          },
+          {
+            title: 'Traditional Media Campaigns',
+            subtitle: 'TV, radio, print & OOH.',
+            icon: Megaphone,
+            benefits: [
+              'Creative production',
+              'Media planning',
+              'Negotiated buying',
+              'Reach optimization',
+            ],
+          },
+          {
+            title: 'Experiential Campaigns',
+            subtitle: 'Memorable brand experiences.',
+            icon: Users,
+            benefits: [
+              'Event conceptualization',
+              'Pop-up activations',
+              'Immersive experiences',
+              'Social amplification',
+            ],
+          },
+          {
+            title: 'PR & Media Campaigns',
+            subtitle: 'Earn media coverage and credibility.',
+            icon: MessageSquare,
+            benefits: [
+              'Media outreach',
+              'Press events',
+              'Story development',
+              'Coverage tracking',
+            ],
+          },
+          {
+            title: 'Seasonal & Festival Campaigns',
+            subtitle: 'Capitalize on peak periods.',
+            icon: Star,
+            benefits: [
+              'Festive themes',
+              'Time-sensitive execution',
+              'Promotional campaigns',
+              'Maximum ROI periods',
+            ],
+          },
+          {
+            title: 'Multi-Channel Attribution',
+            subtitle: 'Understand true campaign impact.',
+            icon: BarChart3,
+            benefits: [
+              'Cross-channel tracking',
+              'Attribution modeling',
+              'ROI by channel',
+              'Optimization insights',
+            ],
+          },
+          {
+            title: 'Campaign Performance Optimization',
+            subtitle: 'Continuous improvement.',
+            icon: TrendingUp,
+            benefits: [
+              'Real-time monitoring',
+              'A/B testing',
+              'Budget reallocation',
+              'Performance reporting',
+            ],
           },
         ],
-        process: [
-          { step: '01', title: 'Discovery & Research', description: 'Deep dive into your brand, market, competitors, and target audience. Identify opportunities and insights.' },
-          { step: '02', title: 'Strategy & Planning', description: 'Develop campaign objectives, messaging strategy, channel selection, media plan, and success metrics.' },
-          { step: '03', title: 'Creative Concepting', description: 'Brainstorm big ideas, develop 2-3 campaign concepts, create mood boards and storyboards for client review.' },
-          { step: '04', title: 'Creative Production', description: 'Design all campaign assets - digital ads, print ads, OOH creative, videos, social content, website pages.' },
-          { step: '05', title: 'Campaign Launch', description: 'Coordinate multi-channel rollout with precise timing. Ensure all assets are live and tracking is set up.' },
-          { step: '06', title: 'Monitoring & Optimization', description: 'Track performance daily, optimize underperforming channels, scale winning creative, test new variations.' },
-          { step: '07', title: 'Reporting & Analysis', description: 'Comprehensive campaign report with reach, engagement, conversions, ROI, insights, and recommendations.' },
-        ],
-        whyChooseUs: [
-          { icon: Lightbulb, title: 'Strategic Creative Thinking', description: '120+ integrated campaigns executed with proven results across digital, traditional, and experiential channels.' },
-          { icon: Users, title: 'Full-Service Team', description: '50+ specialists - strategists, copywriters, designers, video producers, media planners - all under one roof.' },
-          { icon: BarChart3, title: 'Data-Driven Optimization', description: 'Every campaign tracked with analytics. We optimize based on real performance data, not gut feelings.' },
-          { icon: Award, title: 'Award-Winning Work', description: 'Multiple creative awards and 98% client satisfaction. We create campaigns that win awards and drive business results.' },
-        ],
-        faqs: [
-          { question: 'What is an integrated campaign?', answer: 'An integrated campaign uses multiple marketing channels (digital ads, social media, TV, print, OOH, radio, events) working together with consistent messaging to achieve campaign objectives. More effective than single-channel campaigns.' },
-          { question: 'How long does campaign development take?', answer: 'Digital campaigns: 3-4 weeks. Integrated campaigns with TV/video: 6-8 weeks. Large enterprise campaigns: 10-12 weeks. Timeline depends on creative complexity and production requirements.' },
-          { question: 'Do you handle media buying?', answer: 'We create all campaign creative and can coordinate with your media buying agency, or we can handle media buying for you through our trusted media partners.' },
-          { question: 'Can you work with our existing brand guidelines?', answer: 'Absolutely! We work within your brand guidelines while bringing fresh creative ideas. If you need brand guideline updates, we can help with that too.' },
-          { question: 'How do you measure campaign success?', answer: 'We define KPIs upfront (reach, engagement, leads, sales, ROI, brand lift) and track them throughout the campaign. Monthly reports show what\'s working and where we\'re optimizing.' },
-        ],
-        tools: ['Adobe Creative Cloud', 'Canva Pro', 'Final Cut Pro', 'Adobe Premiere', 'After Effects', 'Google Analytics', 'Meta Business Suite', 'Sprinklr', 'Hootsuite', 'Google Ads', 'SEMrush', 'Ahrefs'],
-        industries: ['E-commerce', 'Technology', 'FMCG', 'Automotive', 'Real Estate', 'Healthcare', 'Education', 'Finance', 'Fashion', 'Food & Beverage', 'Entertainment', 'Travel & Hospitality'],
-        caseStudies: [
-          { client: 'E-commerce Fashion Brand', result: 'Festive season integrated campaign', time: '3 months', metric: '2.5X sales lift during campaign period' },
-          { client: 'Tech Startup', result: 'Product launch campaign - digital + OOH + PR', time: '2 months', metric: '50,000 sign-ups in first month' },
-          { client: 'Real Estate Developer', result: 'Property launch - TV + Digital + Events', time: '4 months', metric: '85% inventory sold within campaign period' },
-        ],
-        testimonials: [
-          { name: 'Vikram Malhotra', company: 'StyleHub Fashion', text: 'Their festive campaign creative was outstanding! Integrated digital, social, influencer, and OOH perfectly. Sales increased 2.5X during the campaign. The creative work won us several industry awards too!', rating: 5 },
-          { name: 'Anjali Kapoor', company: 'NeoTech Solutions', text: 'They took our product launch from concept to execution flawlessly. The campaign generated 50,000 sign-ups in the first month. Their strategic thinking and creative execution are world-class!', rating: 5 },
-        ],
+
+        expectations: {
+          title: 'What You Can Expect',
+          subtitle: 'Real outcomes from integrated campaigns:',
+          outcomes: [
+            'Big creative ideas that capture attention',
+            'Flawless execution across all channels',
+            'Consistent messaging and brand experience',
+            'Real-time performance tracking and optimization',
+            'Measurable business results and ROI',
+          ],
+        },
+
+        idealFor: {
+          title: 'Who This Works Best For',
+          subtitle: 'Businesses that:',
+          criteria: [
+            'Need breakthrough creative and execution',
+            'Want integrated multi-channel campaigns',
+            'Value strategic thinking with flawless execution',
+            'Need a full-service campaign partner',
+          ],
+        },
+
+        closingMessage: {
+          title: "Let's Create Campaigns That Work",
+          message: "Great campaigns aren't just creative. They're strategic, integrated, measurable, and designed to drive real business results.",
+          tagline: 'We create and execute campaigns that capture attention and deliver results.',
+        },
       },
     };
 
-    return serviceDatabase;
+    return services[slug || 'digital-marketing'];
   };
 
-  const serviceData = getServiceData();
-  const currentService = serviceData[slug || 'digital-marketing'] || serviceData['digital-marketing'];
-  const Icon = currentService.icon;
+  const service = getServiceContent();
   
-  // SEO Data - Auto-loads from centralized config
-  const seo = useSEO();
-  const breadcrumbs = [
-    { name: 'Home', path: '/' },
-    { name: 'Services', path: '/services' },
-    { name: currentService.title, path: `/services/${slug}` },
-  ];
+  if (!service) {
+    return (
+      <div className="min-h-screen bg-black text-white flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-[30px] font-medium mb-4">Service Not Found</h1>
+          <Link to="/services" className="text-yellow-500 hover:text-yellow-400">
+            ← Back to Services
+          </Link>
+        </div>
+      </div>
+    );
+  }
+
+  const seoData = useSEO(`/services/${slug}`);
 
   return (
-    <div className="bg-black">
-      {/* SEO Meta Tags - Auto-loaded from centralized config */}
-      <SEOHead {...seo.meta} />
-      
-      {/* Structured Data */}
-      <StructuredData 
-        schema={[
-          organizationSchema,
-          getWebPageSchema(seo.meta.title, seo.meta.description, `/services/${slug}`, breadcrumbs),
-          getBreadcrumbSchema(breadcrumbs),
-          getServiceSchema({
-            name: currentService.title,
-            description: currentService.description,
-            slug: slug || 'digital-marketing',
-          }),
-        ]} 
+    <>
+      <SEOHead
+        title={seoData.title}
+        description={service.metaDescription}
+        keywords={seoData.keywords?.join(', ') || ''}
+        canonicalUrl={`https://inchtomilez.in/services/${slug}`}
       />
-      
-      {/* Hero Section */}
-      <section className="container mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
-        <div className="max-w-5xl mx-auto">
-          <Link
-            to="/services"
-            className="inline-flex items-center gap-2 text-[0.8125rem] text-yellow-500 hover:text-yellow-400 transition-colors duration-200 mb-8 font-medium"
-          >
-            <ArrowLeft size={16} />
-            Back to All Services
-          </Link>
 
-          <Icon className="text-white mb-6" size={56} />
-          
-          <h1 className="text-2xl md:text-3xl font-medium tracking-tight mb-4 leading-tight">
-            {currentService.title}
-          </h1>
-          <p className="text-[0.9375rem] leading-relaxed text-yellow-500 mb-6 italic font-medium">
-            {currentService.tagline}
-          </p>
-          <p className="text-[0.9375rem] leading-relaxed text-gray-300 mb-10 max-w-3xl">
-            {currentService.description}
-          </p>
+      <StructuredData schema={organizationSchema} />
+      <StructuredData schema={getWebPageSchema(
+        service.title,
+        service.metaDescription,
+        `https://inchtomilez.in/services/${slug}`
+      )} />
 
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Link
-              to="/contact"
-              className="bg-yellow-500 hover:bg-yellow-400 text-black px-8 py-4 rounded-xl transition-all duration-200 inline-flex items-center gap-2 text-[0.9375rem] font-semibold shadow-lg hover:shadow-yellow-500/50"
+      <div className="min-h-screen bg-black text-white">
+        {/* SECTION 1: HERO */}
+        <section className="py-16 md:py-24">
+          <div className="container mx-auto px-6">
+            <Link 
+              to="/services" 
+              className="inline-flex items-center gap-2 text-[15px] text-gray-400 hover:text-yellow-500 mb-8 transition-colors"
             >
-              Get Custom Quote
-              <ArrowRight className="w-5 h-5" />
+              <ArrowLeft className="w-4 h-4" />
+              Back to Services
             </Link>
-            <a
-              href="tel:+919669988666"
-              className="glass-card px-8 py-4 rounded-xl transition-colors duration-200 inline-flex items-center gap-2 text-[0.9375rem] font-semibold"
-            >
-              Call: +91 96699 88666
-            </a>
-          </div>
-        </div>
-      </section>
 
-      {/* Stats */}
-      <section className="py-16 md:py-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-6xl mx-auto">
-            <p className="text-xs font-medium uppercase tracking-wide text-yellow-500 mb-4 text-center">PROVEN RESULTS</p>
-            <h2 className="mb-12 text-center leading-tight">Performance Metrics</h2>
+            <h1 className="text-[30px] md:text-[42px] font-medium mb-6 max-w-4xl leading-tight">
+              {service.hero.headline}
+            </h1>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
-              {currentService.stats.map((stat: any, index: number) => {
-                const StatIcon = stat.icon;
-                const span = index % 3 === 0 ? 'sm:col-span-2' : '';
-                return (
-                  <div key={index} className={`glass-card !p-6 text-center ${span}`}>
-                    <StatIcon className="mx-auto mb-4 text-white" size={32} />
-                    <div className="text-4xl md:text-5xl font-bold text-yellow-500 mb-3">{stat.metric}</div>
-                    <h3 className="text-[1.375rem] font-medium mb-2 leading-tight">{stat.label}</h3>
-                    <p className="text-[0.8125rem] text-gray-400 leading-relaxed">{stat.description}</p>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Features & Benefits */}
-      <section className="py-16 md:py-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-6xl mx-auto">
-            <p className="text-xs font-medium uppercase tracking-wide text-yellow-500 mb-4 text-center">WHAT YOU GET</p>
-            <h2 className="mb-12 text-center leading-tight">Comprehensive Solutions</h2>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 lg:gap-8">
-              <div className="glass-strong !p-6">
-                <h3 className="text-[1.375rem] font-medium mb-6 leading-tight">What's Included</h3>
-                <div className="space-y-3">
-                  {currentService.features.map((feature: string, index: number) => (
-                    <div key={index} className="flex items-start gap-3">
-                      <CheckCircle className="flex-shrink-0 text-yellow-500 mt-0.5" size={20} />
-                      <p className="text-[0.8125rem] leading-relaxed text-gray-300">{feature}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="glass-strong !p-6">
-                <h3 className="text-[1.375rem] font-medium mb-6 leading-tight">Key Benefits</h3>
-                <div className="space-y-3">
-                  {currentService.benefits.map((benefit: string, index: number) => (
-                    <div key={index} className="flex items-start gap-3">
-                      <Star className="flex-shrink-0 text-yellow-500 mt-0.5" size={20} />
-                      <p className="text-[0.8125rem] leading-relaxed text-gray-300">{benefit}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose Us */}
-      <section className="py-16 md:py-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-6xl mx-auto">
-            <p className="text-xs font-medium uppercase tracking-wide text-yellow-500 mb-4 text-center">WHY INCHTOMILEZ</p>
-            <h2 className="mb-4 text-center leading-tight">What Makes Us Different</h2>
-            <p className="text-[0.9375rem] leading-relaxed text-gray-300 mb-12 text-center max-w-3xl mx-auto">
-              Our unique approach and proven methodologies set us apart from competitors.
+            <p className="text-[17px] text-gray-300 mb-6 max-w-3xl leading-relaxed">
+              {service.hero.subheadline}
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
-              {currentService.whyChooseUs.map((reason: any, index: number) => {
-                const ReasonIcon = reason.icon;
-                const span = index % 3 === 0 ? 'sm:col-span-2' : '';
-                const rowSpan = index === 0 ? 'sm:row-span-2' : '';
-                return (
-                  <div key={index} className={`glass-card !p-6 ${span} ${rowSpan}`}>
-                    <ReasonIcon className="mb-4 text-white" size={36} />
-                    <h3 className="text-[1.375rem] font-medium mb-3 leading-tight">{reason.title}</h3>
-                    <p className="text-[0.8125rem] text-gray-400 leading-relaxed">{reason.description}</p>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Pricing */}
-      <section className="py-16 md:py-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-6xl mx-auto">
-            <p className="text-xs font-medium uppercase tracking-wide text-yellow-500 mb-4 text-center">TRANSPARENT PRICING</p>
-            <h2 className="mb-4 text-center leading-tight">Flexible Packages for Every Budget</h2>
-            <p className="text-[0.9375rem] leading-relaxed text-gray-300 mb-12 text-center max-w-3xl mx-auto">
-              Choose the package that aligns with your business goals and budget. All packages customizable.
-            </p>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
-              {currentService.packages.map((pkg: any, index: number) => (
-                <div
+            <div className="flex flex-wrap gap-4 mb-8">
+              {service.hero.badges.map((badge: string, index: number) => (
+                <span 
                   key={index}
-                  className={`${pkg.popular ? 'glass-strong' : 'glass-card'} !p-6 ${pkg.popular ? 'border-2 border-yellow-500/50' : ''}`}
+                  className="inline-flex items-center gap-2 px-4 py-2 text-[14px] bg-yellow-500/10 text-yellow-500 rounded-full border border-yellow-500/20"
                 >
-                  {pkg.popular && (
-                    <div className="inline-block bg-yellow-500 text-black px-3 py-1.5 rounded-lg mb-4 text-[0.8125rem] font-semibold">
-                      Most Popular
-                    </div>
-                  )}
-                  <h3 className="text-[1.375rem] font-medium mb-3 leading-tight">{pkg.name}</h3>
-                  <div className="text-3xl md:text-4xl font-bold text-yellow-500 mb-6">{pkg.price}</div>
-                  <div className="space-y-3 mb-6">
-                    {pkg.features.map((feature: string, idx: number) => (
-                      <div key={idx} className="flex items-start gap-2">
-                        <CheckCircle size={16} className="text-yellow-500 flex-shrink-0 mt-0.5" />
-                        <p className="text-[0.8125rem] text-gray-400 leading-relaxed">{feature}</p>
-                      </div>
-                    ))}
-                  </div>
-                  <p className="text-[0.8125rem] text-gray-500 italic pt-4">
-                    Ideal for: {pkg.ideal}
-                  </p>
-                </div>
+                  <CheckCircle className="w-4 h-4" />
+                  {badge}
+                </span>
               ))}
             </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Process */}
-      <section className="py-16 md:py-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-5xl mx-auto">
-            <p className="text-xs font-medium uppercase tracking-wide text-yellow-500 mb-4 text-center">OUR PROCESS</p>
-            <h2 className="mb-4 text-center leading-tight">How We Deliver Excellence</h2>
-            <p className="text-[0.9375rem] leading-relaxed text-gray-300 mb-12 text-center max-w-3xl mx-auto">
-              Our proven 5-step methodology ensures consistent, measurable results every time.
+            <p className="text-[16px] text-white mb-8 max-w-2xl">
+              👉 {service.hero.description}
             </p>
 
-            <div className="space-y-6">
-              {currentService.process.map((step: any) => (
-                <div key={step.step} className="glass-card p-6 rounded-xl transition-all duration-200">
-                  <div className="flex flex-col md:flex-row gap-6">
-                    <div className="flex-shrink-0">
-                      <div className="text-4xl md:text-5xl font-bold text-yellow-500">{step.step}</div>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-[1.375rem] font-medium mb-3 leading-tight">{step.title}</h3>
-                      <p className="text-[0.8125rem] text-gray-400 leading-relaxed">{step.description}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Tools & Technologies */}
-      <section className="py-16 md:py-24 overflow-hidden">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-6xl mx-auto mb-12">
-            <p className="text-xs font-medium uppercase tracking-wide text-yellow-500 mb-4 text-center">POWERED BY</p>
-            <h2 className="mb-4 text-center leading-tight">Technologies & Tools We Use</h2>
-            <p className="text-[0.9375rem] leading-relaxed text-gray-300 mb-8 text-center max-w-3xl mx-auto">
-              Best-in-class platforms and tools for superior results and efficiency.
-            </p>
-          </div>
-
-          <AutoCarousel speed="normal">
-            {currentService.tools.map((tool: string, index: number) => (
-              <div key={index} className="glass min-w-[180px] sm:min-w-[220px] flex-shrink-0 text-center p-6 snap-center">
-                <p className="text-[0.9375rem] leading-relaxed font-medium">{tool}</p>
-              </div>
-            ))}
-          </AutoCarousel>
-        </div>
-      </section>
-
-      {/* Industries */}
-      <section className="py-16 md:py-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-6xl mx-auto">
-            <p className="text-xs font-medium uppercase tracking-wide text-yellow-500 mb-4 text-center">INDUSTRY EXPERTISE</p>
-            <h2 className="mb-12 text-center leading-tight">Industries We Serve</h2>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6 lg:gap-8">
-              {currentService.industries.map((industry: string, index: number) => (
-                <div key={index} className="glass-card !p-6 text-center">
-                  <p className="text-[0.8125rem]">{industry}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Case Studies */}
-      <section className="border-t border-white/10 py-16 md:py-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-6xl mx-auto">
-            <p className="text-xs font-medium uppercase tracking-wide text-yellow-500 mb-4 text-center">SUCCESS STORIES</p>
-            <h2 className="mb-12 text-center leading-tight">Real Results for Real Businesses</h2>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
-              {currentService.caseStudies.map((study: any, index: number) => {
-                const span = index === 0 ? 'sm:col-span-2' : '';
-                const rowSpan = index === 0 ? 'sm:row-span-2' : '';
-                return (
-                  <div key={index} className={`glass-strong !p-6 ${span} ${rowSpan}`}>
-                    <h3 className="text-[1.375rem] font-medium mb-4 leading-tight">{study.client}</h3>
-                    <div className="space-y-4">
-                      <div className="flex items-start gap-3">
-                        <TrendingUp size={20} className="text-yellow-500 flex-shrink-0 mt-0.5" />
-                        <div>
-                          <p className="text-[0.8125rem] text-gray-500 mb-1">Result</p>
-                          <p className="text-[0.9375rem] leading-relaxed text-white font-medium">{study.result}</p>
-                        </div>
-                      </div>
-                      <div className="flex items-start gap-3">
-                        <Clock size={20} className="text-yellow-500 flex-shrink-0 mt-0.5" />
-                        <div>
-                          <p className="text-[0.8125rem] text-gray-500 mb-1">Timeline</p>
-                          <p className="text-[0.9375rem] leading-relaxed text-white font-medium">{study.time}</p>
-                        </div>
-                      </div>
-                      <div className="flex items-start gap-3">
-                        <BarChart3 size={20} className="text-yellow-500 flex-shrink-0 mt-0.5" />
-                        <div>
-                          <p className="text-[0.8125rem] text-gray-500 mb-1">Key Metric</p>
-                          <p className="text-[0.9375rem] leading-relaxed text-white font-medium">{study.metric}</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section className="border-t border-white/10 py-16 md:py-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-6xl mx-auto">
-            <p className="text-xs font-medium uppercase tracking-wide text-yellow-500 mb-4 text-center">CLIENT TESTIMONIALS</p>
-            <h2 className="mb-12 text-center leading-tight">What Our Clients Say</h2>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 lg:gap-8">
-              {currentService.testimonials.map((testimonial: any, index: number) => (
-                <div key={index} className="glass-card !p-6">
-                  <div className="flex gap-1 mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} size={16} className="text-yellow-500 fill-yellow-500" />
-                    ))}
-                  </div>
-                  <p className="text-[0.9375rem] leading-relaxed text-gray-300 mb-6 italic">
-                    "{testimonial.text}"
-                  </p>
-                  <div className="pt-4 border-t border-white/10">
-                    <p className="text-[0.9375rem] leading-relaxed font-semibold">{testimonial.name}</p>
-                    <p className="text-[0.8125rem] text-yellow-500">{testimonial.company}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section className="border-t border-white/10 py-16 md:py-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <p className="text-xs font-medium uppercase tracking-wide text-yellow-500 mb-4 text-center">FAQS</p>
-            <h2 className="mb-12 text-center leading-tight">Frequently Asked Questions</h2>
-
-            <Accordion type="single" collapsible className="space-y-4">
-              {currentService.faqs.map((faq: any, index: number) => (
-                <AccordionItem
-                  key={index}
-                  value={`faq-${index}`}
-                  className="glass rounded-xl transition-all duration-200 border border-white/5"
-                >
-                  <AccordionTrigger className="px-6 py-5">
-                    <h3 className="text-[1.375rem] font-medium text-left leading-tight">{faq.question}</h3>
-                  </AccordionTrigger>
-                  <AccordionContent className="px-6 pb-6">
-                    <p className="text-[0.8125rem] text-gray-400 leading-relaxed">{faq.answer}</p>
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </div>
-        </div>
-      </section>
-
-      {/* Final CTA */}
-      <section className="border-t border-white/10 py-16 md:py-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="mb-6 leading-tight">Ready to Get Started?</h2>
-            <p className="text-[0.9375rem] leading-relaxed text-gray-300 mb-10 max-w-2xl mx-auto">
-              Book a free consultation to discuss your project goals. Get a customized proposal with transparent pricing, clear timelines, and projected ROI.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-wrap gap-4">
+              <a 
+                href="tel:+919669988666"
+                className="inline-flex items-center gap-2 px-6 py-3 text-[15px] font-semibold bg-yellow-500 text-black rounded-lg hover:bg-yellow-400 transition-colors"
+              >
+                <Phone className="w-4 h-4" />
+                Call: +91 96699 88666
+              </a>
               <Link
                 to="/contact"
-                className="bg-yellow-500 hover:bg-yellow-400 text-black px-10 py-5 rounded-xl transition-all duration-200 inline-flex items-center justify-center gap-2 text-[0.9375rem] font-semibold shadow-xl hover:shadow-yellow-500/50"
+                className="inline-flex items-center gap-2 px-6 py-3 text-[15px] font-semibold bg-white/5 text-white rounded-lg hover:bg-white/10 transition-colors border border-white/10"
               >
-                Schedule Free Consultation
-                <ArrowRight className="w-5 h-5" />
-              </Link>
-              <Link
-                to="/services"
-                className="glass-card px-10 py-5 rounded-xl transition-colors duration-200 inline-flex items-center justify-center gap-2 text-[0.9375rem] font-semibold"
-              >
-                View All Services
+                Get Your Growth Plan
               </Link>
             </div>
           </div>
-        </div>
-      </section>
-    </div>
+        </section>
+
+        {/* SECTION 2: TRUST BAR */}
+        <section className="py-8 border-y border-white/10">
+          <div className="container mx-auto px-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 text-center">
+              {service.trustBar.map((item: string, index: number) => (
+                <div key={index} className="flex items-center justify-center gap-2">
+                  <CheckCircle className="w-4 h-4 text-yellow-500 flex-shrink-0" />
+                  <span className="text-[14px] text-gray-300">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* SECTION 3: ALL SERVICES OVERVIEW (BENTO GRID) */}
+        <section className="py-16 md:py-24 bg-gradient-to-b from-black to-black/50">
+          <div className="container mx-auto px-6">
+            <h2 className="text-[28px] font-bold mb-12 text-center">
+              {service.servicesOverview.title}
+            </h2>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              {service.servicesOverview.services.map((item: any, index: number) => {
+                const Icon = item.icon;
+                return (
+                  <div 
+                    key={index}
+                    className="p-6 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-yellow-500/30 transition-all duration-300"
+                  >
+                    <Icon className="w-8 h-8 text-yellow-500 mb-4" />
+                    <h3 className="text-[18px] font-medium mb-3">{item.title}</h3>
+                    <ul className="space-y-2">
+                      {item.items.map((service: string, idx: number) => (
+                        <li key={idx} className="text-[14px] text-gray-400 flex items-start gap-2">
+                          <span className="text-yellow-500 mt-1">•</span>
+                          <span>{service}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* SECTION 4: WHY BUSINESSES NEED HELP */}
+        <section className="py-16 md:py-24">
+          <div className="container mx-auto px-6">
+            <div className="max-w-3xl mx-auto text-center">
+              <h2 className="text-[28px] font-bold mb-4">
+                {service.whyNeedHelp.title}
+              </h2>
+              <p className="text-[17px] text-gray-300 mb-8">
+                {service.whyNeedHelp.description}
+              </p>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8 text-left">
+                {service.whyNeedHelp.points.map((point: string, index: number) => (
+                  <div key={index} className="flex items-start gap-3 p-4 rounded-lg bg-white/5">
+                    <CheckCircle className="w-5 h-5 text-yellow-500 flex-shrink-0 mt-0.5" />
+                    <span className="text-[15px] text-gray-300">{point}</span>
+                  </div>
+                ))}
+              </div>
+
+              <p className="text-[17px] font-medium text-white">
+                {service.whyNeedHelp.conclusion}
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* SECTION 5: OUR APPROACH */}
+        <section className="py-16 md:py-24 bg-gradient-to-b from-black/50 to-black">
+          <div className="container mx-auto px-6">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-[28px] font-bold mb-12 text-center">
+                {service.approach.title}
+              </h2>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {/* Don't Believe */}
+                <div className="p-6 rounded-xl bg-red-500/5 border border-red-500/20">
+                  <h3 className="text-[18px] font-medium mb-4 text-red-400">
+                    We don't believe in:
+                  </h3>
+                  <ul className="space-y-3">
+                    {service.approach.dontBelieve.map((item: string, index: number) => (
+                      <li key={index} className="text-[15px] text-gray-400 flex items-start gap-2">
+                        <span className="text-red-400">❌</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Believe */}
+                <div className="p-6 rounded-xl bg-green-500/5 border border-green-500/20">
+                  <h3 className="text-[18px] font-medium mb-4 text-green-400">
+                    We believe in:
+                  </h3>
+                  <ul className="space-y-3">
+                    {service.approach.believe.map((item: string, index: number) => (
+                      <li key={index} className="text-[15px] text-gray-400 flex items-start gap-2">
+                        <span className="text-green-400">✅</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* SECTION 6: HOW WE SUPPORT GROWTH */}
+        <section className="py-16 md:py-24">
+          <div className="container mx-auto px-6">
+            <div className="max-w-4xl mx-auto text-center">
+              <h2 className="text-[28px] font-bold mb-12">
+                {service.supportGrowth.title}
+              </h2>
+
+              <div className="grid grid-cols-1 md:grid-cols-5 gap-6 mb-8">
+                {service.supportGrowth.steps.map((step: any, index: number) => (
+                  <div key={index} className="relative">
+                    <div className="p-6 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-yellow-500/30 transition-all">
+                      <div className="w-10 h-10 rounded-full bg-yellow-500 text-black flex items-center justify-center font-bold mb-4 mx-auto">
+                        {index + 1}
+                      </div>
+                      <h3 className="text-[16px] font-medium mb-2">{step.title}</h3>
+                      <p className="text-[13px] text-gray-400">{step.description}</p>
+                    </div>
+                    {index < service.supportGrowth.steps.length - 1 && (
+                      <div className="hidden md:block absolute top-1/2 -right-3 w-6 h-0.5 bg-yellow-500/30" />
+                    )}
+                  </div>
+                ))}
+              </div>
+
+              <p className="text-[17px] text-gray-300 italic">
+                {service.supportGrowth.tagline}
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* SECTIONS 7-20: INDIVIDUAL SERVICES */}
+        <section className="py-16 md:py-24 bg-gradient-to-b from-black to-black/50">
+          <div className="container mx-auto px-6">
+            <div className="max-w-6xl mx-auto">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {service.individualServices.map((item: any, index: number) => {
+                  const Icon = item.icon;
+                  return (
+                    <div 
+                      key={index}
+                      className="p-6 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-yellow-500/20 transition-all"
+                    >
+                      <Icon className="w-8 h-8 text-yellow-500 mb-4" />
+                      <h3 className="text-[20px] font-medium mb-2">{item.title}</h3>
+                      <p className="text-[15px] text-gray-400 mb-4">{item.subtitle}</p>
+                      <ul className="space-y-2">
+                        {item.benefits.map((benefit: string, idx: number) => (
+                          <li key={idx} className="text-[14px] text-gray-300 flex items-start gap-2">
+                            <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" />
+                            <span>{benefit}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* SECTION 21: WHAT YOU CAN EXPECT */}
+        <section className="py-16 md:py-24">
+          <div className="container mx-auto px-6">
+            <div className="max-w-3xl mx-auto text-center">
+              <h2 className="text-[28px] font-bold mb-4">
+                {service.expectations.title}
+              </h2>
+              <p className="text-[16px] text-gray-400 mb-8">
+                {service.expectations.subtitle}
+              </p>
+
+              <div className="grid grid-cols-1 gap-4 text-left">
+                {service.expectations.outcomes.map((outcome: string, index: number) => (
+                  <div key={index} className="flex items-start gap-3 p-4 rounded-lg bg-white/5">
+                    <span className="text-[20px]">🎯</span>
+                    <span className="text-[15px] text-gray-300">{outcome}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* SECTION 22: WHO THIS WORKS FOR */}
+        <section className="py-16 md:py-24 bg-gradient-to-b from-black/50 to-black">
+          <div className="container mx-auto px-6">
+            <div className="max-w-3xl mx-auto text-center">
+              <h2 className="text-[28px] font-bold mb-4">
+                {service.idealFor.title}
+              </h2>
+              <p className="text-[16px] text-gray-400 mb-8">
+                {service.idealFor.subtitle}
+              </p>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {service.idealFor.criteria.map((criterion: string, index: number) => (
+                  <div key={index} className="flex items-start gap-3 p-4 rounded-lg bg-white/5">
+                    <CheckCircle className="w-5 h-5 text-yellow-500 flex-shrink-0 mt-0.5" />
+                    <span className="text-[15px] text-gray-300">{criterion}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* SECTION 23: CLOSING MESSAGE */}
+        <section className="py-16 md:py-24">
+          <div className="container mx-auto px-6">
+            <div className="max-w-3xl mx-auto text-center">
+              <h2 className="text-[28px] font-bold mb-6">
+                {service.closingMessage.title}
+              </h2>
+              <p className="text-[17px] text-gray-300 mb-4 leading-relaxed">
+                {service.closingMessage.message}
+              </p>
+              <p className="text-[17px] text-white font-medium">
+                {service.closingMessage.tagline}
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* SECTION 24: FINAL CTA */}
+        <section className="py-16 md:py-24 bg-gradient-to-b from-black to-black/50">
+          <div className="container mx-auto px-6">
+            <div className="max-w-2xl mx-auto text-center">
+              <h2 className="text-[24px] font-bold mb-6">
+                If you want a clear, supportive, results-focused partner:
+              </h2>
+
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <a 
+                  href="tel:+919669988666"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 text-[15px] font-semibold bg-yellow-500 text-black rounded-lg hover:bg-yellow-400 transition-colors"
+                >
+                  <Phone className="w-5 h-5" />
+                  Call: +91 96699 88666
+                </a>
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 text-[15px] font-semibold bg-white/5 text-white rounded-lg hover:bg-white/10 transition-colors border border-white/10"
+                >
+                  Request Your Growth Plan
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* SECTION 25: FOOTER NOTE */}
+        <section className="py-8 border-t border-white/10">
+          <div className="container mx-auto px-6 text-center">
+            <p className="text-[14px] text-gray-400">
+              {service.title} | SEO • Ads • Social • Web • Automation
+            </p>
+            <p className="text-[13px] text-gray-500 mt-2">
+              Helping brands grow responsibly and effectively.
+            </p>
+          </div>
+        </section>
+      </div>
+    </>
   );
 }
