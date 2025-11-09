@@ -118,7 +118,7 @@ export const SEO_CONFIG: Record<string, PageSEOConfig> = {
       'Madhya Pradesh marketing',
       'local expertise',
     ],
-    h1: 'About Inchtomilez - Your Trusted Marketing Partner',
+    h1: 'About Inchtomilez - Digital Marketing & Advertising Agency',
     ogType: 'website',
     schema: 'organization',
   },
@@ -127,17 +127,18 @@ export const SEO_CONFIG: Record<string, PageSEOConfig> = {
   // SERVICES PAGES
   // --------------------------------------------------------------------------
   '/services': {
-    title: '12 Core Marketing Services - SEO, PPC, Branding & More | Indore',
+    title: 'Digital Marketing, Advertising, IT, Media, Branding & More',
     description: 'Complete digital marketing services in Indore: SEO, PPC, social media, branding, web development, content marketing, and more. Custom solutions for every business need.',
     keywords: [
       // Primary
       'digital marketing services Indore',
       'advertising services',
-      'marketing solutions',
+      'marketing solutions'
+      'Social Media Markeitng Services',
       // LSI
       'complete digital marketing services ',
-      'integrated services',
-      'full-service agency',
+      'digtial marketing services in indore',
+      'Digital Marketing full-service agency',
       // Local
       'Indore marketing services',
       'MP advertising',
