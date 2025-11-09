@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Offline - Inchtomilez</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Raleway', system-ui, -apple-system, sans-serif;
+      background: #000000;
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .container {
+      max-width: 600px;
+      text-align: center;
+    }
+
+    .icon {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 2rem;
+      background: linear-gradient(135deg, #eab308 0%, #f59e0b 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    .icon::before {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #eab308 0%, #f59e0b 100%);
+      opacity: 0.2;
+      filter: blur(20px);
+    }
+
+    .icon svg {
+      width: 60px;
+      height: 60px;
+      stroke: #000000;
+      stroke-width: 2;
+      fill: none;
+      position: relative;
+      z-index: 1;
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #ef4444 0%, #ec4899 25%, #a855f7 50%, #f59e0b 75%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-size: 300% 300%;
+      animation: gradient 8s ease-in-out infinite;
+    }
+
+    p {
+      font-size: 1rem;
+      color: #b3b3b3;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    .button {
+      display: inline-block;
+      background: #eab308;
+      color: #000000;
+      padding: 1rem 2rem;
+      border-radius: 0.75rem;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9375rem;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: none;
+      font-family: inherit;
+    }
+
+    .button:hover {
+      background: #f59e0b;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(234, 179, 8, 0.3);
+    }
+
+    .tips {
+      margin-top: 3rem;
+      padding: 1.5rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 1rem;
+      backdrop-filter: blur(10px);
+    }
+
+    .tips h2 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #eab308;
+    }
+
+    .tips ul {
+      list-style: none;
+      text-align: left;
+    }
+
+    .tips li {
+      padding: 0.5rem 0;
+      color: #b3b3b3;
+      font-size: 0.875rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .tips li::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: #eab308;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+    }
+
+    @keyframes gradient {
+      0%, 100% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+    }
+
+    @media (max-width: 640px) {
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      .icon {
+        width: 100px;
+        height: 100px;
+      }
+
+      .icon svg {
+        width: 50px;
+        height: 50px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="icon">
+      <svg viewBox="0 0 24 24">
+        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+      </svg>
+    </div>
+
+    <h1>You're Offline</h1>
+    
+    <p>
+      It looks like you've lost your internet connection. 
+      Don't worry — we've saved some content for you to browse while you're offline.
+    </p>
+
+    <button class="button" onclick="window.location.reload()">
+      Try Again
+    </button>
+
+    <div class="tips">
+      <h2>Quick Tips</h2>
+      <ul>
+        <li>Check your WiFi or mobile data connection</li>
+        <li>Some pages may be available offline</li>
+        <li>Your form data is saved and will sync when you're back online</li>
+        <li>Bookmark this app for quick access</li>
+      </ul>
+    </div>
+
+    <p style="margin-top: 2rem; font-size: 0.75rem; color: #666;">
+      &copy; 2025 Inchtomilez Digital Marketing & Advertising Agency
+    </p>
+  </div>
+
+  <script>
+    // Auto-retry connection every 10 seconds
+    let retryCount = 0;
+    const maxRetries = 6;
+
+    function checkConnection() {
+      if (navigator.onLine) {
+        window.location.reload();
+      } else {
+        retryCount++;
+        if (retryCount < maxRetries) {
+          setTimeout(checkConnection, 10000);
+        }
+      }
+    }
+
+    // Start checking after 5 seconds
+    setTimeout(checkConnection, 5000);
+
+    // Listen for online event
+    window.addEventListener('online', () => {
+      window.location.reload();
+    });
+  </script>
+</body>
+</html>
